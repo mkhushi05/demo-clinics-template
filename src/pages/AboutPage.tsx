@@ -1,196 +1,353 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import SEOHead from '@/components/ui/SEOHead';
-
 import FadeIn from '@/components/animations/FadeIn';
+import StatsBar from '@/components/ui/StatsBar';
 
 export default function AboutPage() {
     return (
         <>
             <SEOHead
-                title="About Us"
+                title="About Us — Elena Davies | Lumière Aesthetics"
                 description="Meet Elena Davies, founder of Lumière Aesthetics Clinic in Manchester. Learn about our medically-led approach, qualifications, and commitment to natural results."
                 canonical="/about"
             />
 
-            {/* Elevated Hero Section */}
-            <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-cream pt-24 pb-16">
-                {/* Subtle background blur / gradient blob for organic feel */}
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-stone-muted/10 rounded-full blur-[120px] pointer-events-none" />
+            {/* ── Hero ── */}
+            <section
+                style={{
+                    position: 'relative',
+                    minHeight: '88vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    overflow: 'hidden',
+                    backgroundColor: 'var(--color-cream)',
+                    paddingTop: '6rem',
+                    paddingBottom: '4rem',
+                }}
+            >
+                {/* Ambient blobs */}
+                <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(184,147,90,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '45%', height: '60%', background: 'radial-gradient(circle, rgba(168,152,144,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-                <div className="container relative z-10 w-full px-4 sm:px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-                        <div className="lg:col-span-6 xl:col-span-5 text-left w-full min-w-0">
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div
+                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }}
+                        className="about-hero-grid"
+                    >
+                        {/* Text */}
+                        <div>
                             <FadeIn>
-                                <span className="inline-block font-body text-[0.6875rem] font-semibold tracking-[0.18em] uppercase text-gold mb-6">
+                                <span
+                                    style={{
+                                        display: 'inline-block',
+                                        fontFamily: 'var(--font-body)',
+                                        fontSize: '0.6875rem',
+                                        fontWeight: 600,
+                                        letterSpacing: '0.2em',
+                                        textTransform: 'uppercase',
+                                        color: 'var(--color-gold)',
+                                        marginBottom: '1.25rem',
+                                    }}
+                                >
                                     The Lumière Philosophy
                                 </span>
                             </FadeIn>
 
-                            <FadeIn delay={200}>
-                                <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl font-light text-charcoal leading-[1.1] tracking-tight mb-8">
-                                    Aesthetics that <span className="italic text-gold-dark">empower.</span>
+                            <FadeIn delay={150}>
+                                <h1
+                                    style={{
+                                        marginBottom: '1.5rem',
+                                        lineHeight: 1.06,
+                                    }}
+                                >
+                                    Aesthetics that{' '}
+                                    <em style={{ fontStyle: 'italic', color: 'var(--color-gold-dark)' }}>empower.</em>
                                 </h1>
                             </FadeIn>
 
-                            <FadeIn delay={400}>
-                                <p className="font-body text-base sm:text-lg text-stone-light leading-relaxed mt-6">
-                                    We believe in subtle enhancements that celebrate your unique beauty rather than obscure it.
-                                    A sanctuary where medical precision meets artistic vision.
+                            <FadeIn delay={300}>
+                                <p
+                                    style={{
+                                        fontSize: '1.125rem',
+                                        lineHeight: 1.85,
+                                        maxWidth: '500px',
+                                        marginBottom: '2rem',
+                                    }}
+                                >
+                                    We believe in subtle enhancements that celebrate your unique beauty rather than obscure it. A sanctuary where medical precision meets artistic vision.
                                 </p>
+                                <Link to="/booking" className="btn btn-primary">
+                                    Book Consultation <ArrowRight size={14} />
+                                </Link>
                             </FadeIn>
                         </div>
 
-                        <div className="lg:col-span-6 xl:col-span-7 xl:col-start-6 w-full relative">
-                            <FadeIn delay={300}>
-                                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[16/10] shadow-2xl">
+                        {/* Image */}
+                        <div>
+                            <FadeIn direction="right" delay={200}>
+                                <div
+                                    style={{
+                                        position: 'relative',
+                                        borderRadius: '2rem 50% 2rem 50%',
+                                        overflow: 'hidden',
+                                        aspectRatio: '4/3',
+                                        boxShadow: 'var(--shadow-lift)',
+                                    }}
+                                >
                                     <img
                                         src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=1000"
-                                        alt="Lumière Clinic interior"
-                                        className="w-full h-full object-cover"
+                                        alt="Lumière Clinic — a serene, medically-led aesthetic environment"
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
-                                    <div className="absolute inset-0 bg-stone-light/5 mix-blend-overlay"></div>
+                                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, transparent, rgba(26,22,20,0.08))' }} />
                                 </div>
-                                {/* Decorative Element */}
-                                <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-gold/30 rounded-full -z-10 hidden md:block" />
+                                {/* Deco ring */}
+                                <div style={{
+                                    position: 'absolute',
+                                    bottom: '-2rem',
+                                    left: '-2rem',
+                                    width: '120px',
+                                    height: '120px',
+                                    borderRadius: '50%',
+                                    border: '1px solid rgba(184,147,90,0.25)',
+                                    zIndex: -1,
+                                }} />
                             </FadeIn>
                         </div>
                     </div>
                 </div>
+
+                <style>{`
+                    @media (min-width: 900px) {
+                        .about-hero-grid { grid-template-columns: 1fr 1fr !important; gap: 5rem !important; }
+                    }
+                `}</style>
             </section>
 
-            {/* The Founder Section - Organic Asymmetrical Layout */}
-            <section className="py-24 md:py-32 bg-white relative">
-                <div className="container">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+            {/* ── Stats Bar ── */}
+            <StatsBar />
 
-                        {/* Image Left Side - spanning 5 columns */}
-                        <div className="lg:col-span-5 relative">
-                            <FadeIn>
-                                <div className="relative rounded-t-full rounded-b-[4rem] overflow-hidden aspect-[3/4] shadow-2xl">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800"
-                                        alt="Elena Davies, Clinic Founder"
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-stone-light/10 mix-blend-overlay"></div>
+            {/* ── Meet Elena ── */}
+            <section style={{ backgroundColor: 'var(--color-white)', padding: '6rem 0 7rem', position: 'relative' }}>
+                <div className="container">
+                    <div
+                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }}
+                        className="elena-grid"
+                    >
+                        {/* Image */}
+                        <div style={{ position: 'relative' }}>
+                            <FadeIn direction="left">
+                                <div style={{ position: 'relative', maxWidth: '420px', margin: '0 auto' }}>
+                                    <div style={{
+                                        borderRadius: '50% 2rem 50% 2rem',
+                                        overflow: 'hidden',
+                                        aspectRatio: '3/4',
+                                        boxShadow: '0 30px 80px rgba(26,22,20,0.16)',
+                                    }}>
+                                        <img
+                                            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800"
+                                            alt="Elena Davies, Founder of Lumière Aesthetics"
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        />
+                                    </div>
+                                    {/* Decorative rings */}
+                                    <div style={{ position: 'absolute', bottom: '-2.5rem', right: '-2.5rem', width: '140px', height: '140px', borderRadius: '50%', border: '1.5px solid rgba(184,147,90,0.2)', zIndex: -1 }} />
+                                    <div style={{ position: 'absolute', top: '-1.5rem', left: '-1.5rem', width: '80px', height: '80px', borderRadius: '50%', backgroundColor: 'var(--color-ivory)', zIndex: -1 }} />
                                 </div>
-                                {/* Decorative Element */}
-                                <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-gold/30 rounded-full -z-10 hidden md:block" />
-                                <div className="absolute -top-6 -left-6 w-24 h-24 bg-ivory rounded-full -z-10" />
                             </FadeIn>
                         </div>
 
-                        {/* Content Right Side - spanning 6 columns, with 1 col offset */}
-                        <div className="lg:col-span-6 lg:col-start-7 text-left space-y-10">
-                            <FadeIn>
-                                <div>
-                                    <h2 className="font-heading text-4xl md:text-5xl text-charcoal mb-4">Meet Elena Davies</h2>
-                                    <p className="font-heading text-xl italic text-gold-dark">
-                                        Founder & Lead Practitioner
-                                    </p>
-                                </div>
-                            </FadeIn>
+                        {/* Content */}
+                        <div>
+                            <FadeIn direction="right">
+                                <h2 style={{ marginBottom: '0.5rem' }}>Meet Elena Davies</h2>
+                                <p style={{
+                                    fontFamily: 'var(--font-heading)',
+                                    fontStyle: 'italic',
+                                    fontSize: '1.25rem',
+                                    color: 'var(--color-gold-dark)',
+                                    marginBottom: '2rem',
+                                }}>
+                                    Founder &amp; Lead Practitioner
+                                </p>
 
-                            <FadeIn delay={150}>
-                                <div className="space-y-6 text-stone-light text-lg leading-relaxed font-light">
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
                                     <p>
-                                        I founded Lumière with a singular vision: to raise the standard of care in the aesthetics industry and provide a safe space where patients can achieve beautiful, undetectable results.
+                                        I founded Lumière with a singular vision: to raise the standard of care in the aesthetics industry and provide a safe space where patients achieve beautiful, undetectable results.
                                     </p>
                                     <p>
                                         With over 8 years of clinical experience across the NHS and private aesthetic sector, my approach is anchored in medical safety, detailed anatomical knowledge, and an artistic eye for facial proportions.
                                     </p>
-                                    <p className="text-xl font-heading italic text-stone">
-                                        &quot;My goal is never to change how you look, but to restore confidence and help you feel like the absolute best version of yourself.&quot;
+                                    <p
+                                        style={{
+                                            fontFamily: 'var(--font-heading)',
+                                            fontStyle: 'italic',
+                                            fontSize: '1.25rem',
+                                            lineHeight: 1.6,
+                                            color: 'var(--color-stone)',
+                                        }}
+                                    >
+                                        "My goal is never to change how you look, but to restore confidence and help you feel like the absolute best version of yourself."
                                     </p>
                                 </div>
-                            </FadeIn>
 
-                            <FadeIn delay={300}>
-                                <div className="pt-8 border-t border-gold/20">
-                                    <h4 className="font-body text-xs font-semibold tracking-widest uppercase text-gold mb-6">
-                                        Professional Qualifications
-                                    </h4>
-                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                                {/* Qualification chips */}
+                                <div style={{ paddingTop: '1.5rem', borderTop: '1px solid rgba(184,147,90,0.15)', marginBottom: '2rem' }}>
+                                    <div style={{
+                                        fontFamily: 'var(--font-body)',
+                                        fontSize: '0.6875rem',
+                                        fontWeight: 600,
+                                        letterSpacing: '0.18em',
+                                        textTransform: 'uppercase',
+                                        color: 'var(--color-gold)',
+                                        marginBottom: '1rem',
+                                    }}>
+                                        Qualifications &amp; Credentials
+                                    </div>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                                         {[
-                                            'Independent Nurse Prescriber — NMC Registered',
-                                            'Level 7 PGDip in Clinical Aesthetics',
-                                            'Complications Management Masterclass',
-                                            'Advanced Dermal Filler Certification',
-                                            '8+ Years Clinical Experience'
-                                        ].map((q) => (
-                                            <li key={q} className="flex items-start gap-3 text-sm text-stone-light">
-                                                <div className="mt-1 w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0" />
-                                                <span className="leading-snug">{q}</span>
-                                            </li>
+                                            'NMC Registered Prescriber',
+                                            'Level 7 PGDip Aesthetics',
+                                            'Complications Management',
+                                            'Advanced Dermal Filler Cert.',
+                                            '8+ Years Clinical Experience',
+                                            'Anatomy Expert',
+                                        ].map(chip => (
+                                            <span
+                                                key={chip}
+                                                style={{
+                                                    fontFamily: 'var(--font-body)',
+                                                    fontSize: '0.75rem',
+                                                    fontWeight: 500,
+                                                    padding: '0.4rem 0.875rem',
+                                                    borderRadius: '9999px',
+                                                    border: '1px solid rgba(184,147,90,0.3)',
+                                                    color: 'var(--color-stone)',
+                                                    backgroundColor: 'var(--color-cream)',
+                                                }}
+                                            >
+                                                {chip}
+                                            </span>
                                         ))}
-                                    </ul>
+                                    </div>
                                 </div>
+
+                                <Link to="/booking" className="btn btn-primary">
+                                    Book Your Consultation
+                                </Link>
                             </FadeIn>
                         </div>
                     </div>
                 </div>
+
+                <style>{`
+                    @media (min-width: 900px) {
+                        .elena-grid { grid-template-columns: 1fr 1fr !important; gap: 5rem !important; }
+                    }
+                `}</style>
             </section>
 
-            {/* Deep Dive Philosophy / Core Values */}
-            <section className="py-32 bg-charcoal relative overflow-hidden">
-                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+            {/* ── What Drives Us ── */}
+            <section style={{ backgroundColor: 'var(--color-charcoal)', padding: '6rem 0 7rem', position: 'relative', overflow: 'hidden' }}>
+                {/* Decorative top border */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(212,170,114,0.4), transparent)' }} />
 
-                <div className="container relative z-10">
+                <div className="container">
                     <FadeIn>
-                        <div className="text-center max-w-2xl mx-auto mb-20 space-y-6">
-                            <span className="inline-block font-body text-xs font-semibold tracking-[0.2em] uppercase text-gold">
+                        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                            <span style={{
+                                display: 'inline-block',
+                                fontFamily: 'var(--font-body)',
+                                fontSize: '0.6875rem',
+                                fontWeight: 600,
+                                letterSpacing: '0.2em',
+                                textTransform: 'uppercase',
+                                color: 'var(--color-gold)',
+                                marginBottom: '1rem',
+                            }}>
                                 What Drives Us
                             </span>
-                            <h2 className="font-heading text-4xl md:text-5xl font-light text-cream">
-                                An unwavering commitment to <span className="italic text-gold-light">excellence</span>
+                            <h2 style={{ color: '#ffffff', maxWidth: '600px', margin: '0 auto' }}>
+                                An unwavering commitment to{' '}
+                                <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>excellence</em>
                             </h2>
                         </div>
                     </FadeIn>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
+                    <div
+                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2.5rem' }}
+                        className="values-grid"
+                    >
                         {[
                             {
                                 num: '01',
                                 title: 'Medical Integrity',
-                                desc: "We promise absolute honesty. If a treatment isn't right for you, or won't yield the results you want safely, we won't perform it. Your health comes first, always."
+                                desc: "We promise absolute honesty. If a treatment isn't right for you, or won't yield the results you want safely, we won't perform it. Your health comes first, always.",
                             },
                             {
                                 num: '02',
-                                title: 'Subtle Results',
-                                desc: "We reject the over-filled look. Our technique is defined by precise, micro-adjustments that harmonise your natural features — not transform them."
+                                title: 'Subtle, Natural Results',
+                                desc: "We reject the over-filled look. Our technique is defined by precise micro-adjustments that harmonise your natural features — never transform them.",
                             },
                             {
                                 num: '03',
                                 title: 'Continual Education',
-                                desc: "Aesthetics is constantly evolving. We commit to ongoing training and attend global masterclasses to bring the safest techniques to Manchester."
+                                desc: "Aesthetics is constantly evolving. We commit to ongoing training and attend global masterclasses to bring the safest, most advanced techniques to Manchester.",
                             },
                         ].map(({ num, title, desc }, idx) => (
-                            <FadeIn key={num} delay={idx * 200}>
-                                <div className="flex flex-col space-y-6 group">
-                                    <div className="font-heading text-5xl text-gold/30 font-light group-hover:text-gold transition-colors duration-500">
+                            <FadeIn key={num} delay={idx * 180}>
+                                <div style={{
+                                    display: 'flex',
+                                    gap: '1.5rem',
+                                    alignItems: 'flex-start',
+                                    padding: '2rem',
+                                    borderRadius: '1.25rem',
+                                    border: '1px solid rgba(255,255,255,0.06)',
+                                    transition: 'border-color 0.35s ease, background 0.35s ease',
+                                }}
+                                    onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(212,170,114,0.25)'; (e.currentTarget as HTMLDivElement).style.backgroundColor = 'rgba(212,170,114,0.04)'; }}
+                                    onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLDivElement).style.backgroundColor = 'transparent'; }}
+                                >
+                                    <div style={{
+                                        fontFamily: 'var(--font-heading)',
+                                        fontSize: '3rem',
+                                        fontWeight: 300,
+                                        lineHeight: 1,
+                                        color: 'rgba(212,170,114,0.25)',
+                                        flexShrink: 0,
+                                        transition: 'color 0.35s ease',
+                                    }}>
                                         {num}
                                     </div>
-                                    <h3 className="font-heading text-2xl" style={{ color: 'var(--color-cream)' }}>{title}</h3>
-                                    <p className="font-body text-base leading-relaxed font-light" style={{ color: 'rgba(255,255,255,0.85)' }}>
-                                        {desc}
-                                    </p>
+                                    <div>
+                                        <h3 style={{ color: '#ffffff', fontSize: '1.375rem', marginBottom: '0.75rem' }}>{title}</h3>
+                                        <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.85, margin: 0 }}>{desc}</p>
+                                    </div>
                                 </div>
                             </FadeIn>
                         ))}
                     </div>
                 </div>
+
+                <style>{`
+                    @media (min-width: 768px) {
+                        .values-grid { grid-template-columns: repeat(3, 1fr) !important; }
+                    }
+                `}</style>
             </section>
 
-            {/* Final CTA Strip */}
-            <section className="py-24 bg-ivory text-center">
-                <div className="container max-w-3xl">
+            {/* ── Final CTA ── */}
+            <section style={{ backgroundColor: 'var(--color-ivory)', padding: '6rem 0', textAlign: 'center' }}>
+                <div className="container" style={{ maxWidth: '640px', margin: '0 auto' }}>
                     <FadeIn>
-                        <h2 className="font-heading text-3xl md:text-4xl text-charcoal mb-8">Ready to begin your journey?</h2>
-                        <Link to="/booking" className="btn btn-primary inline-flex items-center gap-3 px-8 py-4 text-sm">
-                            Book Your Consultation <ArrowRight size={16} />
+                        <div style={{ width: '48px', height: '1.5px', background: 'linear-gradient(to right, transparent, var(--color-gold), transparent)', margin: '0 auto 2rem' }} />
+                        <h2 style={{ marginBottom: '1rem' }}>Ready to begin your journey?</h2>
+                        <p style={{ marginBottom: '2.5rem' }}>
+                            Book a complimentary consultation and let's talk about how we can help you look and feel your very best.
+                        </p>
+                        <Link to="/booking" className="btn btn-primary" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}>
+                            Book Your Consultation <ArrowRight size={14} />
                         </Link>
                     </FadeIn>
                 </div>
