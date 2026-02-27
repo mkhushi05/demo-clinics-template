@@ -1,0 +1,194 @@
+/* Layout Components: Header, Footer, navigation */
+
+/* Sticky Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: var(--transition-smooth);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid transparent;
+}
+
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-sm) 0;
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    letter-spacing: 0.02em;
+}
+
+.header__menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header__menu-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+}
+
+.header__menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-primary);
+    transition: var(--transition-smooth);
+}
+
+.header__menu-link:hover::after {
+    width: 100%;
+}
+
+.header__menu-link.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+}
+
+.header__toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-main);
+    transition: var(--transition-smooth);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-text-main);
+    color: var(--color-white);
+    padding: var(--spacing-xxl) 0 var(--spacing-md);
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer__brand h3 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer__brand p {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 300px;
+}
+
+.footer__title {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer__link {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+}
+
+.footer__link:hover {
+    color: var(--color-white);
+}
+
+.footer__contact {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    line-height: 2;
+}
+
+.footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__legal-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer__legal-link:hover {
+    color: var(--color-white);
+}
+
+/* Social Proof Badges */
+.footer__badges {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.footer__badge {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .header__menu {
+        display: none;
+        /* Hide on mobile initially */
+    }
+
+    .header__toggle {
+        display: flex;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}

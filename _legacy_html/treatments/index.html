@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO OPTIMISATION: Target keywords naturally -->
+    <title>Aesthetic Treatments | Lumière Clinic Manchester</title>
+    <meta name="description"
+        content="Explore our range of premium medical aesthetic treatments at Lumière Clinic Manchester. Specialising in lip fillers, anti-wrinkle injections, and skin boosters.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/treatments.css">
+
+    <!-- Schema for local business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Lumière Aesthetics Clinic",
+      "url": "https://example.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Manchester",
+        "addressCountry": "UK"
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header scrolled">
+        <div class="container header__nav">
+            <a href="../index.html" class="header__logo">LUMIÈRE</a>
+            <nav class="header__menu">
+                <a href="../index.html" class="header__menu-link">Home</a>
+                <a href="../about.html" class="header__menu-link">About</a>
+                <a href="index.html" class="header__menu-link active">Treatments</a>
+                <a href="../gallery.html" class="header__menu-link">Gallery</a>
+                <a href="../pricing.html" class="header__menu-link">Pricing</a>
+                <a href="../faqs.html" class="header__menu-link">FAQs</a>
+                <a href="../booking.html" class="btn btn-primary">Book Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="treatment-hero">
+            <div class="container">
+                <h1>Our Treatments</h1>
+                <p>Curated medical aesthetic procedures designed to subtly enhance your natural beauty, refresh your
+                    appearance, and boost your confidence.</p>
+            </div>
+        </section>
+
+        <!-- Treatments Grid -->
+        <section class="section">
+            <div class="container">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-lg);">
+
+                    <!-- Lip Fillers -->
+                    <div
+                        style="background: var(--color-white); border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                        <div style="aspect-ratio: 4/3; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80"
+                                alt="Lip Fillers" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: var(--spacing-md); flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Lip Fillers</h3>
+                            <p style="margin-bottom: var(--spacing-md); flex-grow: 1;">Premium HA dermal fillers to
+                                naturally enhance volume, define borders, and improve symmetry.</p>
+                            <a href="lip-fillers.html" class="btn btn-secondary" style="width: 100%;">View Treatment
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Anti-Wrinkle -->
+                    <div
+                        style="background: var(--color-white); border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                        <div style="aspect-ratio: 4/3; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80"
+                                alt="Anti-Wrinkle Injections" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: var(--spacing-md); flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Anti-Wrinkle Injections</h3>
+                            <p style="margin-bottom: var(--spacing-md); flex-grow: 1;">Discreetly smooth fine lines and
+                                prevent new wrinkles while maintaining natural facial expression.</p>
+                            <a href="anti-wrinkle.html" class="btn btn-secondary" style="width: 100%;">View Treatment
+                                Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Skin Boosters (Placeholder link) -->
+                    <div
+                        style="background: var(--color-white); border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;">
+                        <div style="aspect-ratio: 4/3; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80"
+                                alt="Skin Boosters" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: var(--spacing-md); flex-grow: 1; display: flex; flex-direction: column;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Skin Boosters (Profhilo)</h3>
+                            <p style="margin-bottom: var(--spacing-md); flex-grow: 1;">Injectable hyaluronic acid
+                                designed to deeply hydrate the skin, improving texture, tone, and laxity.</p>
+                            <a href="#" class="btn btn-secondary" style="width: 100%;">Coming Soon</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-banner" style="margin-top: var(--spacing-xl);">
+            <div class="container">
+                <h2>Not sure what you need?</h2>
+                <p>Book a comprehensive consultation to discuss your concerns. We'll assess your skin and facial
+                    structure to recommend a bespoke treatment plan just for you.</p>
+                <a href="../booking.html" class="btn btn-light">Book Consultation</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Shortened footer for brevity -->
+                <div class="footer__brand">
+                    <h3>LUMIÈRE</h3>
+                    <p>Manchester's premier destination for luxury, medically-led aesthetic treatments.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

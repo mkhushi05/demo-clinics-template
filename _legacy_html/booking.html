@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Consultation | Lumière Aesthetics Clinic</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/booking.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header scrolled">
+        <div class="container header__nav">
+            <a href="index.html" class="header__logo">LUMIÈRE</a>
+            <nav class="header__menu">
+                <a href="index.html" class="header__menu-link">Home</a>
+                <a href="about.html" class="header__menu-link">About</a>
+                <a href="treatments/index.html" class="header__menu-link">Treatments</a>
+                <a href="gallery.html" class="header__menu-link">Gallery</a>
+                <a href="pricing.html" class="header__menu-link">Pricing</a>
+                <a href="faqs.html" class="header__menu-link">FAQs</a>
+                <a href="booking.html" class="btn btn-primary">Book Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="booking-page">
+        <div class="container">
+
+            <div class="booking-container">
+                <div class="booking-header">
+                    <h1>Secure Your Appointment</h1>
+                    <div class="booking-progress">
+                        <div class="progress-step active">1</div>
+                        <div class="progress-step">2</div>
+                        <div class="progress-step">3</div>
+                        <div class="progress-step">4</div>
+                    </div>
+                </div>
+
+                <div class="booking-body">
+
+                    <!-- Step 1: Services -->
+                    <div class="booking-step active" id="step1">
+                        <h2 class="step-title">Select a Treatment</h2>
+                        <div class="service-list">
+                            <div class="service-card" data-service="Initial Consultation (Recommended)" data-price="0">
+                                <div class="service-info">
+                                    <h3>Initial Consultation</h3>
+                                    <p>Comprehensive facial assessment and tailored treatment plan discussion.</p>
+                                </div>
+                                <div class="service-price">Complimentary</div>
+                            </div>
+
+                            <div class="service-card" data-service="Lip Fillers (Up to 1ml)" data-price="250">
+                                <div class="service-info">
+                                    <h3>Signature Lip Enhancement</h3>
+                                    <p>Natural volume, hydration, and definition using premium dermal fillers.</p>
+                                </div>
+                                <div class="service-price">From £250</div>
+                            </div>
+
+                            <div class="service-card" data-service="Anti-Wrinkle Injections (3 Areas)" data-price="280">
+                                <div class="service-info">
+                                    <h3>Anti-Wrinkle Injections</h3>
+                                    <p>Targeting forehead lines, frown lines, and crow's feet for a refreshed look.</p>
+                                </div>
+                                <div class="service-price">From £280</div>
+                            </div>
+
+                            <div class="service-card" data-service="Skin Boosters (Profhilo)" data-price="300">
+                                <div class="service-info">
+                                    <h3>Skin Boosters</h3>
+                                    <p>Deep hydration and bio-remodelling for luminous, glowing skin.</p>
+                                </div>
+                                <div class="service-price">From £300</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Date & Time -->
+                    <div class="booking-step" id="step2">
+                        <h2 class="step-title">Choose Date & Time</h2>
+                        <div class="date-time-container">
+                            <!-- Mock Calendar -->
+                            <div class="calendar">
+                                <div class="calendar-header">
+                                    <span>&lt;</span>
+                                    <span>October 2026</span>
+                                    <span>&gt;</span>
+                                </div>
+                                <div class="calendar-grid">
+                                    <div class="calendar-day day-name">Mo</div>
+                                    <div class="calendar-day day-name">Tu</div>
+                                    <div class="calendar-day day-name">We</div>
+                                    <div class="calendar-day day-name">Th</div>
+                                    <div class="calendar-day day-name">Fr</div>
+                                    <div class="calendar-day day-name">Sa</div>
+                                    <div class="calendar-day day-name">Su</div>
+
+                                    <div class="calendar-day disabled"></div>
+                                    <div class="calendar-day disabled"></div>
+                                    <div class="calendar-day disabled"></div>
+                                    <div class="calendar-day disabled">1</div>
+                                    <div class="calendar-day disabled">2</div>
+                                    <div class="calendar-day disabled">3</div>
+                                    <div class="calendar-day disabled">4</div>
+
+                                    <div class="calendar-day disabled">5</div>
+                                    <div class="calendar-day">6</div>
+                                    <div class="calendar-day">7</div>
+                                    <div class="calendar-day">8</div>
+                                    <div class="calendar-day">9</div>
+                                    <div class="calendar-day">10</div>
+                                    <div class="calendar-day disabled">11</div>
+
+                                    <div class="calendar-day">12</div>
+                                    <div class="calendar-day">13</div>
+                                    <div class="calendar-day">14</div>
+                                    <div class="calendar-day">15</div>
+                                    <div class="calendar-day">16</div>
+                                    <div class="calendar-day">17</div>
+                                    <div class="calendar-day disabled">18</div>
+                                </div>
+                            </div>
+
+                            <!-- Mock Time Slots -->
+                            <div>
+                                <h3 style="font-size: 1rem; margin-bottom: 12px;">Available Times</h3>
+                                <div class="time-slots">
+                                    <div class="time-slot">09:30 AM</div>
+                                    <div class="time-slot">10:15 AM</div>
+                                    <div class="time-slot">11:00 AM</div>
+                                    <div class="time-slot">01:30 PM</div>
+                                    <div class="time-slot">02:45 PM</div>
+                                    <div class="time-slot">04:00 PM</div>
+                                    <div class="time-slot">05:30 PM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Your Details -->
+                    <div class="booking-step" id="step3">
+                        <h2 class="step-title">Your Details</h2>
+                        <form id="detailsForm">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                <div class="form-group">
+                                    <label class="form-label" for="fname">First Name *</label>
+                                    <input type="text" id="fname" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="lname">Last Name</label>
+                                    <input type="text" id="lname" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="notes">Medical History Notes / Questions
+                                    (Optional)</label>
+                                <textarea id="notes" class="form-textarea"></textarea>
+                            </div>
+
+                            <div style="font-size: 0.8rem; color: var(--color-text-light);">
+                                <input type="checkbox" id="terms" checked style="margin-right: 8px;">
+                                <label for="terms">I agree to the <a href="legal/terms.html"
+                                        style="text-decoration: underline;">Terms & Conditions</a> and Medical
+                                    Disclaimer.</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 4: Deposit & Confirm -->
+                    <div class="booking-step" id="step4">
+                        <h2 class="step-title">Secure Appointment</h2>
+
+                        <div class="payment-summary">
+                            <h3
+                                style="font-size: 1.125rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 8px; margin-bottom: 16px;">
+                                Booking Summary</h3>
+                            <div class="summary-row">
+                                <span style="color: var(--color-text-light);">Treatment:</span>
+                                <strong id="summary-service">-</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span style="color: var(--color-text-light);">Date & Time:</span>
+                                <strong id="summary-datetime">-</strong>
+                            </div>
+                            <div class="summary-total">
+                                <span>Deposit Required:</span>
+                                <span>£50.00</span>
+                            </div>
+                            <p
+                                style="font-size: 0.75rem; color: var(--color-text-light); margin-top: 8px; text-align: right;">
+                                (Deducted from final treatment cost)</p>
+                        </div>
+
+                        <!-- Stripe Mock UI -->
+                        <div class="stripe-mock">
+                            <div class="stripe-mock-header">
+                                <span>Card information</span>
+                                <div style="display: flex; gap: 4px;">
+                                    <!-- Simple card SVGs -->
+                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                        stroke-width="2" fill="none">
+                                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="stripe-input">
+                                💳 <span style="flex-grow: 1;">Card number</span> <span>MM / YY</span> <span>CVC</span>
+                            </div>
+                            <div
+                                style="font-size: 0.75rem; color: #64748b; margin-top: 12px; display: flex; align-items: center; gap: 4px;">
+                                🔒 Payments are secure and encrypted.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Step 5: Success (Hidden form flow) -->
+                    <div class="booking-step" id="step5">
+                        <div class="confirmation">
+                            <div class="confirmation-icon">✓</div>
+                            <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Booking
+                                Confirmed!</h2>
+                            <p>Thank you, <span id="conf-name"></span>. We look forward to welcoming you to Lumière
+                                Aesthetics.</p>
+
+                            <div class="confirmation-details">
+                                <p style="margin-bottom: 8px;"><strong>Treatment:</strong> <span
+                                        id="conf-service"></span></p>
+                                <p style="margin-bottom: 8px;"><strong>Date & Time:</strong> <span
+                                        id="conf-datetime"></span></p>
+                                <p><strong>Location:</strong> 123 Deansgate, Manchester</p>
+                            </div>
+
+                            <p style="font-size: 0.875rem; color: var(--color-text-light); margin-bottom: 2rem;">A
+                                confirmation email has been sent with pre-treatment instructions and parking details.
+                            </p>
+
+                            <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="booking-footer">
+                    <button class="btn btn-secondary" id="prevBtn" style="display: none;">Back</button>
+                    <div style="flex-grow: 1;"></div>
+                    <button class="btn btn-primary btn-disabled" id="nextBtn" disabled>Continue</button>
+                </div>
+            </div>
+
+            <!-- Social Proof for Booking -->
+            <div style="text-align: center; max-width: 600px; margin: 0 auto; margin-bottom: var(--spacing-xxl);">
+                <p style="font-weight: 500; margin-bottom: 8px;">Need help booking?</p>
+                <div style="display: flex; justify-content: center; gap: 16px; align-items: center;">
+                    <a href="#" style="color: #25D366; display: flex; align-items: center; gap: 6px; font-weight: 500;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+                        </svg>
+                        WhatsApp Us
+                    </a>
+                    <span style="color: var(--color-text-light);">or</span>
+                    <a href="tel:01610000000" style="font-weight: 500;">Call 0161 000 0000</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <h3>LUMIÈRE</h3>
+                    <p>Manchester's premier destination for luxury, medically-led aesthetic treatments.</p>
+                </div>
+                <!-- Mini footer for booking page flow -->
+                <div
+                    style="grid-column: span 3; display: flex; justify-content: flex-end; align-items: center; gap: var(--spacing-md); font-size: 0.875rem; color: rgba(255,255,255,0.7);">
+                    <a href="legal/privacy.html" class="footer__link">Privacy Policy</a>
+                    <a href="legal/terms.html" class="footer__link">Terms & Conditions</a>
+                    <span>&copy; 2026 Lumière</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/booking.js"></script>
+</body>
+
+</html>

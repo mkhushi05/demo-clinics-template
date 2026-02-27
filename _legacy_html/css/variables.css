@@ -1,0 +1,40 @@
+/* Global Variables for Lumière Aesthetics Clinic */
+
+:root {
+  /* Color Palette - Luxury, Neutral, Feminine */
+  --color-primary: #C5A880; /* Subtle Gold */
+  --color-primary-dark: #A88D6A;
+  --color-secondary: #F5F2ED; /* Soft Beige */
+  --color-text-main: #2A2A2A; /* Charcoal (softer than black) */
+  --color-text-light: #6B6661; /* Muted Taupe */
+  --color-white: #FFFFFF;
+  --color-background: #FAFAF9; /* Off-white for body */
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Layout */
+  --max-width: 1200px;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-xxl: 8rem;
+  
+  /* UI Elements */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 30px;
+  --border-radius-full: 9999px;
+  
+  /* Shadows - Soft and luxurious */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08);
+  
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
