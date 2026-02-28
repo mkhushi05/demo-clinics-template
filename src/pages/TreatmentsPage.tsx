@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ArrowRight, Clock, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
 import FadeIn from '@/components/animations/FadeIn'
 import { treatments } from '@/data/treatments'
@@ -111,104 +111,38 @@ export default function TreatmentsPage() {
                         </div>
                     </FadeIn>
 
-                    {/* Treatment list */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
+                    {/* Treatment Grid */}
+                    <div className="treatments-grid">
                         {(filtered.length > 0 ? filtered : treatments).map((t: any, i: number) => {
-                            const isEven = i % 2 === 0;
                             return (
-                                <FadeIn key={t.slug} direction={isEven ? 'left' : 'right'}>
-                                    <div
-                                        style={{
-                                            display: 'grid',
-                                            gridTemplateColumns: '1fr',
-                                            gap: '2.5rem',
-                                            alignItems: 'center',
-                                            backgroundColor: 'var(--color-white)',
-                                            borderRadius: '2rem',
-                                            overflow: 'hidden',
-                                            boxShadow: 'var(--shadow-card)',
-                                            border: '1px solid rgba(184,147,90,0.08)',
-                                            transition: 'box-shadow 0.4s ease',
-                                        }}
-                                        className={`treatment-card-row t-row-${i}`}
-                                        onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = 'var(--shadow-lg)'; }}
-                                        onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.boxShadow = 'var(--shadow-card)'; }}
-                                    >
-                                        {/* Image */}
-                                        <div
-                                            style={{
-                                                overflow: 'hidden',
-                                                position: 'relative',
-                                                minHeight: '300px',
-                                            }}
-                                            className={isEven ? 'treat-img-order-1' : 'treat-img-order-2'}
-                                        >
+                                <FadeIn key={t.slug} delay={i * 50}>
+                                    <Link to={`/treatments/${t.slug}`} className="treatment-grid-card">
+                                        {/* Background Image */}
+                                        <div className="treatment-grid-image">
                                             <img
                                                 src={t.image}
                                                 alt={t.name}
                                                 loading="lazy"
-                                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }}
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             />
-                                            {/* Duration chip */}
-                                            <div style={{
-                                                position: 'absolute',
-                                                top: '1.25rem',
-                                                right: '1.25rem',
-                                                backgroundColor: 'rgba(26,22,20,0.7)',
-                                                backdropFilter: 'blur(8px)',
-                                                borderRadius: '9999px',
-                                                padding: '0.375rem 0.875rem',
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: '0.4rem',
-                                                color: '#fff',
-                                                fontSize: '0.75rem',
-                                                fontFamily: 'var(--font-body)',
-                                                fontWeight: 500,
-                                            }}>
-                                                <Clock size={11} style={{ color: 'var(--color-gold-light)' }} />
-                                                {t.duration}
-                                            </div>
+                                            {/* Gradient Overlay */}
+                                            <div className="treatment-grid-overlay" />
                                         </div>
 
-                                        {/* Content */}
-                                        <div style={{ padding: '2.5rem' }} className={isEven ? 'treat-txt-order-2' : 'treat-txt-order-1'}>
-                                            <span className="eyebrow">{t.tagline}</span>
-                                            <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', marginBottom: '1rem' }}>{t.name}</h2>
-                                            <p style={{ lineHeight: 1.85, marginBottom: '1.5rem' }}>{t.description}</p>
+                                        {/* Content inside the card */}
+                                        <div className="treatment-grid-content">
+                                            <h2 className="treatment-grid-title">{t.name}</h2>
 
-                                            {/* Benefits */}
-                                            {t.benefits && (
-                                                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                                    {t.benefits.slice(0, 4).map((b: string) => (
-                                                        <li key={b} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontSize: '0.9rem', color: 'var(--color-stone-light)' }}>
-                                                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'var(--color-gold)', flexShrink: 0 }} />
-                                                            {b}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
-
-                                            {/* Price + CTA */}
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-                                                <div style={{
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    gap: '0.375rem',
-                                                    color: 'var(--color-gold-dark)',
-                                                    fontFamily: 'var(--font-body)',
-                                                    fontSize: '0.9375rem',
-                                                    fontWeight: 600,
-                                                }}>
-                                                    <Sparkles size={14} />
-                                                    {t.price}
+                                            {/* Revealed on hover */}
+                                            <div className="treatment-grid-hover-reveal">
+                                                <p className="treatment-grid-desc">{t.tagline}</p>
+                                                <div className="treatment-grid-action">
+                                                    <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Discover</span>
+                                                    <ArrowRight size={14} />
                                                 </div>
-                                                <Link to={`/treatments/${t.slug}`} className="btn btn-primary" style={{ fontSize: '0.75rem', padding: '0.75rem 1.5rem' }}>
-                                                    Learn More <ArrowRight size={13} />
-                                                </Link>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 </FadeIn>
                             );
                         })}
@@ -216,12 +150,126 @@ export default function TreatmentsPage() {
                 </div>
 
                 <style>{`
+                    .treatments-grid {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 1.5rem;
+                    }
+                    
                     @media (min-width: 768px) {
-                        .treatment-card-row { grid-template-columns: 1fr 1fr !important; }
-                        .treat-img-order-1 { order: 1; min-height: 420px !important; }
-                        .treat-img-order-2 { order: 2; min-height: 420px !important; }
-                        .treat-txt-order-1 { order: 1; }
-                        .treat-txt-order-2 { order: 2; }
+                        .treatments-grid {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+
+                    @media (min-width: 1024px) {
+                        .treatments-grid {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                    }
+
+                    .treatment-grid-card {
+                        display: block;
+                        position: relative;
+                        width: 100%;
+                        aspect-ratio: 4 / 5;
+                        border-radius: 1rem;
+                        overflow: hidden;
+                        text-decoration: none;
+                        cursor: pointer;
+                        isolation: isolate;
+                    }
+
+                    .treatment-grid-image {
+                        position: absolute;
+                        inset: 0;
+                        z-index: 1;
+                        border-radius: inherit;
+                        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+                    }
+
+                    .treatment-grid-overlay {
+                        position: absolute;
+                        inset: 0;
+                        border-radius: inherit;
+                        background: linear-gradient(
+                            to top,
+                            rgba(0, 0, 0, 0.85) 0%,
+                            rgba(0, 0, 0, 0.4) 35%,
+                            transparent 60%
+                        );
+                        transition: all 0.5s ease;
+                    }
+
+                    .treatment-grid-content {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        padding: 2rem 1.5rem;
+                        z-index: 2;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        color: #ffffff;
+                    }
+
+                    .treatment-grid-title {
+                        font-family: var(--font-body); /* Using sans-serif for modern look like reference */
+                        font-size: 1.35rem;
+                        font-weight: 500;
+                        margin: 0;
+                        color: #ffffff;
+                        transition: transform 0.4s ease;
+                        transform: translateY(20px);
+                    }
+
+                    .treatment-grid-hover-reveal {
+                        opacity: 0;
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: all 0.4s ease;
+                        transform: translateY(20px);
+                    }
+
+                    .treatment-grid-desc {
+                        font-family: var(--font-body);
+                        font-size: 0.875rem;
+                        color: rgba(255, 255, 255, 0.7);
+                        margin: 0.75rem 0 1.25rem 0;
+                        line-height: 1.6;
+                    }
+
+                    .treatment-grid-action {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        color: var(--color-gold-light);
+                    }
+
+                    /* --- Hover Effects --- */
+                    .treatment-grid-card:hover .treatment-grid-image {
+                        transform: scale(1.05);
+                    }
+
+                    .treatment-grid-card:hover .treatment-grid-overlay {
+                        background: linear-gradient(
+                            to top,
+                            rgba(0, 0, 0, 0.95) 0%,
+                            rgba(0, 0, 0, 0.7) 50%,
+                            rgba(0,0,0,0.2) 100%
+                        );
+                    }
+
+                    .treatment-grid-card:hover .treatment-grid-title {
+                        transform: translateY(0);
+                    }
+
+                    .treatment-grid-card:hover .treatment-grid-hover-reveal {
+                        opacity: 1;
+                        max-height: 150px; /* arbitrary height to allow expansion */
+                        transform: translateY(0);
+                        margin-top: 0.5rem;
                     }
                 `}</style>
             </section>

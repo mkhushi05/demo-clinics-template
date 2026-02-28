@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
 import FadeIn from '@/components/animations/FadeIn'
-import { testimonials } from '@/data/testimonials'
 
 type Category = 'All' | 'Lip' | 'Anti-Wrinkle' | 'Profhilo'
 
@@ -198,71 +197,205 @@ export default function GalleryPage() {
             </section>
 
             {/* ── Patient voices ── */}
-            <section style={{ backgroundColor: 'var(--color-white)', padding: '5rem 0' }}>
+            <section style={{ backgroundColor: 'var(--color-porcelain)', padding: '7rem 0 8rem' }}>
                 <div className="container">
                     <FadeIn>
-                        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                             <span className="eyebrow">Patient Voices</span>
-                            <h2>Their <em style={{ fontStyle: 'italic', color: 'var(--color-gold-dark)' }}>Experience</em></h2>
+                            <h2 style={{ marginBottom: '0.75rem' }}>Their <em style={{ fontStyle: 'italic', color: 'var(--color-gold-dark)' }}>Experience</em></h2>
+                            <p style={{ color: 'var(--color-taupe)', maxWidth: '380px', margin: '0 auto', fontSize: '0.9rem', lineHeight: 1.7 }}>
+                                Unedited words from patients, in their own hand.
+                            </p>
                         </div>
                     </FadeIn>
 
                     <div
-                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}
+                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2.5rem', alignItems: 'start' }}
                         className="gallery-quotes-grid"
                     >
-                        {testimonials.slice(0, 3).map((t: any, idx: number) => (
-                            <FadeIn key={t.name} delay={idx * 150} direction="up">
-                                <div style={{
-                                    backgroundColor: 'var(--color-ivory)',
-                                    borderRadius: '2rem',
-                                    padding: '3.5rem 2.5rem',
-                                    border: '1px solid rgba(184,147,90,0.12)',
-                                    boxShadow: '0 8px 30px rgba(26,22,20,0.03)',
-                                    height: '100%',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    position: 'relative',
-                                    overflow: 'hidden'
-                                }}>
-                                    {/* Quote Mark Decoration */}
+                        {[
+                            {
+                                quote: (
+                                    <>
+                                        I had this deep fear of looking "done".<br /><br />
+                                        Elena spent a full twenty minutes just talking
+                                        through my face shape — not once pushing a treatment.<br /><br />
+                                        The result is so natural my mum couldn't quite place
+                                        what had changed. <em>That's exactly what I wanted.</em>
+                                    </>
+                                ),
+                                name: 'Sarah M.',
+                                initial: 'S',
+                                treatment: 'Lip Filler',
+                                rotation: '-0.8deg',
+                            },
+                            {
+                                quote: (
+                                    <>
+                                        Both times the clinic itself has felt beautiful and calm —
+                                        nothing clinical, nothing intimidating.<br /><br />
+                                        I look refreshed. Well-rested. Not frozen.<br /><br />
+                                        <em>My colleagues keep asking what I've changed about my skincare.</em>
+                                    </>
+                                ),
+                                name: 'Jessica T.',
+                                initial: 'J',
+                                treatment: 'Anti-Wrinkle Injections',
+                                rotation: '0.6deg',
+                            },
+                            {
+                                quote: (
+                                    <>
+                                        During my consultation, Elena actually talked me
+                                        out of the treatment I came in for.<br /><br />
+                                        She said it wouldn't give me the results I was after,
+                                        and recommended Profhilo instead.<br /><br />
+                                        <em>That integrity means everything.</em>
+                                    </>
+                                ),
+                                name: 'Amanda L.',
+                                initial: 'A',
+                                treatment: 'Skin Boosters',
+                                rotation: '-0.4deg',
+                            },
+                        ].map((item, idx) => (
+                            <FadeIn key={item.name} delay={idx * 180} direction="up">
+                                <div
+                                    style={{
+                                        /* Warm linen paper feel */
+                                        background: 'linear-gradient(160deg, #faf8f4 0%, #f5f0e6 100%)',
+                                        borderRadius: '4px',
+                                        padding: 'clamp(2rem, 4vw, 3rem) clamp(1.75rem, 4vw, 3rem) 2.25rem',
+                                        /* Outer border — very subtle gold tint */
+                                        border: '1px solid rgba(184,147,90,0.18)',
+                                        /* Layered shadow: lift + warm inner glow */
+                                        boxShadow: [
+                                            '0 4px 6px rgba(26,22,20,0.03)',
+                                            '0 14px 40px rgba(26,22,20,0.06)',
+                                            'inset 0 1px 0 rgba(255,255,255,0.85)',   /* top highlight */
+                                            'inset 0 -1px 0 rgba(184,147,90,0.08)',  /* bottom warm edge */
+                                            'inset 1px 0 0 rgba(255,255,255,0.6)',   /* left highlight */
+                                        ].join(', '),
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                        transform: `rotate(${item.rotation})`,
+                                        transition: 'transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease',
+                                        willChange: 'transform',
+                                    }}
+                                    className="editorial-note-card"
+                                    onMouseEnter={e => {
+                                        const el = e.currentTarget as HTMLDivElement;
+                                        el.style.transform = 'rotate(0deg) translateY(-6px)';
+                                        el.style.boxShadow = [
+                                            '0 4px 6px rgba(26,22,20,0.03)',
+                                            '0 20px 50px rgba(26,22,20,0.09)',
+                                            'inset 0 1px 0 rgba(255,255,255,0.85)',
+                                            'inset 0 -1px 0 rgba(184,147,90,0.1)',
+                                            'inset 1px 0 0 rgba(255,255,255,0.6)',
+                                        ].join(', ');
+                                    }}
+                                    onMouseLeave={e => {
+                                        const el = e.currentTarget as HTMLDivElement;
+                                        el.style.transform = `rotate(${item.rotation})`;
+                                        el.style.boxShadow = [
+                                            '0 4px 6px rgba(26,22,20,0.03)',
+                                            '0 14px 40px rgba(26,22,20,0.06)',
+                                            'inset 0 1px 0 rgba(255,255,255,0.85)',
+                                            'inset 0 -1px 0 rgba(184,147,90,0.08)',
+                                            'inset 1px 0 0 rgba(255,255,255,0.6)',
+                                        ].join(', ');
+                                    }}
+                                >
+                                    {/* Faint ruled lines — paper texture suggestion */}
                                     <div style={{
                                         position: 'absolute',
-                                        top: '-1rem',
-                                        right: '2rem',
-                                        fontFamily: 'var(--font-heading)',
-                                        fontSize: '8rem',
-                                        lineHeight: 1,
-                                        color: 'rgba(184,147,90,0.08)',
+                                        inset: 0,
+                                        backgroundImage: 'repeating-linear-gradient(transparent, transparent 27px, rgba(184,147,90,0.04) 27px, rgba(184,147,90,0.04) 28px)',
+                                        backgroundPositionY: '4rem',
+                                        pointerEvents: 'none',
+                                        zIndex: 0,
+                                    }} />
+
+                                    {/* Opening quote mark — very faint ink suggestion */}
+                                    <div style={{
+                                        fontFamily: '"Cormorant Garamond", Georgia, serif',
+                                        fontSize: '5rem',
+                                        lineHeight: 0.8,
+                                        color: 'rgba(184,147,90,0.12)',
+                                        marginBottom: '0.5rem',
+                                        marginLeft: '-0.25rem',
+                                        position: 'relative',
+                                        zIndex: 1,
                                         userSelect: 'none',
-                                        pointerEvents: 'none'
                                     }}>
-                                        ”
+                                        "
                                     </div>
 
-                                    <p style={{ lineHeight: 1.85, marginBottom: '2.5rem', fontSize: '1.0625rem', color: 'var(--color-charcoal)', flexGrow: 1, position: 'relative', zIndex: 1, fontWeight: 300 }}>
-                                        {t.text}
+                                    {/* Handwritten quote body */}
+                                    <p style={{
+                                        fontFamily: '"Caveat", cursive',
+                                        fontSize: 'clamp(1.45rem, 2.2vw, 1.7rem)',
+                                        lineHeight: 1.75,
+                                        letterSpacing: '0.015em',
+                                        color: '#3a3230',
+                                        fontWeight: 500,
+                                        position: 'relative',
+                                        zIndex: 1,
+                                        marginBottom: '2.5rem',
+                                        flexGrow: 1,
+                                    }}>
+                                        {item.quote}
                                     </p>
 
-                                    <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                                    {/* Signature row */}
+                                    <div style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '1rem',
+                                        paddingTop: '1.5rem',
+                                        borderTop: '1px solid rgba(184,147,90,0.12)',
+                                        position: 'relative',
+                                        zIndex: 1,
+                                    }}>
+                                        {/* Monogram stamp */}
                                         <div style={{
-                                            width: '3.5rem',
-                                            height: '3.5rem',
+                                            width: '2.25rem',
+                                            height: '2.25rem',
                                             borderRadius: '50%',
-                                            backgroundColor: 'var(--color-gold)',
-                                            color: 'var(--color-white)',
+                                            border: '1px solid rgba(184,147,90,0.35)',
+                                            color: 'var(--color-gold-dark)',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
-                                            fontFamily: 'var(--font-heading)',
-                                            fontSize: '1.5rem',
-                                            boxShadow: '0 8px 15px rgba(184,147,90,0.15)'
+                                            fontFamily: '"Cormorant Garamond", Georgia, serif',
+                                            fontSize: '1.1rem',
+                                            flexShrink: 0,
                                         }}>
-                                            {t.initial}
+                                            {item.initial}
                                         </div>
                                         <div>
-                                            <span style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-charcoal)', fontSize: '1.25rem', display: 'block', marginBottom: '0.25rem' }}>{t.name}</span>
-                                            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.625rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-gold-dark)' }}>{t.treatment}</span>
+                                            <span style={{
+                                                fontFamily: '"Cormorant Garamond", Georgia, serif',
+                                                color: 'var(--color-charcoal)',
+                                                fontSize: '1.05rem',
+                                                display: 'block',
+                                                lineHeight: 1.2,
+                                                marginBottom: '0.2rem',
+                                            }}>{item.name}</span>
+                                            <span style={{
+                                                fontFamily: '"Inter", system-ui, sans-serif',
+                                                fontSize: '0.6rem',
+                                                fontWeight: 600,
+                                                letterSpacing: '0.15em',
+                                                textTransform: 'uppercase',
+                                                color: 'var(--color-gold)',
+                                            }}>{item.treatment}</span>
+                                        </div>
+                                        {/* Five stars — small & elegant */}
+                                        <div style={{ marginLeft: 'auto', color: 'var(--color-gold-light)', fontSize: '0.65rem', letterSpacing: '0.1em' }}>
+                                            ★★★★★
                                         </div>
                                     </div>
                                 </div>
@@ -273,6 +406,12 @@ export default function GalleryPage() {
                     <style>{`
                         @media (min-width: 900px) {
                             .gallery-quotes-grid { grid-template-columns: repeat(3, 1fr) !important; }
+                        }
+                        .editorial-note-card em {
+                            font-family: "Caveat", cursive;
+                            font-style: normal;
+                            font-weight: 600;
+                            color: var(--color-gold-dark);
                         }
                     `}</style>
                 </div>
