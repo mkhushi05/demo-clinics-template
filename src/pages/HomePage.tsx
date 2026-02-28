@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, MapPin, Clock, Phone, ChevronDown } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
-import StatsBar from '@/components/ui/StatsBar'
+import HomeTrustBar from '@/components/home/HomeTrustBar'
 import { testimonials } from '@/data/testimonials'
 import BeforeAfterSlider from '@/components/home/BeforeAfterSlider'
 import FadeIn from '@/components/animations/FadeIn'
@@ -179,8 +179,8 @@ export default function HomePage() {
                 `}</style>
             </section>
 
-            {/* ── Stats Bar ── */}
-            <StatsBar />
+            {/* ── Trust Strip ── */}
+            <HomeTrustBar />
 
             {/* ── Treatment Categories ── */}
             <TreatmentCategories />

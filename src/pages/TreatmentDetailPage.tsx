@@ -1,8 +1,10 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
-import { ArrowRight, Clock, Activity, CheckCircle } from 'lucide-react'
+import { useParams, Navigate } from 'react-router-dom'
+import { ChevronDown, CheckCircle, Clock, TrendingUp } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
 import { getTreatmentBySlug } from '@/data/treatments'
 import { useState } from 'react'
+import TreatmentHero from '@/components/treatment/TreatmentHero'
+import TreatmentBeforeAfter, { type GlanceItem } from '@/components/treatment/TreatmentBeforeAfter'
 
 export default function TreatmentDetailPage() {
     const { slug } = useParams<{ slug: string }>()
@@ -10,167 +12,152 @@ export default function TreatmentDetailPage() {
 
     if (!treatment) return <Navigate to="/treatments" replace />
 
+    // Consistent professional portrait pairs for Before/After
+    const beforeImg = "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800&h=1000"
+    const afterImg = "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=800&h=1000"
+    const secondaryImg = "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200"
+
+    const glanceItems: GlanceItem[] = [
+        {
+            icon: <Clock size={16} strokeWidth={1.5} />,
+            label: 'Time',
+            value: treatment.duration
+        },
+        {
+            icon: <TrendingUp size={16} strokeWidth={1.5} />,
+            label: 'Results',
+            value: 'Immediate results'
+        },
+        {
+            icon: <CheckCircle size={16} strokeWidth={1.5} />,
+            label: 'Downtime',
+            value: treatment.downtime || 'Varies by treatment'
+        }
+    ];
+
     return (
-        <>
+        <div className="bg-[var(--color-cream)] min-h-screen relative pb-32">
             <SEOHead
                 title={treatment.name}
                 description={treatment.description}
                 canonical={`/treatments/${treatment.slug}`}
             />
 
-            {/* Hero */}
-            <section
-                style={{
-                    position: 'relative',
-                    paddingTop: '8rem',
-                    paddingBottom: '4rem',
-                    backgroundColor: 'var(--color-charcoal)',
-                    overflow: 'hidden',
-                }}
-            >
-                <div
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        backgroundImage: `url(${treatment.image})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        opacity: 0.25,
-                    }}
+            {/* Desktop spacer for fixed header (96px) + small gap */}
+            <div className="pt-[100px] lg:pt-[130px]"></div>
+
+            <main className="container mx-auto px-5 lg:px-12 max-w-[1200px]">
+
+                <TreatmentHero
+                    name={treatment.name}
+                    description={treatment.description}
+                    image={treatment.image}
                 />
-                <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-                    <span className="eyebrow" style={{ color: 'var(--color-gold-light)' }}>{treatment.tagline}</span>
-                    <h1 style={{ color: '#ffffff', marginBottom: '1rem' }}>{treatment.name}</h1>
-                    <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)' }}>
-                            <Activity size={14} style={{ color: 'var(--color-gold-light)' }} />{treatment.price}
-                        </span>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: '0.375rem', fontSize: '0.9rem', color: 'rgba(255,255,255,0.7)' }}>
-                            <Clock size={14} style={{ color: 'var(--color-gold-light)' }} />{treatment.duration}
-                        </span>
+
+                <TreatmentBeforeAfter
+                    shortName={treatment.shortName}
+                    beforeImg={beforeImg}
+                    afterImg={afterImg}
+                    glanceItems={glanceItems}
+                />
+
+                {/* Lower sections container */}
+                <div className="w-full max-w-[768px] mx-auto">
+                    {/* Secondary Image */}
+                    <div className="w-full aspect-[4/3] md:aspect-[16/9] rounded-[1.5rem] overflow-hidden mb-16 shadow-sm">
+                        <img
+                            src={secondaryImg}
+                            alt="Treatment Area"
+                            className="w-full h-full object-cover scale-105"
+                        />
                     </div>
-                    <Link to="/booking" className="btn btn-gold">Book This Treatment</Link>
-                </div>
-            </section>
 
-            {/* Content */}
-            <section className="section" style={{ backgroundColor: 'var(--color-cream)' }}>
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <div style={{ whiteSpace: 'pre-line', lineHeight: 1.85, fontSize: '1.0125rem', color: 'var(--color-stone-light)' }}>
-                        {treatment.longDescription}
+                    {/* Detailed Content */}
+                    <div className="mb-16 w-full">
+                        <h2 className="text-[2.25rem] lg:text-[2.75rem] font-normal mb-8 text-[var(--color-charcoal)] leading-[1.15] w-full">
+                            The Revolutionary Alternative to Surgery
+                        </h2>
+
+                        <div className="text-[1.1rem] leading-[1.85] text-[var(--color-taupe)] font-light w-full">
+                            {treatment.longDescription.split(/\n+/).map((paragraph: string, i: number) => {
+                                if (!paragraph.trim()) return null;
+                                return <p key={i} className="mb-6 w-full">{paragraph}</p>;
+                            })}
+                        </div>
+
+                        {/* What is it section */}
+                        <div className="mt-14 w-full">
+                            <h2 className="text-[2rem] font-normal mb-8 text-[var(--color-charcoal)] w-full">
+                                What is {treatment.shortName}?
+                            </h2>
+                            <ul className="flex flex-col gap-5 w-full">
+                                {treatment.highlights.map((h: string, i: number) => (
+                                    <li key={i} className="flex gap-4 items-start text-[1.05rem] text-[var(--color-charcoal)] font-normal w-full">
+                                        <CheckCircle size={22} className="text-[var(--color-gold-dark)] flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                                        <span className="flex-1">{h}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </section>
 
-            {/* Highlights */}
-            <section className="section" style={{ backgroundColor: 'var(--color-ivory)' }}>
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <h2 style={{ marginBottom: '1.5rem' }}>What's Included</h2>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                        {treatment.highlights.map((h) => (
-                            <li key={h} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', fontSize: '1rem', color: 'var(--color-stone)' }}>
-                                <CheckCircle size={18} style={{ color: 'var(--color-gold)', marginTop: '3px', flexShrink: 0 }} />
-                                {h}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </section>
-
-            {/* Process */}
-            <section className="section" style={{ backgroundColor: 'var(--color-cream)' }}>
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <h2 style={{ marginBottom: '2rem' }}>Your Journey</h2>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        {treatment.process.map((step, i) => (
-                            <div key={step.title} style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start' }}>
-                                <div
-                                    style={{
-                                        width: '36px',
-                                        height: '36px',
-                                        borderRadius: '50%',
-                                        backgroundColor: 'var(--color-gold)',
-                                        color: '#ffffff',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        fontWeight: 600,
-                                        fontSize: '0.875rem',
-                                        flexShrink: 0,
-                                    }}
-                                >
-                                    {i + 1}
+                    {/* Journey */}
+                    <div className="mb-20 w-full">
+                        <h2 className="text-[2rem] font-normal mb-10 text-[var(--color-charcoal)] w-full">
+                            Your Journey
+                        </h2>
+                        <div className="flex flex-col gap-10 w-full">
+                            {treatment.process.map((step: { title: string; desc: string }, i: number) => (
+                                <div key={i} className="flex gap-6 items-start w-full">
+                                    <div className="w-10 h-10 rounded-full border border-[var(--color-taupe)] text-[var(--color-charcoal)] flex items-center justify-center font-medium flex-shrink-0 mt-1">
+                                        {i + 1}
+                                    </div>
+                                    <div className="flex-1">
+                                        <h4 className="font-semibold text-[1.15rem] text-[var(--color-charcoal)] mb-2 tracking-wide">{step.title}</h4>
+                                        <p className="text-[var(--color-taupe)] text-[1.05rem] leading-relaxed font-light">{step.desc}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 style={{ marginBottom: '0.25rem', fontFamily: 'var(--font-body)', fontWeight: 600 }}>{step.title}</h4>
-                                    <p style={{ fontSize: '0.9375rem', margin: 0 }}>{step.desc}</p>
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* FAQs */}
+                    <div className="mb-12 w-full">
+                        <h2 className="text-[2rem] font-normal mb-8 text-[var(--color-charcoal)] w-full">
+                            Frequently Asked Questions
+                        </h2>
+                        <div className="border-t border-[rgba(0,0,0,0.1)] w-full">
+                            {treatment.faqs.map((faq: { q: string; a: string }) => (
+                                <AccordionItem key={faq.q} question={faq.q} answer={faq.a} />
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            {/* FAQs */}
-            <section className="section" style={{ backgroundColor: 'var(--color-ivory)' }}>
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <h2 style={{ marginBottom: '2rem' }}>Common Questions</h2>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-                        {treatment.faqs.map((faq) => (
-                            <AccordionItem key={faq.q} question={faq.q} answer={faq.a} />
-                        ))}
-                    </div>
-                </div>
-            </section>
+            </main>
 
-            {/* CTA */}
-            <section style={{ backgroundColor: 'var(--color-charcoal)', padding: '4rem 0', textAlign: 'center' }}>
-                <div className="container">
-                    <h2 style={{ color: '#ffffff', marginBottom: '1rem' }}>Ready to Get Started?</h2>
-                    <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '480px', margin: '0 auto 2rem' }}>
-                        Book a complimentary consultation to discuss {treatment.name.toLowerCase()} and create your bespoke treatment plan.
-                    </p>
-                    <Link to="/booking" className="btn btn-gold">Book Consultation</Link>
-                </div>
-            </section>
-        </>
+        </div>
     )
 }
 
 function AccordionItem({ question, answer }: { question: string; answer: string }) {
     const [open, setOpen] = useState(false)
     return (
-        <div style={{ borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
+        <div className="border-b border-[rgba(0,0,0,0.1)]">
             <button
                 onClick={() => setOpen(!open)}
-                style={{
-                    width: '100%',
-                    textAlign: 'left',
-                    background: 'none',
-                    border: 'none',
-                    padding: '1.25rem 0',
-                    fontSize: '1.0625rem',
-                    fontWeight: 500,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    color: 'var(--color-charcoal)',
-                    fontFamily: 'var(--font-body)',
-                }}
+                className="w-full text-left bg-transparent border-none py-6 text-[1.15rem] font-medium cursor-pointer flex justify-between items-center text-[var(--color-charcoal)]"
             >
                 {question}
-                <span style={{ color: 'var(--color-gold)', fontSize: '1.5rem', transition: 'transform 0.3s', transform: open ? 'rotate(45deg)' : 'none' }}>+</span>
+                <ChevronDown size={24} className={`transform transition-transform duration-300 text-[var(--color-taupe)] ${open ? 'rotate-180' : ''}`} strokeWidth={1.5} />
             </button>
             <div
-                style={{
-                    maxHeight: open ? '300px' : '0',
-                    overflow: 'hidden',
-                    transition: 'max-height 0.3s ease',
-                }}
+                className="overflow-hidden transition-all duration-300 ease-in-out"
+                style={{ maxHeight: open ? '500px' : '0', opacity: open ? 1 : 0 }}
             >
-                <p style={{ paddingBottom: '1.25rem', fontSize: '0.9375rem', lineHeight: 1.8, margin: 0 }}>{answer}</p>
+                <p className="pb-6 text-[1.05rem] leading-relaxed text-[var(--color-taupe)] m-0">{answer}</p>
             </div>
         </div>
     )
 }
+

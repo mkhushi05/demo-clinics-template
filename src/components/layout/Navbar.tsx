@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Mail } from 'lucide-react'
 
 const navLinks = [
     { to: '/', label: 'Home' },
@@ -49,16 +49,28 @@ export default function Navbar() {
                     boxShadow: isTransparent ? 'none' : '0 1px 0 rgba(26, 22, 20, 0.08)',
                 }}
             >
-                <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+                <div
+                    className="container"
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        height: scrolled ? '76px' : '110px',
+                        transition: 'height 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                >
                     {/* Logo */}
                     <Link
                         to="/"
                         style={{
                             color: isTransparent ? '#ffffff' : 'var(--color-espresso)',
-                            transition: 'color 0.35s ease',
+                            transition: 'color 0.35s ease, font-size 0.4s ease',
+                            fontSize: scrolled ? '1.5rem' : '1.75rem',
+                            fontWeight: 500,
+                            letterSpacing: '0.02em',
                         }}
                     >
-                        LUMIÈRE
+                        lumière
                     </Link>
 
                     {/* Desktop nav */}
@@ -70,10 +82,9 @@ export default function Navbar() {
                                 end={to === '/'}
                                 style={({ isActive }) => ({
                                     fontFamily: 'var(--font-body)',
-                                    fontSize: '0.8125rem',
-                                    fontWeight: 500,
-                                    letterSpacing: '0.06em',
-                                    textTransform: 'uppercase' as const,
+                                    fontSize: '0.9rem',
+                                    fontWeight: 400,
+                                    letterSpacing: '0.03em',
                                     color: isTransparent
                                         ? isActive ? '#ffffff' : 'rgba(255,255,255,0.75)'
                                         : isActive ? 'var(--color-espresso)' : 'var(--color-taupe)',
@@ -91,18 +102,26 @@ export default function Navbar() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                         <Link
                             to="/booking"
-                            className="btn btn-primary"
+                            className={`nav-cta-btn ${scrolled ? 'scrolled-nav-btn' : ''}`}
                             style={{
-                                backgroundColor: isTransparent ? 'rgba(255,255,255,0.15)' : 'var(--color-blush)',
-                                borderColor: isTransparent ? 'rgba(255,255,255,0.6)' : 'var(--color-blush)',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                backgroundColor: isTransparent ? 'rgba(255,255,255,0.15)' : '#2A2522',
+                                border: `1px solid ${isTransparent ? 'rgba(255,255,255,0.6)' : '#2A2522'}`,
+                                borderRadius: '9999px',
                                 backdropFilter: isTransparent ? 'blur(4px)' : 'none',
-                                fontSize: '0.75rem',
-                                padding: '0.625rem 1.25rem',
+                                fontSize: '0.85rem',
+                                padding: '0.75rem 1.5rem',
                                 color: '#ffffff',
+                                fontFamily: 'var(--font-body)',
+                                transition: 'all 0.2s ease',
+                                textDecoration: 'none',
                             }}
                             id="nav-book-btn"
                         >
-                            Book Consultation
+                            <Mail size={16} />
+                            Speak with our experts
                         </Link>
 
                         {/* Hamburger — mobile only */}
@@ -177,6 +196,31 @@ export default function Navbar() {
         @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
           .hamburger-btn { display: flex !important; }
+          .nav-cta-btn { display: none !important; }
+        }
+        
+        .nav-cta-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .nav-cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 9999px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .scrolled-nav-btn::after {
+            box-shadow: 0 0 25px rgba(42, 37, 34, 0.5);
+        }
+        .nav-cta-btn:hover::after {
+            opacity: 1;
+        }
+        .nav-cta-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            color: #ffffff !important;
         }
       `}</style>
         </>
