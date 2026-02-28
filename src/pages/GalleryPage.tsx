@@ -2,39 +2,27 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
-import BeforeAfterSlider from '@/components/home/BeforeAfterSlider'
 import FadeIn from '@/components/animations/FadeIn'
+import { testimonials } from '@/data/testimonials'
 
 type Category = 'All' | 'Lip' | 'Anti-Wrinkle' | 'Profhilo'
 
 const galleryCategories: Category[] = ['All', 'Lip', 'Anti-Wrinkle', 'Profhilo']
 
 const galleryItems = [
-    { src: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6ece?q=80&w=800&fit=crop', label: 'Lip Enhancement', category: 'Lip', aspect: '3/4', tilt: 1 },
-    { src: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&fit=crop', label: 'Skin Glow Treatment', category: 'Profhilo', aspect: '4/3', tilt: -1 },
-    { src: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&fit=crop', label: 'Profhilo Result', category: 'Profhilo', aspect: '3/4', tilt: 2 },
-    { src: 'https://images.unsplash.com/photo-1614859324967-bdf31ae1874b?q=80&w=800&fit=crop', label: 'Anti-Wrinkle Treatment', category: 'Anti-Wrinkle', aspect: '4/3', tilt: -2 },
-    { src: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&fit=crop', label: 'Natural Lip Volume', category: 'Lip', aspect: '3/4', tilt: 1 },
-    { src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&fit=crop', label: 'Clinic Environment', category: 'All', aspect: '4/5', tilt: -1 },
-    { src: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&fit=crop', label: 'Forehead Smoothing', category: 'Anti-Wrinkle', aspect: '4/3', tilt: 2 },
-    { src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&fit=crop', label: 'Skin Texture Result', category: 'Profhilo', aspect: '3/4', tilt: -1 },
-    { src: 'https://images.unsplash.com/photo-1560750133-c374aca90a50?q=80&w=800&fit=crop', label: 'Cheek Definition', category: 'Lip', aspect: '4/3', tilt: 1 },
-]
-
-const sliderCategories = [
-    { key: 'Lip', label: 'Lip Enhancement', desc: '0.5ml dermal filler — subtle hydration and border definition' },
-    { key: 'Anti-Wrinkle', label: 'Anti-Wrinkle Treatment', desc: '3 areas — forehead, frown lines, crow\'s feet' },
-    { key: 'Profhilo', label: 'Profhilo Skin Booster', desc: 'Course of 2 sessions — skin quality transformation' },
-]
-
-const testimonials = [
-    { name: 'Sarah M.', treatment: 'Lip Filler', text: 'I was nervous but Elena made me feel so comfortable. The results are so natural — exactly what I wanted.' },
-    { name: 'Rebecca L.', treatment: 'Anti-Wrinkle', text: "I've been coming to Lumière for two years. The attention to detail and care is unlike anywhere else I've been." },
+    { src: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800', label: 'Lip Enhancement', category: 'Lip', aspect: '3/4', tilt: 1 },
+    { src: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6ece?auto=format&fit=crop&q=80&w=800', label: 'Skin Glow Treatment', category: 'Profhilo', aspect: '4/3', tilt: -1 },
+    { src: 'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=800', label: 'Lip Volume', category: 'Lip', aspect: '3/4', tilt: 2 },
+    { src: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800', label: 'Skin Hydration', category: 'Profhilo', aspect: '4/3', tilt: -2 },
+    { src: 'https://images.unsplash.com/photo-1614859324967-bdf31ae1874b?auto=format&fit=crop&q=80&w=800', label: 'Anti-Wrinkle Treatment', category: 'Anti-Wrinkle', aspect: '3/4', tilt: 1 },
+    { src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800', label: 'Clinic Environment', category: 'All', aspect: '4/5', tilt: -1 },
+    { src: 'https://images.unsplash.com/photo-1608272522770-f81d866a87e3?auto=format&fit=crop&q=80&w=800', label: 'Forehead Smoothing', category: 'Anti-Wrinkle', aspect: '4/3', tilt: 2 },
+    { src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=800', label: 'Skin Texture Result', category: 'Profhilo', aspect: '3/4', tilt: -1 },
+    { src: 'https://images.unsplash.com/photo-1560750133-c374aca90a50?auto=format&fit=crop&q=80&w=800', label: 'Cheek Definition', category: 'Lip', aspect: '4/3', tilt: 1 },
 ]
 
 export default function GalleryPage() {
     const [active, setActive] = useState<Category>('All')
-    const [activeSlider, setActiveSlider] = useState('Lip')
 
     const filtered = active === 'All' ? galleryItems : galleryItems.filter(g => g.category === active)
 
@@ -80,66 +68,8 @@ export default function GalleryPage() {
                 </div>
             </section>
 
-            {/* ── Interactive Before/After Sliders ── */}
-            <section style={{ backgroundColor: 'var(--color-cream)', padding: '5rem 0' }}>
-                <div className="container">
-                    <FadeIn>
-                        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-                            <span className="eyebrow">Compare Results</span>
-                            <h2 style={{ marginBottom: '1.5rem' }}>Drag to Reveal the Transformation</h2>
-
-                            {/* Slider category tabs */}
-                            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.625rem', marginTop: '1.5rem' }}>
-                                {sliderCategories.map(s => (
-                                    <button
-                                        key={s.key}
-                                        onClick={() => setActiveSlider(s.key)}
-                                        style={{
-                                            fontFamily: 'var(--font-body)',
-                                            fontSize: '0.8125rem',
-                                            fontWeight: 500,
-                                            letterSpacing: '0.06em',
-                                            padding: '0.5rem 1.25rem',
-                                            borderRadius: '9999px',
-                                            border: '1.5px solid',
-                                            cursor: 'pointer',
-                                            transition: 'all 0.25s ease',
-                                            backgroundColor: activeSlider === s.key ? 'var(--color-charcoal)' : 'transparent',
-                                            borderColor: activeSlider === s.key ? 'var(--color-charcoal)' : 'rgba(26,22,20,0.2)',
-                                            color: activeSlider === s.key ? '#ffffff' : 'var(--color-stone-light)',
-                                        }}
-                                    >
-                                        {s.label}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    </FadeIn>
-
-                    {sliderCategories.map(s => (
-                        <div key={s.key} style={{ display: activeSlider === s.key ? 'block' : 'none' }}>
-                            <FadeIn>
-                                <p style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--color-stone-muted)', fontSize: '0.9375rem' }}>
-                                    {s.desc}
-                                </p>
-                                <div style={{
-                                    borderRadius: '2rem',
-                                    overflow: 'hidden',
-                                    boxShadow: 'var(--shadow-lift)',
-                                    maxWidth: '860px',
-                                    margin: '0 auto',
-                                    border: '1px solid rgba(184,147,90,0.1)',
-                                }}>
-                                    <BeforeAfterSlider />
-                                </div>
-                            </FadeIn>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
             {/* ── Scrapbook Gallery Grid ── */}
-            <section style={{ backgroundColor: 'var(--color-ivory)', padding: '5rem 0 6rem' }}>
+            <section style={{ backgroundColor: 'var(--color-cream)', padding: '5rem 0 6rem' }}>
                 <div className="container">
                     <FadeIn>
                         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -213,12 +143,12 @@ export default function GalleryPage() {
                                         }}
                                         onMouseEnter={e => {
                                             const parent = (e.currentTarget as HTMLDivElement).parentElement as HTMLDivElement;
-                                            parent.style.transform = 'rotate(0deg) scale(1.03)';
+                                            parent.style.transform = 'rotate(0deg)';
                                             parent.style.zIndex = '10';
                                         }}
                                         onMouseLeave={e => {
                                             const parent = (e.currentTarget as HTMLDivElement).parentElement as HTMLDivElement;
-                                            parent.style.transform = `rotate(${item.tilt}deg) scale(1)`;
+                                            parent.style.transform = `rotate(${item.tilt}deg)`;
                                             parent.style.zIndex = '1';
                                         }}
                                     >
@@ -227,8 +157,6 @@ export default function GalleryPage() {
                                             alt={item.label}
                                             loading="lazy"
                                             style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s ease', display: 'block' }}
-                                            onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.05)'; }}
-                                            onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1)'; }}
                                         />
                                         {/* Hover overlay */}
                                         <div
@@ -283,24 +211,44 @@ export default function GalleryPage() {
                         style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}
                         className="gallery-quotes-grid"
                     >
-                        {testimonials.map((t, idx) => (
-                            <FadeIn key={t.name} delay={idx * 150}>
+                        {testimonials.map((t: any, idx: number) => (
+                            <FadeIn key={t.name} delay={idx * 150} direction="up">
                                 <div style={{
-                                    backgroundColor: 'var(--color-cream)',
+                                    backgroundColor: 'var(--color-ivory)',
                                     borderRadius: '1.5rem',
-                                    padding: '2rem 2.5rem',
+                                    padding: '2.5rem',
                                     border: '1px solid rgba(184,147,90,0.12)',
-                                    position: 'relative',
+                                    boxShadow: '0 8px 30px rgba(26,22,20,0.03)',
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column'
                                 }}>
-                                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '4rem', lineHeight: 1, color: 'rgba(184,147,90,0.2)', marginBottom: '-1rem', userSelect: 'none' }}>
+                                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '4rem', lineHeight: 1, color: 'rgba(184,147,90,0.25)', marginBottom: '-1rem', userSelect: 'none' }}>
                                         "
                                     </div>
-                                    <p style={{ lineHeight: 1.85, marginBottom: '1.5rem', fontSize: '1.0625rem' }}>
+                                    <p style={{ lineHeight: 1.85, marginBottom: '2rem', fontSize: '1.0625rem', color: 'var(--color-charcoal)', flexGrow: 1 }}>
                                         {t.text}
                                     </p>
-                                    <div style={{ borderTop: '1px solid rgba(26,22,20,0.07)', paddingTop: '1rem' }}>
-                                        <span style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-charcoal)', fontSize: '1.125rem' }}>{t.name}</span>
-                                        <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-gold)', marginLeft: '0.75rem' }}>{t.treatment}</span>
+                                    <div style={{ borderTop: '1px solid rgba(26,22,20,0.07)', paddingTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                        {/* Avatar Initial Circle */}
+                                        <div style={{
+                                            width: '2.5rem',
+                                            height: '2.5rem',
+                                            borderRadius: '50%',
+                                            backgroundColor: 'var(--color-gold-light)',
+                                            color: 'var(--color-white)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontFamily: 'var(--font-heading)',
+                                            fontSize: '1.25rem',
+                                        }}>
+                                            {t.initial}
+                                        </div>
+                                        <div>
+                                            <span style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-charcoal)', fontSize: '1.125rem', display: 'block', marginBottom: '0.125rem' }}>{t.name}</span>
+                                            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-gold)' }}>{t.treatment}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </FadeIn>
@@ -310,6 +258,9 @@ export default function GalleryPage() {
                     <style>{`
                         @media (min-width: 640px) {
                             .gallery-quotes-grid { grid-template-columns: 1fr 1fr !important; }
+                        }
+                        @media (min-width: 1024px) {
+                            .gallery-quotes-grid { grid-template-columns: 1fr 1fr 1fr !important; }
                         }
                     `}</style>
                 </div>

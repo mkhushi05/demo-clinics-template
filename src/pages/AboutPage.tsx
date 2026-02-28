@@ -17,112 +17,87 @@ export default function AboutPage() {
             <section
                 style={{
                     position: 'relative',
-                    minHeight: '88vh',
-                    display: 'flex',
-                    alignItems: 'center',
-                    overflow: 'hidden',
+                    padding: '8rem 1rem 6rem',
                     backgroundColor: 'var(--color-cream)',
-                    paddingTop: '6rem',
-                    paddingBottom: '4rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    textAlign: 'center',
                 }}
             >
-                {/* Ambient blobs */}
-                <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: '50%', height: '70%', background: 'radial-gradient(circle, rgba(184,147,90,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
-                <div style={{ position: 'absolute', bottom: '-10%', right: '-5%', width: '45%', height: '60%', background: 'radial-gradient(circle, rgba(168,152,144,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
-
-                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div
-                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }}
-                        className="about-hero-grid"
-                    >
-                        {/* Text */}
-                        <div>
-                            <FadeIn>
-                                <span
+                <div className="container" style={{ maxWidth: '800px' }}>
+                    <FadeIn>
+                        <h1
+                            style={{
+                                fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                                lineHeight: 1.1,
+                                fontWeight: 500,
+                                marginBottom: '2.5rem',
+                                color: 'var(--color-charcoal)',
+                            }}
+                        >
+                            Expert aesthetic
+                            <br />
+                            treatments
+                            <br />
+                            bespoke {' '}
+                            <span style={{ position: 'relative', display: 'inline-block', zIndex: 1 }}>
+                                to you
+                                {/* Hand-drawn style SVG underline matching website colors (gold) */}
+                                <svg
+                                    viewBox="0 0 100 20"
                                     style={{
-                                        display: 'inline-block',
-                                        fontFamily: 'var(--font-body)',
-                                        fontSize: '0.6875rem',
-                                        fontWeight: 600,
-                                        letterSpacing: '0.2em',
-                                        textTransform: 'uppercase',
-                                        color: 'var(--color-gold)',
-                                        marginBottom: '1.25rem',
+                                        position: 'absolute',
+                                        bottom: '-0.1em',
+                                        left: '-0.1em',
+                                        width: '110%',
+                                        height: '0.6em',
+                                        zIndex: -1,
                                     }}
+                                    preserveAspectRatio="none"
                                 >
-                                    The Lumière Philosophy
-                                </span>
-                            </FadeIn>
-
-                            <FadeIn delay={150}>
-                                <h1
-                                    style={{
-                                        marginBottom: '1.5rem',
-                                        lineHeight: 1.06,
-                                    }}
-                                >
-                                    Aesthetics that{' '}
-                                    <em style={{ fontStyle: 'italic', color: 'var(--color-gold-dark)' }}>empower.</em>
-                                </h1>
-                            </FadeIn>
-
-                            <FadeIn delay={300}>
-                                <p
-                                    style={{
-                                        fontSize: '1.125rem',
-                                        lineHeight: 1.85,
-                                        maxWidth: '500px',
-                                        marginBottom: '2rem',
-                                    }}
-                                >
-                                    We believe in subtle enhancements that celebrate your unique beauty rather than obscure it. A sanctuary where medical precision meets artistic vision.
-                                </p>
-                                <Link to="/booking" className="btn btn-primary">
-                                    Book Consultation <ArrowRight size={14} />
-                                </Link>
-                            </FadeIn>
-                        </div>
-
-                        {/* Image */}
-                        <div>
-                            <FadeIn direction="right" delay={200}>
-                                <div
-                                    style={{
-                                        position: 'relative',
-                                        borderRadius: '2rem 50% 2rem 50%',
-                                        overflow: 'hidden',
-                                        aspectRatio: '4/3',
-                                        boxShadow: 'var(--shadow-lift)',
-                                    }}
-                                >
-                                    <img
-                                        src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=1000"
-                                        alt="Lumière Clinic — a serene, medically-led aesthetic environment"
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    <path
+                                        d="M2,15 Q40,5 98,8"
+                                        fill="none"
+                                        stroke="rgba(184, 147, 90, 0.3)"
+                                        strokeWidth="5"
+                                        strokeLinecap="round"
                                     />
-                                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom right, transparent, rgba(26,22,20,0.08))' }} />
-                                </div>
-                                {/* Deco ring */}
-                                <div style={{
-                                    position: 'absolute',
-                                    bottom: '-2rem',
-                                    left: '-2rem',
-                                    width: '120px',
-                                    height: '120px',
-                                    borderRadius: '50%',
-                                    border: '1px solid rgba(184,147,90,0.25)',
-                                    zIndex: -1,
-                                }} />
-                            </FadeIn>
-                        </div>
-                    </div>
-                </div>
+                                </svg>
+                            </span>
+                        </h1>
+                    </FadeIn>
 
-                <style>{`
-                    @media (min-width: 900px) {
-                        .about-hero-grid { grid-template-columns: 1fr 1fr !important; gap: 5rem !important; }
-                    }
-                `}</style>
+                    <FadeIn delay={150}>
+                        <div
+                            style={{
+                                fontSize: '1.2rem',
+                                lineHeight: 1.8,
+                                color: 'var(--color-charcoal)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '1.5rem',
+                                margin: '0 auto',
+                            }}
+                        >
+                            <p>
+                                Founded by Independent Nurse Prescriber Elena Davies, Lumière is a leading
+                                aesthetic clinic based in Manchester, specialising in expert injectable
+                                treatments, advanced facial rejuvenation, and personalised skin solutions.
+                            </p>
+                            <p>
+                                Our mission is simple: to help every client feel confident through
+                                safe, natural-looking results that enhance rather than transform.
+                            </p>
+                            <p>
+                                At Lumière, excellence, safety, and precision are at the heart of everything
+                                we do. We believe in absolute honesty, continual education, and providing a
+                                sanctuary where medical precision meets artistic vision.
+                            </p>
+                        </div>
+                    </FadeIn>
+                </div>
             </section>
 
             {/* ── Stats Bar ── */}
