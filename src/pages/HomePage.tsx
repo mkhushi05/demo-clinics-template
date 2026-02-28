@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, MapPin, Clock, Phone, ChevronDown } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
-import TrustBar from '@/components/ui/TrustBar'
 import StatsBar from '@/components/ui/StatsBar'
-import { treatments } from '@/data/treatments'
 import { testimonials } from '@/data/testimonials'
 import BeforeAfterSlider from '@/components/home/BeforeAfterSlider'
 import FadeIn from '@/components/animations/FadeIn'
+import TreatmentCategories from '@/components/home/TreatmentCategories'
 
 export default function HomePage() {
     return (
@@ -180,160 +179,11 @@ export default function HomePage() {
                 `}</style>
             </section>
 
-            {/* ── Trust Bar ── */}
-            <TrustBar />
-
             {/* ── Stats Bar ── */}
             <StatsBar />
 
-            {/* ── Signature Treatments ── */}
-            <section style={{ backgroundColor: 'var(--color-cream)', padding: '6rem 0 7rem' }}>
-                <div className="container">
-                    <FadeIn>
-                        <div style={{ marginBottom: '4.5rem' }}>
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }} className="treatments-header">
-                                <div>
-                                    <span className="eyebrow">Curated Expertise</span>
-                                    <h2 style={{ marginBottom: 0 }}>
-                                        Our Signature <em style={{ fontStyle: 'italic', color: 'var(--color-gold-dark)' }}>Treatments</em>
-                                    </h2>
-                                </div>
-                                <p style={{ maxWidth: '480px', lineHeight: 1.8 }}>
-                                    Advanced aesthetic procedures designed to restore, enhance, and rejuvenate — delivered with clinical precision and an artisan eye.
-                                </p>
-                            </div>
-                        </div>
-                    </FadeIn>
-
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '6rem' }}>
-                        {treatments.slice(0, 4).map((treatment: any, index: number) => {
-                            const isEven = index % 2 === 0;
-                            return (
-                                <FadeIn key={treatment.slug} direction={isEven ? 'left' : 'right'}>
-                                    <div
-                                        style={{
-                                            display: 'grid',
-                                            gridTemplateColumns: '1fr',
-                                            gap: '2rem',
-                                            alignItems: 'center',
-                                        }}
-                                        className="treatment-row-home"
-                                    >
-                                        {/* Image */}
-                                        <div
-                                            style={{
-                                                order: 0,
-                                                position: 'relative',
-                                                borderRadius: isEven ? '50% 2rem 50% 2rem' : '2rem 50% 2rem 50%',
-                                                overflow: 'hidden',
-                                                aspectRatio: '4/5',
-                                                boxShadow: '0 20px 60px rgba(26,22,20,0.16)',
-                                            }}
-                                            className={isEven ? 'treatment-img-left' : 'treatment-img-right'}
-                                        >
-                                            <img
-                                                src={treatment.image}
-                                                alt={treatment.name}
-                                                loading="lazy"
-                                                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 1.2s ease' }}
-                                                onMouseEnter={e => ((e.currentTarget as HTMLImageElement).style.transform = 'scale(1.05)')}
-                                                onMouseLeave={e => ((e.currentTarget as HTMLImageElement).style.transform = 'scale(1)')}
-                                            />
-                                            {/* Price chip on image */}
-                                            <div style={{
-                                                position: 'absolute',
-                                                bottom: '1.25rem',
-                                                left: '1.25rem',
-                                                backgroundColor: 'rgba(26,22,20,0.75)',
-                                                backdropFilter: 'blur(8px)',
-                                                border: '1px solid rgba(212,170,114,0.3)',
-                                                borderRadius: '9999px',
-                                                padding: '0.375rem 1rem',
-                                                color: 'var(--color-gold-light)',
-                                                fontFamily: 'var(--font-body)',
-                                                fontSize: '0.75rem',
-                                                fontWeight: 500,
-                                                letterSpacing: '0.06em',
-                                            }}>
-                                                {treatment.price}
-                                            </div>
-                                        </div>
-
-                                        {/* Content */}
-                                        <div style={{ order: 1 }} className={isEven ? 'treatment-content-right' : 'treatment-content-left'}>
-                                            <span className="eyebrow">{treatment.tagline || 'Signature Treatment'}</span>
-                                            <h3 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', marginBottom: '1rem' }}>
-                                                {treatment.name}
-                                            </h3>
-                                            <p style={{ lineHeight: 1.85, marginBottom: '1.75rem', maxWidth: '480px' }}>
-                                                {treatment.description}
-                                            </p>
-                                            {/* Key benefits */}
-                                            {treatment.highlights && (
-                                                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.75rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                                    {treatment.highlights.slice(0, 3).map((b: string) => (
-                                                        <li key={b} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontSize: '0.9rem', color: 'var(--color-stone-light)' }}>
-                                                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'var(--color-gold)', flexShrink: 0 }} />
-                                                            {b}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            )}
-                                            <Link
-                                                to={`/treatments/${treatment.slug}`}
-                                                style={{
-                                                    display: 'inline-flex',
-                                                    alignItems: 'center',
-                                                    gap: '0.625rem',
-                                                    fontFamily: 'var(--font-body)',
-                                                    fontSize: '0.8125rem',
-                                                    fontWeight: 600,
-                                                    letterSpacing: '0.12em',
-                                                    textTransform: 'uppercase',
-                                                    color: 'var(--color-charcoal)',
-                                                    borderBottom: '1.5px solid var(--color-charcoal)',
-                                                    paddingBottom: '2px',
-                                                    transition: 'color 0.25s ease, border-color 0.25s ease',
-                                                    textDecoration: 'none',
-                                                }}
-                                                onMouseEnter={e => {
-                                                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-gold)';
-                                                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--color-gold)';
-                                                }}
-                                                onMouseLeave={e => {
-                                                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-charcoal)';
-                                                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--color-charcoal)';
-                                                }}
-                                            >
-                                                Explore Treatment <ArrowRight size={14} />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </FadeIn>
-                            );
-                        })}
-                    </div>
-
-                    <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-                        <FadeIn>
-                            <Link to="/treatments" className="btn btn-secondary">
-                                View All Treatments <ArrowRight size={14} />
-                            </Link>
-                        </FadeIn>
-                    </div>
-                </div>
-
-                <style>{`
-                    @media (min-width: 768px) {
-                        .treatments-header { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; align-items: end; }
-                        .treatment-row-home { grid-template-columns: 1fr 1fr !important; gap: 5rem !important; }
-                        .treatment-img-right { order: 2 !important; }
-                        .treatment-content-left { order: 1 !important; }
-                        .treatment-img-left { order: 1 !important; }
-                        .treatment-content-right { order: 2 !important; }
-                    }
-                `}</style>
-            </section>
+            {/* ── Treatment Categories ── */}
+            <TreatmentCategories />
 
             {/* ── Your Practitioner ── */}
             <section style={{ backgroundColor: 'var(--color-white)', padding: '6rem 0 7rem', position: 'relative', overflow: 'hidden' }}>
