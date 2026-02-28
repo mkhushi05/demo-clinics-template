@@ -208,46 +208,61 @@ export default function GalleryPage() {
                     </FadeIn>
 
                     <div
-                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}
+                        style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}
                         className="gallery-quotes-grid"
                     >
-                        {testimonials.map((t: any, idx: number) => (
+                        {testimonials.slice(0, 3).map((t: any, idx: number) => (
                             <FadeIn key={t.name} delay={idx * 150} direction="up">
                                 <div style={{
                                     backgroundColor: 'var(--color-ivory)',
-                                    borderRadius: '1.5rem',
-                                    padding: '2.5rem',
+                                    borderRadius: '2rem',
+                                    padding: '3.5rem 2.5rem',
                                     border: '1px solid rgba(184,147,90,0.12)',
                                     boxShadow: '0 8px 30px rgba(26,22,20,0.03)',
                                     height: '100%',
                                     display: 'flex',
-                                    flexDirection: 'column'
+                                    flexDirection: 'column',
+                                    position: 'relative',
+                                    overflow: 'hidden'
                                 }}>
-                                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '4rem', lineHeight: 1, color: 'rgba(184,147,90,0.25)', marginBottom: '-1rem', userSelect: 'none' }}>
-                                        "
+                                    {/* Quote Mark Decoration */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '-1rem',
+                                        right: '2rem',
+                                        fontFamily: 'var(--font-heading)',
+                                        fontSize: '8rem',
+                                        lineHeight: 1,
+                                        color: 'rgba(184,147,90,0.08)',
+                                        userSelect: 'none',
+                                        pointerEvents: 'none'
+                                    }}>
+                                        ”
                                     </div>
-                                    <p style={{ lineHeight: 1.85, marginBottom: '2rem', fontSize: '1.0625rem', color: 'var(--color-charcoal)', flexGrow: 1 }}>
+
+                                    <p style={{ lineHeight: 1.85, marginBottom: '2.5rem', fontSize: '1.0625rem', color: 'var(--color-charcoal)', flexGrow: 1, position: 'relative', zIndex: 1, fontWeight: 300 }}>
                                         {t.text}
                                     </p>
-                                    <div style={{ borderTop: '1px solid rgba(26,22,20,0.07)', paddingTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                        {/* Avatar Initial Circle */}
+
+                                    <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
                                         <div style={{
-                                            width: '2.5rem',
-                                            height: '2.5rem',
+                                            width: '3.5rem',
+                                            height: '3.5rem',
                                             borderRadius: '50%',
-                                            backgroundColor: 'var(--color-gold-light)',
+                                            backgroundColor: 'var(--color-gold)',
                                             color: 'var(--color-white)',
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
                                             fontFamily: 'var(--font-heading)',
-                                            fontSize: '1.25rem',
+                                            fontSize: '1.5rem',
+                                            boxShadow: '0 8px 15px rgba(184,147,90,0.15)'
                                         }}>
                                             {t.initial}
                                         </div>
                                         <div>
-                                            <span style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-charcoal)', fontSize: '1.125rem', display: 'block', marginBottom: '0.125rem' }}>{t.name}</span>
-                                            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-gold)' }}>{t.treatment}</span>
+                                            <span style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-charcoal)', fontSize: '1.25rem', display: 'block', marginBottom: '0.25rem' }}>{t.name}</span>
+                                            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.625rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-gold-dark)' }}>{t.treatment}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -256,11 +271,8 @@ export default function GalleryPage() {
                     </div>
 
                     <style>{`
-                        @media (min-width: 640px) {
-                            .gallery-quotes-grid { grid-template-columns: 1fr 1fr !important; }
-                        }
-                        @media (min-width: 1024px) {
-                            .gallery-quotes-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+                        @media (min-width: 900px) {
+                            .gallery-quotes-grid { grid-template-columns: repeat(3, 1fr) !important; }
                         }
                     `}</style>
                 </div>
