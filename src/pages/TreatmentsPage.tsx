@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { ArrowRight, Clock, Sparkles } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
 import FadeIn from '@/components/animations/FadeIn'
@@ -7,8 +7,25 @@ import { treatments } from '@/data/treatments'
 
 const categories = ['All', 'Lip', 'Anti-Wrinkle', 'Skin']
 
+/** Map the home-page filterParam values → display category tabs */
+const PARAM_TO_CATEGORY: Record<string, string> = {
+    injectables: 'Lip',
+    skin: 'Skin',
+    aesthetics: 'Anti-Wrinkle',
+}
+
 export default function TreatmentsPage() {
-    const [activeCategory, setActiveCategory] = useState('All')
+    const [searchParams] = useSearchParams()
+    const [activeCategory, setActiveCategory] = useState<string>(() => {
+        const param = searchParams.get('category') ?? ''
+        return PARAM_TO_CATEGORY[param.toLowerCase()] ?? 'All'
+    })
+
+    useEffect(() => {
+        const param = searchParams.get('category') ?? ''
+        const mapped = PARAM_TO_CATEGORY[param.toLowerCase()] ?? 'All'
+        setActiveCategory(mapped)
+    }, [searchParams])
 
     const filtered = activeCategory === 'All'
         ? treatments
@@ -130,9 +147,7 @@ export default function TreatmentsPage() {
                                                 src={t.image}
                                                 alt={t.name}
                                                 loading="lazy"
-                                                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s ease', display: 'block', position: 'absolute', inset: 0 }}
-                                                onMouseEnter={e => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.04)'; }}
-                                                onMouseLeave={e => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1)'; }}
+                                                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', inset: 0 }}
                                             />
                                             {/* Duration chip */}
                                             <div style={{
