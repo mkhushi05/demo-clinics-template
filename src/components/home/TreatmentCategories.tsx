@@ -55,7 +55,7 @@ export default function TreatmentCategories() {
         <section
             aria-labelledby="treatments-heading"
             style={{
-                backgroundColor: 'var(--color-cream)',
+                backgroundColor: 'var(--color-porcelain)',
                 padding: '7rem 0 8rem',
             }}
         >
@@ -132,7 +132,7 @@ export default function TreatmentCategories() {
                                             position: 'absolute',
                                             inset: 0,
                                             background:
-                                                'linear-gradient(to top, rgba(26,22,20,0.85) 0%, rgba(26,22,20,0.3) 50%, rgba(26,22,20,0.1) 100%)',
+                                                'linear-gradient(to top, rgba(35,30,28,0.85) 0%, rgba(35,30,28,0.3) 50%, transparent 100%)',
                                             transition: 'opacity 0.55s ease',
                                         }}
                                     />
@@ -142,7 +142,7 @@ export default function TreatmentCategories() {
                                         style={{
                                             position: 'absolute',
                                             inset: 0,
-                                            background: 'rgba(26,22,20,0.82)',
+                                            background: 'rgba(217, 140, 140, 0.88)', /* Blush Overlay */
                                             opacity: isHovered ? 1 : 0,
                                             transition: 'opacity 0.45s cubic-bezier(0.25,0.46,0.45,0.94)',
                                             display: 'flex',
@@ -211,7 +211,7 @@ export default function TreatmentCategories() {
                                                 fontWeight: 600,
                                                 letterSpacing: '0.14em',
                                                 textTransform: 'uppercase',
-                                                color: 'var(--color-gold-light)',
+                                                color: '#ffffff',
                                                 transform: isHovered ? 'translateY(0)' : 'translateY(12px)',
                                                 transition: 'transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94) 0.15s',
                                             }}
@@ -241,8 +241,8 @@ export default function TreatmentCategories() {
                                                 left: '2rem',
                                                 width: '22px',
                                                 height: '22px',
-                                                borderTop: '1.5px solid rgba(212,170,114,0.6)',
-                                                borderLeft: '1.5px solid rgba(212,170,114,0.6)',
+                                                borderTop: '1.5px solid var(--color-blush)',
+                                                borderLeft: '1.5px solid var(--color-blush)',
                                             }}
                                         />
                                         <div
@@ -252,8 +252,8 @@ export default function TreatmentCategories() {
                                                 right: '1.75rem',
                                                 width: '22px',
                                                 height: '22px',
-                                                borderBottom: '1.5px solid rgba(212,170,114,0.6)',
-                                                borderRight: '1.5px solid rgba(212,170,114,0.6)',
+                                                borderBottom: '1.5px solid var(--color-blush)',
+                                                borderRight: '1.5px solid var(--color-blush)',
                                             }}
                                         />
 
@@ -265,7 +265,7 @@ export default function TreatmentCategories() {
                                                 fontWeight: 600,
                                                 letterSpacing: '0.2em',
                                                 textTransform: 'uppercase',
-                                                color: 'var(--color-gold-light)',
+                                                color: 'var(--color-blush)',
                                                 marginBottom: '0.5rem',
                                             }}
                                         >

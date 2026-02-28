@@ -8,12 +8,12 @@ export default function FeaturedTreatments() {
     const activeTreatment = treatments[activeTab]
 
     return (
-        <section className="section" style={{ backgroundColor: 'var(--color-cream)', position: 'relative', overflow: 'hidden' }}>
+        <section className="section" style={{ backgroundColor: 'var(--color-linen)', position: 'relative', overflow: 'hidden' }}>
             <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                 <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                    <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>What We Do</span>
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Signature Treatments</h2>
-                    <p style={{ maxWidth: '560px', margin: '0 auto', fontSize: '1.0625rem', color: 'var(--color-stone)' }}>
+                    <span className="eyebrow" style={{ color: 'var(--color-blush)' }}>What We Do</span>
+                    <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--color-espresso)' }}>Signature Treatments</h2>
+                    <p style={{ maxWidth: '560px', margin: '0 auto', fontSize: '1.0625rem', color: 'var(--color-taupe)' }}>
                         Advanced aesthetic procedures designed to restore, enhance, and rejuvenate — delivered with clinical precision and an artistic eye.
                     </p>
                 </div>
@@ -27,9 +27,9 @@ export default function FeaturedTreatments() {
                             style={{
                                 padding: '0.75rem 1.5rem',
                                 borderRadius: '30px',
-                                border: `1px solid ${activeTab === idx ? 'var(--color-gold)' : 'var(--color-stone-muted)'}`,
-                                backgroundColor: activeTab === idx ? 'var(--color-gold)' : 'transparent',
-                                color: activeTab === idx ? '#fff' : 'var(--color-stone)',
+                                border: `1px solid ${activeTab === idx ? 'var(--color-blush)' : 'var(--color-taupe)'}`,
+                                backgroundColor: activeTab === idx ? 'var(--color-blush)' : 'transparent',
+                                color: activeTab === idx ? '#fff' : 'var(--color-charcoal)',
                                 fontSize: '0.875rem',
                                 fontWeight: 600,
                                 letterSpacing: '0.05em',
@@ -39,10 +39,16 @@ export default function FeaturedTreatments() {
                                 outline: 'none',
                             }}
                             onMouseEnter={e => {
-                                if (activeTab !== idx) e.currentTarget.style.borderColor = 'var(--color-gold)'
+                                if (activeTab !== idx) {
+                                    e.currentTarget.style.borderColor = 'var(--color-blush)';
+                                    e.currentTarget.style.color = 'var(--color-blush)';
+                                }
                             }}
                             onMouseLeave={e => {
-                                if (activeTab !== idx) e.currentTarget.style.borderColor = 'var(--color-stone-muted)'
+                                if (activeTab !== idx) {
+                                    e.currentTarget.style.borderColor = 'var(--color-taupe)';
+                                    e.currentTarget.style.color = 'var(--color-charcoal)';
+                                }
                             }}
                         >
                             {t.shortName}
@@ -82,26 +88,26 @@ export default function FeaturedTreatments() {
 
                     {/* Content Side */}
                     <div style={{ display: 'flex', flexDirection: 'column', padding: '2rem 0' }}>
-                        <h3 style={{ fontSize: '2.25rem', marginBottom: '0.5rem', color: 'var(--color-charcoal)' }}>{activeTreatment.name}</h3>
+                        <h3 style={{ fontSize: '2.25rem', marginBottom: '0.5rem', color: 'var(--color-espresso)' }}>{activeTreatment.name}</h3>
                         <p style={{ fontSize: '1.25rem', color: 'var(--color-gold)', fontStyle: 'italic', marginBottom: '1.5rem' }}>
                             {activeTreatment.tagline}
                         </p>
-                        <p style={{ fontSize: '1.0625rem', lineHeight: 1.8, color: 'var(--color-stone)', marginBottom: '2rem' }}>
+                        <p style={{ fontSize: '1.0625rem', lineHeight: 1.8, color: 'var(--color-taupe)', marginBottom: '2rem' }}>
                             {activeTreatment.description}
                         </p>
 
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', marginBottom: '2.5rem' }}>
                             <div>
-                                <span style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-stone-muted)', marginBottom: '0.25rem' }}>Price</span>
-                                <span style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--color-charcoal)' }}>{activeTreatment.price}</span>
+                                <span style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-taupe)', marginBottom: '0.25rem' }}>Price</span>
+                                <span style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--color-espresso)' }}>{activeTreatment.price}</span>
                             </div>
                             <div>
-                                <span style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-stone-muted)', marginBottom: '0.25rem' }}>Duration</span>
-                                <span style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--color-charcoal)' }}>{activeTreatment.duration}</span>
+                                <span style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-taupe)', marginBottom: '0.25rem' }}>Duration</span>
+                                <span style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--color-espresso)' }}>{activeTreatment.duration}</span>
                             </div>
                             <div>
-                                <span style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-stone-muted)', marginBottom: '0.25rem' }}>Downtime</span>
-                                <span style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--color-charcoal)' }}>{activeTreatment.downtime}</span>
+                                <span style={{ display: 'block', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-taupe)', marginBottom: '0.25rem' }}>Downtime</span>
+                                <span style={{ fontSize: '1.125rem', fontWeight: 600, color: 'var(--color-espresso)' }}>{activeTreatment.downtime}</span>
                             </div>
                         </div>
 
@@ -109,7 +115,7 @@ export default function FeaturedTreatments() {
                             <Link to={`/treatments/${activeTreatment.slug}`} className="btn btn-secondary" style={{ backgroundColor: 'var(--color-white)' }}>
                                 Explore Treatment <ArrowRight size={16} />
                             </Link>
-                            <Link to="/booking" className="btn btn-gold" style={{ padding: '0.875rem 2rem' }}>
+                            <Link to="/booking" className="btn btn-primary" style={{ padding: '0.875rem 2rem' }}>
                                 Book Consult
                             </Link>
                         </div>

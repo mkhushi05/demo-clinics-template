@@ -41,7 +41,7 @@ function StatItem({ number, label, delay, hasStar }: { number: string; label: st
                     fontSize: 'clamp(2.25rem, 4vw, 3.25rem)',
                     fontWeight: 300,
                     lineHeight: 1,
-                    color: 'var(--color-charcoal)',
+                    color: 'var(--color-espresso)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -51,7 +51,7 @@ function StatItem({ number, label, delay, hasStar }: { number: string; label: st
             >
                 {number}
                 {hasStar && (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--color-charcoal)', marginBottom: '0.15em' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--color-espresso)', marginBottom: '0.15em' }}>
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
                 )}
@@ -63,7 +63,7 @@ function StatItem({ number, label, delay, hasStar }: { number: string; label: st
                     fontWeight: 600,
                     letterSpacing: '0.22em',
                     textTransform: 'uppercase',
-                    color: 'var(--color-stone-muted)',
+                    color: 'var(--color-taupe)',
                 }}
             >
                 {label}
@@ -76,7 +76,7 @@ export default function StatsBar({ dark = false }: { dark?: boolean }) {
     return (
         <section
             style={{
-                backgroundColor: dark ? 'var(--color-charcoal)' : 'var(--color-ivory)',
+                backgroundColor: dark ? 'var(--color-espresso)' : 'var(--color-linen)',
                 padding: '4rem 0 4.5rem',
                 position: 'relative',
                 borderTop: '1px solid rgba(184,147,90,0.15)',
@@ -98,7 +98,7 @@ export default function StatsBar({ dark = false }: { dark?: boolean }) {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(2, 1fr)',
                         gap: '2.5rem 1.25rem',
-                        maxWidth: '800px',
+                        maxWidth: '640px',
                         margin: '0 auto',
                     }}
                     className="stats-grid"

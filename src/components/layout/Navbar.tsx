@@ -54,11 +54,7 @@ export default function Navbar() {
                     <Link
                         to="/"
                         style={{
-                            fontFamily: 'var(--font-heading)',
-                            fontSize: '1.5rem',
-                            fontWeight: 400,
-                            letterSpacing: '0.12em',
-                            color: isTransparent ? '#ffffff' : 'var(--color-charcoal)',
+                            color: isTransparent ? '#ffffff' : 'var(--color-espresso)',
                             transition: 'color 0.35s ease',
                         }}
                     >
@@ -80,8 +76,8 @@ export default function Navbar() {
                                     textTransform: 'uppercase' as const,
                                     color: isTransparent
                                         ? isActive ? '#ffffff' : 'rgba(255,255,255,0.75)'
-                                        : isActive ? 'var(--color-charcoal)' : 'var(--color-stone-light)',
-                                    borderBottom: isActive ? `1.5px solid ${isTransparent ? '#ffffff' : 'var(--color-gold)'}` : '1.5px solid transparent',
+                                        : isActive ? 'var(--color-espresso)' : 'var(--color-taupe)',
+                                    borderBottom: isActive ? `1.5px solid ${isTransparent ? '#ffffff' : 'var(--color-blush)'}` : '1.5px solid transparent',
                                     paddingBottom: '2px',
                                     transition: 'color 0.25s ease, border-color 0.25s ease',
                                 })}
@@ -97,11 +93,12 @@ export default function Navbar() {
                             to="/booking"
                             className="btn btn-primary"
                             style={{
-                                backgroundColor: isTransparent ? 'rgba(255,255,255,0.15)' : 'var(--color-charcoal)',
-                                borderColor: isTransparent ? 'rgba(255,255,255,0.6)' : 'var(--color-charcoal)',
+                                backgroundColor: isTransparent ? 'rgba(255,255,255,0.15)' : 'var(--color-blush)',
+                                borderColor: isTransparent ? 'rgba(255,255,255,0.6)' : 'var(--color-blush)',
                                 backdropFilter: isTransparent ? 'blur(4px)' : 'none',
                                 fontSize: '0.75rem',
                                 padding: '0.625rem 1.25rem',
+                                color: '#ffffff',
                             }}
                             id="nav-book-btn"
                         >
@@ -136,7 +133,7 @@ export default function Navbar() {
                         position: 'fixed',
                         inset: 0,
                         zIndex: 99,
-                        backgroundColor: 'var(--color-cream)',
+                        backgroundColor: 'var(--color-porcelain)',
                         display: 'flex',
                         flexDirection: 'column',
                         paddingTop: '72px',
@@ -152,9 +149,9 @@ export default function Navbar() {
                                     fontFamily: 'var(--font-heading)',
                                     fontSize: '2rem',
                                     fontWeight: 300,
-                                    color: isActive ? 'var(--color-charcoal)' : 'var(--color-stone-muted)',
+                                    color: isActive ? 'var(--color-espresso)' : 'var(--color-taupe)',
                                     padding: '0.75rem 0',
-                                    borderBottom: '1px solid var(--color-cream-dark)',
+                                    borderBottom: '1px solid var(--color-linen)',
                                 })}
                             >
                                 {label}
