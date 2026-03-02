@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 export interface GlanceItem {
@@ -16,95 +17,129 @@ interface TreatmentBeforeAfterProps {
 
 export default function TreatmentBeforeAfter({ shortName, beforeImg, afterImg, glanceItems }: TreatmentBeforeAfterProps) {
     return (
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 mb-24 lg:mb-28">
+        <section className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-0 lg:gap-14 mb-24 lg:mb-28 items-start">
 
-            {/* Images Column: Always side-by-side, takes up 8/12 cols on desktop */}
-            <div className="lg:col-span-8 grid grid-cols-2 gap-4 sm:gap-6">
-                {/* Column 1: Before */}
-                <div className="flex flex-col">
-                    <p
-                        className="text-[0.95rem] sm:text-[1rem] font-medium mb-3 sm:mb-4 text-[#2A2A2A]"
+            {/* LEFT: Before / After Images */}
+            <div>
+                {/* Before / After labels row */}
+                <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-3 sm:mb-4">
+                    {/* Before label */}
+                    <motion.p
+                        className="text-[1rem] sm:text-[1.1rem] font-normal text-[#2A2A2A]"
                         style={{ fontFamily: 'var(--font-heading)' }}
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{ duration: 0.55, ease: 'easeOut' }}
                     >
                         Before
-                    </p>
-                    <div
+                    </motion.p>
+                    {/* After label */}
+                    <motion.p
+                        className="text-[1rem] sm:text-[1.1rem] font-normal text-[#2A2A2A]"
+                        style={{ fontFamily: 'var(--font-heading)' }}
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{ duration: 0.55, ease: 'easeOut', delay: 0.1 }}
+                    >
+                        After
+                    </motion.p>
+                </div>
+
+                {/* Before / After images row */}
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                    {/* Before image */}
+                    <motion.div
                         className="w-full overflow-hidden rounded-xl bg-[#e8e2de]"
-                        style={{ aspectRatio: '3/4' }}
+                        style={{ aspectRatio: '2/3' }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                     >
                         <img
                             src={beforeImg}
                             alt={`${shortName} Before`}
                             className="w-full h-full object-cover object-top"
                         />
-                    </div>
-                </div>
+                    </motion.div>
 
-                {/* Column 2: After */}
-                <div className="flex flex-col">
-                    <p
-                        className="text-[0.95rem] sm:text-[1rem] font-medium mb-3 sm:mb-4 text-[#2A2A2A]"
-                        style={{ fontFamily: 'var(--font-heading)' }}
-                    >
-                        After
-                    </p>
-                    <div
+                    {/* After image */}
+                    <motion.div
                         className="w-full overflow-hidden rounded-xl bg-[#e8e2de]"
-                        style={{ aspectRatio: '3/4' }}
+                        style={{ aspectRatio: '2/3' }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
                     >
                         <img
                             src={afterImg}
                             alt={`${shortName} After`}
                             className="w-full h-full object-cover object-top"
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
-            {/* Column 3: At a Glance */}
-            <div className="lg:col-span-4 flex flex-col pt-4 lg:pt-0">
+            {/* RIGHT: At a Glance */}
+            <div className="flex flex-col pt-8 lg:pt-0">
+                {/* Heading — always visible, not animated out */}
                 <p
-                    className="text-[1.2rem] font-medium mb-6 text-[#2A2A2A]"
+                    className="text-[1.15rem] sm:text-[1.25rem] font-normal text-[#2A2A2A] mb-5"
                     style={{ fontFamily: 'var(--font-heading)' }}
                 >
                     {shortName} at a glance
                 </p>
-                <div className="w-full h-[1.5px] bg-[#2A2A2A]" />
+                <div className="w-full h-[1px] bg-[#2A2A2A] mb-0" />
 
                 <div className="flex flex-col w-full">
                     {glanceItems.map((item, i) => (
-                        <div key={i} className="py-6 flex flex-col justify-center border-b border-[rgba(0,0,0,0.85)]">
-                            <div className="flex items-center gap-4 mb-3">
-                                <div className="text-[#2A2A2A] flex-shrink-0 w-[22px] h-[22px]">
+                        <motion.div
+                            key={i}
+                            className="py-5 flex flex-col justify-center border-b border-[rgba(0,0,0,0.12)]"
+                            initial={{ opacity: 0, y: -14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-40px' }}
+                            transition={{ duration: 0.55, ease: 'easeOut', delay: i * 0.12 }}
+                        >
+                            <div className="flex items-center gap-3.5 mb-1.5">
+                                <div className="text-[#2A2A2A] flex-shrink-0 w-[20px] h-[20px]">
                                     {item.icon}
                                 </div>
                                 <p
-                                    className="text-[1rem] font-medium text-[#2A2A2A]"
+                                    className="text-[0.95rem] font-medium text-[#2A2A2A]"
                                     style={{ fontFamily: 'var(--font-body)' }}
                                 >
                                     {item.label}
                                 </p>
                             </div>
                             <p
-                                className="text-[1rem] font-light text-[#7a7a7a]"
+                                className="text-[0.95rem] font-light text-[#7a7a7a] pl-8"
                                 style={{ fontFamily: 'var(--font-body)' }}
                             >
                                 {item.value}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
-                <div className="my-8 w-full">
+                <motion.div
+                    className="mt-7 w-full"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.55, ease: 'easeOut', delay: glanceItems.length * 0.12 }}
+                >
                     <Link
                         to="/booking"
-                        className="group flex items-center justify-center gap-3 bg-[#2A2522] text-[#F9F7F5] py-4 px-8 rounded-[2rem] text-[1rem] font-medium tracking-wide transition-all duration-300 hover:bg-[#1a1715] hover:scale-[1.02] shadow-sm w-full"
+                        className="group flex items-center justify-center gap-3 bg-[#2A2522] text-[#F9F7F5] py-3.5 px-7 rounded-full text-[0.9rem] font-light tracking-wide transition-all duration-300 hover:bg-[#1a1715] hover:scale-[1.02] active:scale-[0.98] shadow-sm w-full"
                         style={{ fontFamily: 'var(--font-body)' }}
                     >
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:scale-110"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
-                        Speak with our experts
+                        View price list
                     </Link>
-                </div>
+                </motion.div>
             </div>
 
         </section>

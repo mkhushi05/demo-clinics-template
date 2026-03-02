@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom'
-import { ChevronDown, CheckCircle, Clock, TrendingUp } from 'lucide-react'
+import { ChevronDown, CheckCircle, Clock, TrendingUp, AlertTriangle, BarChart2 } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
 import { getTreatmentBySlug } from '@/data/treatments'
 import { useState } from 'react'
@@ -13,9 +13,9 @@ export default function TreatmentDetailPage() {
 
     if (!treatment) return <Navigate to="/treatments" replace />
 
-    // Consistent professional portrait pairs for Before/After
-    const beforeImg = "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800&h=1000"
-    const afterImg = "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=800&h=1000"
+    // Landscape face treatment before/after images
+    const beforeImg = "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=900&h=675"
+    const afterImg = "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=900&h=675"
     const secondaryImg = "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=1200"
 
     const glanceItems: GlanceItem[] = [
@@ -27,12 +27,22 @@ export default function TreatmentDetailPage() {
         {
             icon: <TrendingUp size={16} strokeWidth={1.5} />,
             label: 'Results',
-            value: 'Immediate results'
+            value: 'Last 4 – 6 months'
+        },
+        {
+            icon: <AlertTriangle size={16} strokeWidth={1.5} />,
+            label: 'Risks',
+            value: 'Low risk when performed correctly'
         },
         {
             icon: <CheckCircle size={16} strokeWidth={1.5} />,
             label: 'Downtime',
-            value: treatment.downtime || 'Varies by treatment'
+            value: treatment.downtime || 'Immediate return to daily routine'
+        },
+        {
+            icon: <BarChart2 size={16} strokeWidth={1.5} />,
+            label: 'When will I see results?',
+            value: 'Up to 2 weeks'
         }
     ];
 
@@ -47,7 +57,7 @@ export default function TreatmentDetailPage() {
             {/* Desktop spacer for fixed header (96px) + small gap */}
             <div className="pt-[100px] lg:pt-[130px]"></div>
 
-            <main className="container mx-auto px-5 lg:px-12 max-w-[1200px]">
+            <main className="w-full mx-auto px-5 lg:px-12 xl:px-20">
 
                 <TreatmentHero
                     name={treatment.name}
@@ -55,19 +65,13 @@ export default function TreatmentDetailPage() {
                     image={treatment.image}
                 />
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <TreatmentBeforeAfter
-                        shortName={treatment.shortName}
-                        beforeImg={beforeImg}
-                        afterImg={afterImg}
-                        glanceItems={glanceItems}
-                    />
-                </motion.div>
+                {/* Before/After + At a Glance — no motion wrapper, handles its own animations */}
+                <TreatmentBeforeAfter
+                    shortName={treatment.shortName}
+                    beforeImg={beforeImg}
+                    afterImg={afterImg}
+                    glanceItems={glanceItems}
+                />
 
                 {/* Alternating Blocks Container */}
                 <div className="w-full max-w-[1200px] mx-auto flex flex-col gap-24 lg:gap-32 pb-16">
