@@ -17,15 +17,36 @@ export default function AboutPage() {
             <section
                 style={{
                     position: 'relative',
-                    padding: '8rem 1rem 6rem',
-                    backgroundColor: 'var(--color-cream)',
+                    padding: '12rem 1rem 10rem',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     textAlign: 'center',
+                    overflow: 'hidden',
                 }}
             >
+                {/* BG image */}
+                <div
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundImage: 'url(/src/assets/images/aboutushero.png)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        zIndex: -1,
+                    }}
+                />
+
+                {/* Optional: Subtle overlay to ensure text readability if needed */}
+                <div
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'rgba(255, 255, 255, 0.4)',
+                        zIndex: -1,
+                    }}
+                />
                 <div className="container" style={{ maxWidth: '800px' }}>
                     <FadeIn>
                         <h1

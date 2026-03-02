@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
 import FadeIn from '@/components/animations/FadeIn'
 import { treatments } from '@/data/treatments'
@@ -80,211 +79,265 @@ export default function TreatmentsPage() {
                 </div>
             </section>
 
-            {/* ── Main Treatments ── */}
-            <section style={{ backgroundColor: 'var(--color-cream)', padding: '5rem 0 7rem' }}>
-                <div className="container">
-                    {/* Category filter pills */}
-                    <FadeIn>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem', justifyContent: 'center', marginBottom: '4rem' }}>
-                            {categories.map(cat => (
+            {/* ─── Main Treatments ─── */}
+            <section style={{ backgroundColor: 'var(--color-cream)', paddingTop: '3.5rem', paddingBottom: '7rem' }}>
+
+                {/* ── Bespoke Category Filter ── */}
+                <FadeIn>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginBottom: '3.5rem',
+                        padding: '0 1.5rem',
+                    }}>
+                        <div style={{
+                            position: 'relative',
+                            display: 'inline-flex',
+                            gap: '0',
+                            borderBottom: '1px solid rgba(26,22,20,0.1)',
+                            paddingBottom: '0',
+                        }}>
+                            {categories.map((cat) => (
                                 <button
                                     key={cat}
                                     onClick={() => setActiveCategory(cat)}
                                     style={{
-                                        fontFamily: 'var(--font-body)',
-                                        fontSize: '0.8125rem',
-                                        fontWeight: 500,
-                                        letterSpacing: '0.08em',
-                                        padding: '0.6rem 1.5rem',
-                                        borderRadius: '9999px',
-                                        border: '1.5px solid',
+                                        fontFamily: 'var(--font-heading)',
+                                        fontStyle: 'italic',
+                                        fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                                        fontWeight: 400,
+                                        letterSpacing: '0.02em',
+                                        padding: '0.5rem 1.75rem 1rem',
+                                        background: 'none',
+                                        border: 'none',
+                                        borderBottom: activeCategory === cat ? '2px solid var(--color-charcoal)' : '2px solid transparent',
                                         cursor: 'pointer',
-                                        transition: 'all 0.25s ease',
-                                        backgroundColor: activeCategory === cat ? 'var(--color-charcoal)' : 'transparent',
-                                        borderColor: activeCategory === cat ? 'var(--color-charcoal)' : 'rgba(26,22,20,0.2)',
-                                        color: activeCategory === cat ? '#ffffff' : 'var(--color-stone-light)',
+                                        transition: 'all 0.3s ease',
+                                        color: activeCategory === cat ? 'var(--color-charcoal)' : 'rgba(26,22,20,0.35)',
+                                        marginBottom: '-1px',
+                                        whiteSpace: 'nowrap',
                                     }}
                                 >
                                     {cat}
                                 </button>
                             ))}
                         </div>
-                    </FadeIn>
+                    </div>
+                </FadeIn>
 
-                    {/* Treatment Grid */}
-                    <div className="treatments-grid">
-                        {(filtered.length > 0 ? filtered : treatments).map((t: any, i: number) => {
-                            return (
-                                <FadeIn key={t.slug} delay={i * 50}>
-                                    <Link to={`/treatments/${t.slug}`} className="treatment-grid-card">
-                                        {/* Background Image */}
-                                        <div className="treatment-grid-image">
-                                            <img
-                                                src={t.image}
-                                                alt={t.name}
-                                                loading="lazy"
-                                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                            />
-                                            {/* Gradient Overlay */}
-                                            <div className="treatment-grid-overlay" />
+                {/* ── Full-bleed Treatment Grid ── */}
+                <div className="tx-grid-outer">
+                    <div className="tx-grid">
+                        {(filtered.length > 0 ? filtered : treatments).map((t: any, i: number) => (
+                            <FadeIn key={t.slug} delay={i * 60}>
+                                <Link to={`/treatments/${t.slug}`} className="tx-card">
+                                    {/* Image */}
+                                    <div className="tx-card-img">
+                                        <img
+                                            src={t.image}
+                                            alt={t.name}
+                                            loading="lazy"
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s cubic-bezier(0.25,1,0.5,1)' }}
+                                        />
+                                    </div>
+                                    {/* Gradient overlay */}
+                                    <div className="tx-card-overlay" />
+
+                                    {/* Bottom text row */}
+                                    <div className="tx-card-content">
+                                        <h2 className="tx-card-title">{t.name}</h2>
+                                        <div className="tx-card-arrow">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                                         </div>
+                                    </div>
 
-                                        {/* Content inside the card */}
-                                        <div className="treatment-grid-content">
-                                            <h2 className="treatment-grid-title">{t.name}</h2>
-
-                                            {/* Revealed on hover */}
-                                            <div className="treatment-grid-hover-reveal">
-                                                <p className="treatment-grid-desc">{t.tagline}</p>
-                                                <div className="treatment-grid-action">
-                                                    <span style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Discover</span>
-                                                    <ArrowRight size={14} />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </FadeIn>
-                            );
-                        })}
+                                    {/* Hover desc */}
+                                    <p className="tx-card-desc">{t.tagline}</p>
+                                </Link>
+                            </FadeIn>
+                        ))}
                     </div>
                 </div>
 
                 <style>{`
-                    .treatments-grid {
+                    /* ── Outer wrapper: full-width with symmetrical padding ── */
+                    .tx-grid-outer {
+                        width: 100%;
+                        padding: 0 1.5rem;
+                        box-sizing: border-box;
+                    }
+
+                    @media (min-width: 768px) {
+                        .tx-grid-outer {
+                            padding: 0 2rem;
+                        }
+                    }
+
+                    /* ── Grid: 1 col on mobile, 3 on desktop ── */
+                    .tx-grid {
                         display: grid;
                         grid-template-columns: 1fr;
-                        gap: 1.5rem;
+                        gap: 1rem;
                     }
-                    
+
                     @media (min-width: 768px) {
-                        .treatments-grid {
-                            grid-template-columns: repeat(2, 1fr);
-                        }
-                    }
-
-                    @media (min-width: 1024px) {
-                        .treatments-grid {
+                        .tx-grid {
                             grid-template-columns: repeat(3, 1fr);
+                            gap: 1.25rem;
                         }
                     }
 
-                    .treatment-grid-card {
-                        display: block;
+                    /* ── Card ── */
+                    .tx-card {
                         position: relative;
+                        display: block;
                         width: 100%;
                         aspect-ratio: 4 / 5;
-                        border-radius: 1rem;
                         overflow: hidden;
                         text-decoration: none;
                         cursor: pointer;
                         isolation: isolate;
+                        background: #111;
+                        border-radius: 0.75rem;
                     }
 
-                    .treatment-grid-image {
+                    /* Keep image as an absolute fill, use the img element */
+                    .tx-card-img {
                         position: absolute;
                         inset: 0;
                         z-index: 1;
-                        border-radius: inherit;
-                        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
                     }
 
-                    .treatment-grid-overlay {
+                    /* Persistent gradient so name is always legible */
+                    .tx-card-overlay {
                         position: absolute;
                         inset: 0;
-                        border-radius: inherit;
+                        z-index: 2;
                         background: linear-gradient(
                             to top,
-                            rgba(0, 0, 0, 0.85) 0%,
-                            rgba(0, 0, 0, 0.4) 35%,
-                            transparent 60%
+                            rgba(0,0,0,0.78) 0%,
+                            rgba(0,0,0,0.28) 40%,
+                            transparent 65%
                         );
-                        transition: all 0.5s ease;
+                        transition: background 0.5s ease;
                     }
 
-                    .treatment-grid-content {
+                    .tx-card:hover .tx-card-overlay {
+                        background: linear-gradient(
+                            to top,
+                            rgba(0,0,0,0.92) 0%,
+                            rgba(0,0,0,0.55) 55%,
+                            rgba(0,0,0,0.15) 100%
+                        );
+                    }
+
+                    /* Zoom image on hover */
+                    .tx-card:hover .tx-card-img img {
+                        transform: scale(1.06);
+                    }
+
+                    /* Bottom content row */
+                    .tx-card-content {
                         position: absolute;
                         bottom: 0;
                         left: 0;
                         right: 0;
-                        padding: 2rem 1.5rem;
-                        z-index: 2;
+                        z-index: 3;
                         display: flex;
-                        flex-direction: column;
-                        justify-content: flex-end;
-                        color: #ffffff;
+                        align-items: flex-end;
+                        justify-content: space-between;
+                        padding: 1.75rem 1.75rem;
+                        transition: padding 0.35s ease;
                     }
 
-                    .treatment-grid-title {
-                        font-family: var(--font-body); /* Using sans-serif for modern look like reference */
-                        font-size: 1.35rem;
-                        font-weight: 500;
-                        margin: 0;
-                        color: #ffffff;
-                        transition: transform 0.4s ease;
-                        transform: translateY(20px);
+                    .tx-card:hover .tx-card-content {
+                        padding-bottom: 5.5rem;
                     }
 
-                    .treatment-grid-hover-reveal {
-                        opacity: 0;
-                        max-height: 0;
-                        overflow: hidden;
-                        transition: all 0.4s ease;
-                        transform: translateY(20px);
-                    }
-
-                    .treatment-grid-desc {
+                    .tx-card-title {
                         font-family: var(--font-body);
-                        font-size: 0.875rem;
-                        color: rgba(255, 255, 255, 0.7);
-                        margin: 0.75rem 0 1.25rem 0;
-                        line-height: 1.6;
+                        font-size: clamp(1.2rem, 2vw, 1.5rem);
+                        font-weight: 400;
+                        color: #ffffff;
+                        margin: 0;
+                        line-height: 1.25;
+                        letter-spacing: -0.01em;
                     }
 
-                    .treatment-grid-action {
+                    .tx-card-arrow {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 1.5px solid rgba(255,255,255,0.5);
                         display: flex;
                         align-items: center;
-                        gap: 0.5rem;
-                        color: var(--color-gold-light);
+                        justify-content: center;
+                        color: white;
+                        flex-shrink: 0;
+                        opacity: 0;
+                        transform: scale(0.8);
+                        transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
                     }
 
-                    /* --- Hover Effects --- */
-                    .treatment-grid-card:hover .treatment-grid-image {
-                        transform: scale(1.05);
-                    }
-
-                    .treatment-grid-card:hover .treatment-grid-overlay {
-                        background: linear-gradient(
-                            to top,
-                            rgba(0, 0, 0, 0.95) 0%,
-                            rgba(0, 0, 0, 0.7) 50%,
-                            rgba(0,0,0,0.2) 100%
-                        );
-                    }
-
-                    .treatment-grid-card:hover .treatment-grid-title {
-                        transform: translateY(0);
-                    }
-
-                    .treatment-grid-card:hover .treatment-grid-hover-reveal {
+                    .tx-card:hover .tx-card-arrow {
                         opacity: 1;
-                        max-height: 150px; /* arbitrary height to allow expansion */
+                        transform: scale(1);
+                        border-color: rgba(255,255,255,0.9);
+                        background: rgba(255,255,255,0.1);
+                    }
+
+                    /* Tagline that reveals on hover */
+                    .tx-card-desc {
+                        position: absolute;
+                        bottom: 1.75rem;
+                        left: 1.75rem;
+                        right: 4rem;
+                        z-index: 3;
+                        font-family: var(--font-body);
+                        font-size: 0.875rem;
+                        color: rgba(255,255,255,0.7);
+                        line-height: 1.6;
+                        margin: 0;
+                        opacity: 0;
+                        transform: translateY(8px);
+                        transition: all 0.35s ease 0.05s;
+                    }
+
+                    .tx-card:hover .tx-card-desc {
+                        opacity: 1;
                         transform: translateY(0);
-                        margin-top: 0.5rem;
                     }
                 `}</style>
             </section>
 
-            {/* ── Bottom CTA ── */}
-            <section style={{ backgroundColor: 'var(--color-ivory)', padding: '5rem 0', textAlign: 'center' }}>
-                <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
+            {/* ── Final CTA ── */}
+            <section style={{ backgroundColor: 'var(--color-charcoal)', padding: '7rem 0 8rem', position: 'relative', textAlign: 'center', overflow: 'hidden' }}>
+                {/* Ambient glow */}
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse, rgba(184,147,90,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <FadeIn>
-                        <h3 style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>Not sure where to start?</h3>
-                        <p style={{ marginBottom: '2rem' }}>
-                            That's exactly what the consultation is for. Come in, tell Elena what's been bothering you, and she'll give you an honest opinion on what will actually make a difference — no obligation, no upselling.
+                        <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>Ready When You Are</span>
+                        <h2 style={{ color: '#ffffff', marginBottom: '1.25rem', maxWidth: '700px', margin: '0 auto 1.25rem' }}>
+                            Still not sure?{' '}<em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>That's what the consultation is for.</em>
+                        </h2>
+                        <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '500px', margin: '0 auto 2.5rem', fontSize: '1.0625rem' }}>
+                            The free consultation is genuinely no-obligation. You can ask every question you've been sitting on, hear what Elena thinks, and decide from there. No pressure, ever.
                         </p>
-                        <Link to="/booking" className="btn btn-primary" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}>
-                            Book Free Consultation
-                        </Link>
+                        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                            <Link to="/booking" className="btn btn-gold" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem', boxShadow: '0 0 40px rgba(184,147,90,0.35)' }}>
+                                Book Free Consultation
+                            </Link>
+                            <a
+                                href="https://wa.me/440000000000"
+                                className="btn btn-secondary"
+                                style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#ffffff' }}
+                                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#ffffff'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-charcoal)'; }}
+                                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff'; }}
+                            >
+                                WhatsApp Us
+                            </a>
+                        </div>
                     </FadeIn>
                 </div>
             </section>
