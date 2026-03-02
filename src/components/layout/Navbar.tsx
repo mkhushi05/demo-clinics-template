@@ -208,7 +208,7 @@ export default function Navbar() {
                             <nav className="flex flex-col lg:flex-row flex-1 lg:items-center justify-between gap-12 lg:gap-20 pb-20 mt-10 lg:mt-0 min-h-full">
 
                                 {/* Links Column */}
-                                <div className="flex flex-col gap-6 lg:gap-8 justify-center">
+                                <div className="flex flex-col gap-6 lg:gap-8 justify-center items-center lg:items-start text-center lg:text-left w-full lg:w-auto">
                                     {navLinks.map(({ to, label }, i) => (
                                         <motion.div
                                             key={to}
@@ -216,6 +216,7 @@ export default function Navbar() {
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0, x: -30 }}
                                             transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                                            className="w-full"
                                         >
                                             <NavLink
                                                 to={to}
@@ -231,7 +232,7 @@ export default function Navbar() {
                                                     transition: 'color 0.3s ease, padding-left 0.3s ease',
                                                     display: 'block'
                                                 })}
-                                                className="hover:text-white hover:pl-4 lg:hover:pl-6"
+                                                className="hover:text-white lg:hover:pl-6 w-full text-center lg:text-left"
                                             >
                                                 {label}
                                             </NavLink>
@@ -241,32 +242,74 @@ export default function Navbar() {
 
                                 {/* Info / Contact Column */}
                                 <motion.div
-                                    className="flex flex-col gap-8 lg:w-[450px]"
+                                    className="info-column"
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 30 }}
                                     transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                                    style={{ display: 'flex', flexDirection: 'column', gap: '2rem', flex: 1, justifyContent: 'center' }}
                                 >
-                                    <div className="p-8 lg:p-12 rounded-[2rem] border border-white/5 bg-white/5 backdrop-blur-md">
-                                        <h3 className="text-white font-medium text-2xl lg:text-3xl mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
-                                            Ready to begin?
+                                    <div style={{
+                                        padding: '2.5rem 2rem',
+                                        borderRadius: '1.5rem',
+                                        border: '1px solid rgba(212,170,114,0.2)',
+                                        backgroundColor: 'rgba(212,170,114,0.06)',
+                                        textAlign: 'center',
+                                    }}>
+                                        <h3 style={{
+                                            color: '#ffffff',
+                                            fontFamily: 'var(--font-heading)',
+                                            fontSize: '1.75rem',
+                                            fontWeight: 400,
+                                            marginBottom: '1rem',
+                                        }}>
+                                            Ready to <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>begin?</em>
                                         </h3>
-                                        <p className="text-white/60 text-sm lg:text-base mb-10 leading-relaxed font-light" style={{ fontFamily: 'var(--font-body)' }}>
+                                        <p style={{
+                                            color: 'rgba(255,255,255,0.7)',
+                                            fontFamily: 'var(--font-body)',
+                                            fontSize: '0.9375rem',
+                                            lineHeight: 1.6,
+                                            marginBottom: '2rem',
+                                        }}>
                                             Schedule your bespoke consultation today and uncover the perfect treatment plan tailored to your natural beauty.
                                         </p>
                                         <Link
                                             to="/booking"
-                                            className="inline-flex items-center justify-center w-full bg-white text-[var(--color-espresso)] hover:bg-[var(--color-gold-dark)] hover:text-white transition-colors duration-300 rounded-full py-4 px-8 text-[0.85rem] uppercase tracking-widest font-medium"
                                             onClick={() => setMenuOpen(false)}
+                                            style={{
+                                                display: 'inline-flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                width: '100%',
+                                                backgroundColor: 'var(--color-gold)',
+                                                color: '#ffffff',
+                                                borderRadius: '9999px',
+                                                padding: '1.125rem',
+                                                fontFamily: 'var(--font-body)',
+                                                fontSize: '0.8125rem',
+                                                fontWeight: 600,
+                                                letterSpacing: '0.08em',
+                                                textTransform: 'uppercase',
+                                                textDecoration: 'none',
+                                                transition: 'all 0.3s ease',
+                                                boxShadow: '0 8px 25px rgba(184,147,90,0.25)',
+                                            }}
                                         >
                                             Book Consultation
                                         </Link>
                                     </div>
 
-                                    <div className="flex flex-col gap-3 text-white/50 text-sm tracking-wide px-4" style={{ fontFamily: 'var(--font-body)' }}>
-                                        <a href="mailto:hello@lumiereclinic.co.uk" className="hover:text-[var(--color-gold-dark)] transition-colors inline-block w-fit">hello@lumiereclinic.co.uk</a>
-                                        <a href="tel:01610000000" className="hover:text-[var(--color-gold-dark)] transition-colors inline-block w-fit">0161 000 0000</a>
-                                        <p className="mt-8 opacity-40 text-xs">© {new Date().getFullYear()} Lumière Aesthetics.<br />All rights reserved.</p>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', textAlign: 'center' }}>
+                                        <a href="mailto:hello@lumiereclinic.co.uk" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-body)', fontSize: '0.875rem', textDecoration: 'none' }}>
+                                            hello@lumiereclinic.co.uk
+                                        </a>
+                                        <a href="tel:01610000000" style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-body)', fontSize: '0.875rem', textDecoration: 'none' }}>
+                                            0161 000 0000
+                                        </a>
+                                        <p style={{ marginTop: '1.5rem', color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem', fontFamily: 'var(--font-body)' }}>
+                                            © {new Date().getFullYear()} Lumière Aesthetics. All rights reserved.
+                                        </p>
                                     </div>
                                 </motion.div>
 

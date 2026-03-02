@@ -7,8 +7,9 @@ export default function FloatingBookButton() {
 
     useEffect(() => {
         const onScroll = () => {
-            // Show button after scrolling down 400px (roughly past hero section)
-            setScrolled(window.scrollY > 400)
+            // Show button after scrolling past most of the hero section
+            const threshold = window.innerHeight ? window.innerHeight * 0.8 : 400;
+            setScrolled(window.scrollY > threshold);
         }
         window.addEventListener('scroll', onScroll, { passive: true })
         onScroll()
@@ -20,14 +21,13 @@ export default function FloatingBookButton() {
                 style={{
                     position: 'fixed',
                     bottom: '1.5rem',
-                    left: '50%',
-                    transform: `translateX(-50%) translateY(${scrolled ? '0' : '150%'})`,
+                    left: 0,
+                    right: 0,
+                    transform: `translateY(${scrolled ? '0' : '150%'})`,
                     opacity: scrolled ? 1 : 0,
                     zIndex: 90,
+                    pointerEvents: 'none',
                     transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease',
-                    width: 'calc(100% - 3rem)',
-                    maxWidth: '300px',
-                    pointerEvents: scrolled ? 'auto' : 'none',
                 }}
                 className="floating-book"
             >
@@ -35,9 +35,11 @@ export default function FloatingBookButton() {
                     to="/booking"
                     className="btn btn-primary"
                     style={{
+                        pointerEvents: scrolled ? 'auto' : 'none',
                         boxShadow: '0 8px 30px rgba(26, 22, 20, 0.3)',
                         gap: '0.5rem',
-                        width: '100%',
+                        width: 'calc(100% - 3rem)',
+                        maxWidth: '300px',
                         justifyContent: 'center'
                     }}
                     id="floating-book-btn"
@@ -51,7 +53,7 @@ export default function FloatingBookButton() {
             <style>{`
         .floating-book { display: none; }
         @media (max-width: 768px) {
-          .floating-book { display: flex; justify-content: center; }
+          .floating-book { display: flex; justify-content: center; align-items: center; }
         }
       `}</style>
         </>

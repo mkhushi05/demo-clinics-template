@@ -74,48 +74,46 @@ function StatItem({ number, label, delay, hasStar }: { number: string; label: st
 
 export default function StatsBar({ dark = false }: { dark?: boolean }) {
     return (
-        <section
-            style={{
-                backgroundColor: dark ? 'var(--color-espresso)' : 'var(--color-linen)',
-                padding: '4rem 0 4.5rem',
-                position: 'relative',
-                borderTop: '1px solid rgba(184,147,90,0.15)',
-            }}
-        >
-            {/* Subtle top glow transition */}
+        <>
             <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '1px',
-                background: 'linear-gradient(to right, transparent, rgba(184,147,90,0.3), transparent)',
-            }} />
-
-            <div className="container">
-                <div
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(2, 1fr)',
-                        gap: '2.5rem 1.25rem',
-                        maxWidth: '640px',
-                        margin: '0 auto',
-                    }}
-                    className="stats-grid"
-                >
-                    {stats.map((s, i) => (
-                        <StatItem key={s.label} {...s} delay={i * 150} />
-                    ))}
+                maxWidth: '960px',
+                margin: '0 auto',
+                position: 'relative',
+                transform: 'translateY(-5rem)',
+                zIndex: 10,
+                padding: '0 1rem',
+            }}>
+                <div style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.45)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.6)',
+                    borderRadius: '2rem',
+                    padding: '3.5rem 2rem',
+                    boxShadow: '0 30px 60px rgba(184, 147, 90, 0.08), 0 4px 15px rgba(0, 0, 0, 0.03)',
+                }}>
+                    <div
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(2, 1fr)',
+                            gap: '3rem 1.5rem',
+                        }}
+                        className="stats-grid"
+                    >
+                        {stats.map((s, i) => (
+                            <StatItem key={s.label} {...s} delay={i * 150} />
+                        ))}
+                    </div>
                 </div>
             </div>
             <style>{`
                 @media (min-width: 900px) {
                     .stats-grid { 
                         grid-template-columns: repeat(4, 1fr) !important; 
-                        gap: 1.5rem !important;
+                        gap: 2rem !important;
                     }
                 }
             `}</style>
-        </section>
+        </>
     )
 }

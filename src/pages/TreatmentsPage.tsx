@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import SEOHead from '@/components/ui/SEOHead'
 import FadeIn from '@/components/animations/FadeIn'
 import { treatments } from '@/data/treatments'
@@ -86,42 +87,66 @@ export default function TreatmentsPage() {
                 <FadeIn>
                     <div style={{
                         display: 'flex',
+                        flexWrap: 'wrap',
                         justifyContent: 'center',
-                        marginBottom: '3.5rem',
+                        alignItems: 'center',
+                        gap: '1.25rem',
+                        marginBottom: '4.5rem',
                         padding: '0 1.5rem',
                     }}>
-                        <div style={{
-                            position: 'relative',
-                            display: 'inline-flex',
-                            gap: '0',
-                            borderBottom: '1px solid rgba(26,22,20,0.1)',
-                            paddingBottom: '0',
-                        }}>
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat}
-                                    onClick={() => setActiveCategory(cat)}
-                                    style={{
-                                        fontFamily: 'var(--font-heading)',
-                                        fontStyle: 'italic',
-                                        fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                                        fontWeight: 400,
-                                        letterSpacing: '0.02em',
-                                        padding: '0.5rem 1.75rem 1rem',
-                                        background: 'none',
-                                        border: 'none',
-                                        borderBottom: activeCategory === cat ? '2px solid var(--color-charcoal)' : '2px solid transparent',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.3s ease',
-                                        color: activeCategory === cat ? 'var(--color-charcoal)' : 'rgba(26,22,20,0.35)',
-                                        marginBottom: '-1px',
-                                        whiteSpace: 'nowrap',
-                                    }}
-                                >
-                                    {cat}
-                                </button>
-                            ))}
-                        </div>
+                        {categories.map((cat, idx) => {
+                            const isActive = activeCategory === cat;
+                            return (
+                                <div key={cat} style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                                    <button
+                                        onClick={() => setActiveCategory(cat)}
+                                        style={{
+                                            fontFamily: isActive ? 'var(--font-heading)' : 'var(--font-body)',
+                                            fontStyle: isActive ? 'italic' : 'normal',
+                                            fontSize: isActive ? '1.5rem' : '0.8125rem',
+                                            fontWeight: isActive ? 400 : 500,
+                                            letterSpacing: isActive ? '0.02em' : '0.15em',
+                                            textTransform: isActive ? 'none' : 'uppercase',
+                                            padding: '0.25rem',
+                                            background: 'none',
+                                            border: 'none',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+                                            color: isActive ? 'var(--color-gold-dark)' : 'rgba(26,22,20,0.4)',
+                                            lineHeight: 1,
+                                            position: 'relative'
+                                        }}
+                                        onMouseEnter={e => {
+                                            if (!isActive) {
+                                                e.currentTarget.style.color = 'var(--color-charcoal)';
+                                            }
+                                        }}
+                                        onMouseLeave={e => {
+                                            if (!isActive) {
+                                                e.currentTarget.style.color = 'rgba(26,22,20,0.4)';
+                                            }
+                                        }}
+                                    >
+                                        {cat}
+                                        {isActive && (
+                                            <span style={{
+                                                position: 'absolute',
+                                                bottom: '-4px',
+                                                left: '50%',
+                                                transform: 'translateX(-50%)',
+                                                width: '24px',
+                                                height: '1px',
+                                                backgroundColor: 'var(--color-gold)',
+                                                borderRadius: '2px'
+                                            }} />
+                                        )}
+                                    </button>
+                                    {idx < categories.length - 1 && (
+                                        <span style={{ color: 'rgba(184,147,90,0.25)', fontSize: '0.6rem' }}>◆</span>
+                                    )}
+                                </div>
+                            )
+                        })}
                     </div>
                 </FadeIn>
 
@@ -137,22 +162,19 @@ export default function TreatmentsPage() {
                                             src={t.image}
                                             alt={t.name}
                                             loading="lazy"
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s cubic-bezier(0.25,1,0.5,1)' }}
                                         />
                                     </div>
                                     {/* Gradient overlay */}
                                     <div className="tx-card-overlay" />
 
-                                    {/* Bottom text row */}
+                                    {/* Text Content Block */}
                                     <div className="tx-card-content">
-                                        <h2 className="tx-card-title">{t.name}</h2>
-                                        <div className="tx-card-arrow">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                                        </div>
+                                        <h2 className="tx-card-title">
+                                            {t.name}
+                                            <ArrowRight size={24} className="tx-card-arrow" strokeWidth={1.5} />
+                                        </h2>
+                                        <p className="tx-card-desc">{t.description}</p>
                                     </div>
-
-                                    {/* Hover desc */}
-                                    <p className="tx-card-desc">{t.tagline}</p>
                                 </Link>
                             </FadeIn>
                         ))}
@@ -160,16 +182,24 @@ export default function TreatmentsPage() {
                 </div>
 
                 <style>{`
-                    /* ── Outer wrapper: full-width with symmetrical padding ── */
+                    /* ── Outer wrapper: full-width to fill the page ── */
                     .tx-grid-outer {
                         width: 100%;
-                        padding: 0 1.5rem;
+                        padding: 0 0.5rem;
                         box-sizing: border-box;
+                        max-width: 100%; /* allows edge-to-edge stretch depending on container */
+                        margin: 0 auto;
                     }
 
                     @media (min-width: 768px) {
                         .tx-grid-outer {
-                            padding: 0 2rem;
+                            padding: 0 1rem;
+                        }
+                    }
+
+                    @media (min-width: 1600px) {
+                        .tx-grid-outer {
+                            max-width: 1920px;
                         }
                     }
 
@@ -177,13 +207,13 @@ export default function TreatmentsPage() {
                     .tx-grid {
                         display: grid;
                         grid-template-columns: 1fr;
-                        gap: 1rem;
+                        gap: 0.5rem;
                     }
 
                     @media (min-width: 768px) {
                         .tx-grid {
                             grid-template-columns: repeat(3, 1fr);
-                            gap: 1.25rem;
+                            gap: 0.5rem; /* tight gap like image 1 */
                         }
                     }
 
@@ -192,32 +222,40 @@ export default function TreatmentsPage() {
                         position: relative;
                         display: block;
                         width: 100%;
-                        aspect-ratio: 4 / 5;
+                        aspect-ratio: 1 / 1;
                         overflow: hidden;
                         text-decoration: none;
                         cursor: pointer;
                         isolation: isolate;
-                        background: #111;
-                        border-radius: 0.75rem;
+                        background: var(--color-charcoal);
+                        border-radius: 0.5rem; /* smaller tight corner radius */
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                        transform: translateZ(0); /* For Safari scrolling performance */
                     }
 
-                    /* Keep image as an absolute fill, use the img element */
                     .tx-card-img {
                         position: absolute;
                         inset: 0;
                         z-index: 1;
                     }
+                    
+                    .tx-card-img img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+                    }
 
-                    /* Persistent gradient so name is always legible */
+                    /* Overlay to ensure text legibility */
                     .tx-card-overlay {
                         position: absolute;
                         inset: 0;
                         z-index: 2;
                         background: linear-gradient(
                             to top,
-                            rgba(0,0,0,0.78) 0%,
-                            rgba(0,0,0,0.28) 40%,
-                            transparent 65%
+                            rgba(20, 15, 12, 0.8) 0%,
+                            rgba(20, 15, 12, 0.2) 40%,
+                            transparent 70%
                         );
                         transition: background 0.5s ease;
                     }
@@ -225,18 +263,18 @@ export default function TreatmentsPage() {
                     .tx-card:hover .tx-card-overlay {
                         background: linear-gradient(
                             to top,
-                            rgba(0,0,0,0.92) 0%,
-                            rgba(0,0,0,0.55) 55%,
-                            rgba(0,0,0,0.15) 100%
+                            rgba(15, 10, 8, 0.95) 0%,
+                            rgba(15, 10, 8, 0.7) 50%,
+                            rgba(15, 10, 8, 0.3) 100%
                         );
                     }
 
                     /* Zoom image on hover */
                     .tx-card:hover .tx-card-img img {
-                        transform: scale(1.06);
+                        transform: scale(1.05);
                     }
 
-                    /* Bottom content row */
+                    /* Content Block */
                     .tx-card-content {
                         position: absolute;
                         bottom: 0;
@@ -244,88 +282,138 @@ export default function TreatmentsPage() {
                         right: 0;
                         z-index: 3;
                         display: flex;
-                        align-items: flex-end;
-                        justify-content: space-between;
-                        padding: 1.75rem 1.75rem;
-                        transition: padding 0.35s ease;
-                    }
-
-                    .tx-card:hover .tx-card-content {
-                        padding-bottom: 5.5rem;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        padding: 2rem;
+                        height: 100%;
                     }
 
                     .tx-card-title {
-                        font-family: var(--font-body);
-                        font-size: clamp(1.2rem, 2vw, 1.5rem);
+                        font-family: var(--font-body); /* clean sans-serif like image 1 */
+                        font-size: clamp(1.5rem, 2vw, 2.125rem);
                         font-weight: 400;
                         color: #ffffff;
                         margin: 0;
-                        line-height: 1.25;
-                        letter-spacing: -0.01em;
+                        line-height: 1.2;
+                        letter-spacing: 0.02em;
+                        transform: translateY(0);
+                        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+                        display: flex;
+                        align-items: center;
                     }
 
                     .tx-card-arrow {
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 50%;
-                        border: 1.5px solid rgba(255,255,255,0.5);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: white;
-                        flex-shrink: 0;
                         opacity: 0;
-                        transform: scale(0.8);
-                        transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+                        transform: translateX(-10px);
+                        margin-left: 0.5rem;
+                        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+                        color: var(--color-gold-light);
                     }
 
+                    .tx-card:hover .tx-card-title {
+                        transform: translateY(-0.75rem);
+                    }
+                    
                     .tx-card:hover .tx-card-arrow {
                         opacity: 1;
-                        transform: scale(1);
-                        border-color: rgba(255,255,255,0.9);
-                        background: rgba(255,255,255,0.1);
+                        transform: translateX(0);
                     }
 
-                    /* Tagline that reveals on hover */
+                    /* Description that reveals on hover */
                     .tx-card-desc {
-                        position: absolute;
-                        bottom: 1.75rem;
-                        left: 1.75rem;
-                        right: 4rem;
-                        z-index: 3;
                         font-family: var(--font-body);
-                        font-size: 0.875rem;
-                        color: rgba(255,255,255,0.7);
-                        line-height: 1.6;
+                        font-size: 0.9375rem;
+                        color: rgba(255,255,255,0.85);
+                        line-height: 1.5;
                         margin: 0;
                         opacity: 0;
-                        transform: translateY(8px);
-                        transition: all 0.35s ease 0.05s;
+                        max-height: 0;
+                        overflow: hidden;
+                        transform: translateY(1rem);
+                        transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
                     }
 
                     .tx-card:hover .tx-card-desc {
                         opacity: 1;
+                        max-height: 10rem;
+                        margin-top: 0.25rem;
                         transform: translateY(0);
                     }
                 `}</style>
             </section>
 
             {/* ── Final CTA ── */}
-            <section style={{ backgroundColor: 'var(--color-charcoal)', padding: '7rem 0 8rem', position: 'relative', textAlign: 'center', overflow: 'hidden' }}>
-                {/* Ambient glow */}
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse, rgba(184,147,90,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+            <section style={{
+                backgroundColor: 'var(--color-charcoal)',
+                padding: '8rem 0 9rem',
+                position: 'relative',
+                textAlign: 'center',
+                overflow: 'hidden'
+            }}>
+                {/* Mesh Gradient Background */}
+                <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundImage: 'url(https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1920)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center 40%',
+                    opacity: 0.15,
+                    pointerEvents: 'none'
+                }} />
 
-                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                {/* Custom Mesh / Glow overlay */}
+                <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'radial-gradient(ellipse at 70% 30%, rgba(184,147,90,0.12) 0%, transparent 50%), radial-gradient(ellipse at 30% 80%, rgba(184,147,90,0.08) 0%, transparent 50%)',
+                    pointerEvents: 'none'
+                }} />
+                <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, var(--color-charcoal) 0%, rgba(26,22,20,0.7) 40%, var(--color-charcoal) 100%)',
+                    pointerEvents: 'none'
+                }} />
+
+                {/* Decorative Rings / Elements */}
+                {/* Large gentle rotating circle */}
+                <div style={{
+                    position: 'absolute',
+                    top: '-30%',
+                    right: '-10%',
+                    width: '50vw',
+                    minWidth: '600px',
+                    aspectRatio: '1/1',
+                    borderRadius: '50%',
+                    border: '1px solid rgba(212,170,114,0.06)',
+                    pointerEvents: 'none'
+                }} />
+
+                {/* Dashed rotating accent circle */}
+                <div style={{
+                    position: 'absolute',
+                    bottom: '-25%',
+                    left: '-15vw',
+                    width: '40vw',
+                    minWidth: '450px',
+                    aspectRatio: '1/1',
+                    borderRadius: '50%',
+                    border: '1px dashed rgba(212,170,114,0.12)',
+                    animation: 'rotateSlow 40s linear infinite',
+                    pointerEvents: 'none'
+                }} />
+
+                <div className="container" style={{ position: 'relative', zIndex: 2 }}>
                     <FadeIn>
                         <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>Ready When You Are</span>
-                        <h2 style={{ color: '#ffffff', marginBottom: '1.25rem', maxWidth: '700px', margin: '0 auto 1.25rem' }}>
-                            Still not sure?{' '}<em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>That's what the consultation is for.</em>
+                        <h2 style={{ color: '#ffffff', marginBottom: '1.25rem', maxWidth: '750px', margin: '0 auto 1.25rem', fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+                            Still not sure?{' '}<br className="hidden md:inline" /><em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)', fontWeight: 300 }}>That's what the consultation is for.</em>
                         </h2>
-                        <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '500px', margin: '0 auto 2.5rem', fontSize: '1.0625rem' }}>
+                        <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '520px', margin: '0 auto 2.5rem', fontSize: '1.0625rem', lineHeight: 1.8 }}>
                             The free consultation is genuinely no-obligation. You can ask every question you've been sitting on, hear what Elena thinks, and decide from there. No pressure, ever.
                         </p>
                         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Link to="/booking" className="btn btn-gold" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem', boxShadow: '0 0 40px rgba(184,147,90,0.35)' }}>
+                            <Link to="/booking" className="btn btn-gold" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem', boxShadow: '0 0 40px rgba(184,147,90,0.25)' }}>
                                 Book Free Consultation
                             </Link>
                             <a
