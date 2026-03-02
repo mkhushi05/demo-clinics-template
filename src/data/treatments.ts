@@ -5,58 +5,72 @@ export const treatments: Treatment[] = [
         slug: 'lip-fillers',
         name: 'Lip Fillers',
         shortName: 'Lip Fillers',
-        tagline: 'Natural volume. Defined shape. Your features, refined.',
+        tagline: 'More definition. More you. No trout pout.',
         description:
-            'Precise dermal filler placement to enhance volume, define the border, and improve symmetry — tailored to your facial structure.',
-        longDescription: `Lip filler is one of the most requested aesthetic treatments, and also one of the most misunderstood. At Lumière, we approach it medically: your lips are a feature within a face, not a product to be inflated.
+            'Natural-looking lip filler by a qualified nurse prescriber. More shape, more hydration, more confidence — nothing that screams "I\'ve had something done."',
+        longDescription: `If you've been thinking about lip filler for a while but keep stopping yourself because you're scared of looking overdone — you're not alone. That's the number one thing we hear.
 
-Before we ever pick up a syringe, Elena will assess your facial proportions, lip anatomy, natural borders, and — most importantly — what you actually want. We believe in enhancement, not transformation.
+The short version: natural lip filler is possible. It happens every day. But it depends almost entirely on who's doing it and how they approach it.
 
-Using only premium, CE-marked hyaluronic acid fillers with built-in lidocaine for comfort, we work in micro-increments. The result? A look so natural that you won't be identifiable as having 'had something done' — unless you choose to share it.
+At Lumière, Elena works in tiny increments, starting conservatively and building gradually based on your anatomy and what you actually want. She'll look at your whole face — not just your lips. She'll ask what you want to improve, and (just as importantly) what you never want to look like.
 
-Whether you're looking for subtle hydration and definition, or more noticeable volume, your treatment plan is entirely bespoke.`,
+We use premium CE-marked hyaluronic acid filler with built-in numbing, so discomfort is minimal. And because hyaluronic acid is fully reversible, nothing is permanent — you're always in control.
+
+Most of our first-time clients come in for 0.5ml — subtle definition, a little more hydration, and a bit of shape. No one at work will know. Your mum probably won't notice. But you will.`,
         image:
             'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=800',
         price: 'From £250',
         duration: '45–60 min',
         downtime: 'Minimal (24–48 hrs)',
         highlights: [
-            'Complimentary consultation included',
-            'Premium hyaluronic acid fillers with lidocaine',
-            'Micro-increment technique for natural results',
-            'Two-week review appointment included',
-            'Fully reversible — dissolvable with hyaluronidase',
+            'Free consultation — no obligation, no pressure',
+            'Conservative approach: we always start subtle',
+            'Premium filler with built-in numbing (less painful)',
+            'Two-week review included — we adjust if needed',
+            'Fully reversible if you ever change your mind',
         ],
         process: [
             {
-                title: 'Consultation',
-                desc: 'We assess your facial anatomy, discuss your goals honestly, and agree a treatment plan. No pressure, ever. Consultations are complimentary.',
+                title: 'Your consultation',
+                desc: 'Before we do anything, Elena sits with you and listens. You\'ll talk about your goals, your concerns, what you definitely don\'t want. She\'ll assess your lip anatomy and facial proportions, and tell you honestly what she thinks will work best. No pressure, no sales pitch.',
             },
             {
-                title: 'Preparation',
-                desc: 'Topical numbing cream is applied for 20–30 minutes before treatment, ensuring you\'re as comfortable as possible.',
+                title: 'Numbing',
+                desc: 'A topical numbing cream is applied for 20–30 minutes before treatment. Most people rate the discomfort as 2–3/10. The filler itself also contains lidocaine, so you\'ll feel comfortable throughout.',
             },
             {
                 title: 'Treatment',
-                desc: 'Using a fine needle or cannula, Elena precisely places small amounts of filler in targeted areas. The procedure takes 20–30 minutes.',
+                desc: 'Elena precisely places small amounts of filler using a fine needle or cannula. The whole thing takes 20–30 minutes. You\'ll see the result immediately, though some mild swelling is normal in the first 24-48 hours.',
             },
             {
-                title: 'Review',
-                desc: 'You\'ll be booked for a complimentary two-week review to assess the final result and make any micro-adjustments if needed.',
+                title: 'Two-week review',
+                desc: 'Included with your treatment at no extra charge. By two weeks, any swelling has settled and the filler has fully integrated. If you want a tiny bit more, or anything adjusted, this is when we do it.',
             },
         ],
         faqs: [
             {
-                q: 'Will my lips look unnatural or overdone?',
-                a: 'Our entire technique is built around natural results. We use micro-amounts of filler placed precisely to enhance what\'s already there. If a treatment would make you look "done", we won\'t perform it.',
+                q: 'Will my lips look obvious or overdone?',
+                a: 'This is the question we get most often — and the honest answer is: it completely depends on the practitioner and how much filler is used. Our approach is conservative by default. Elena uses micro-amounts placed precisely to add shape and hydration. If she thinks a treatment would make you look "done", she won\'t do it. We\'d rather send you home without filler than send you home with too much.',
             },
             {
-                q: 'How long do lip fillers last?',
-                a: 'Typically 6–12 months, depending on your metabolism, lifestyle, and the amount used. Sun exposure and vigorous exercise can break down filler faster.',
+                q: 'I\'m scared of the "trout pout" look — is that a real risk?',
+                a: 'Yes — if you go to the wrong place, or ask for too much volume. That\'s why who does it matters more than anything else. At Lumière, Elena won\'t overfill. She\'ll be honest if you\'re asking for something that will look unnatural on your face. The goal is always "nobody can tell but everyone says you look great."',
+            },
+            {
+                q: 'Does lip filler hurt?',
+                a: 'Less than most people expect. We use numbing cream beforehand, and the filler contains local anaesthetic. Most clients rate it 2–3 out of 10. If it\'s taking you from 0 to 10, something isn\'t right — that\'s not how it should feel.',
             },
             {
                 q: 'What if I don\'t like the result?',
-                a: 'Hyaluronic acid fillers are fully reversible. We can dissolve the product using hyaluronidase at any point, returning your lips to their natural state.',
+                a: 'Hyaluronic acid fillers are fully reversible using an enzyme called hyaluronidase. If you\'re ever unhappy — whether that\'s a week after treatment or a year later — we can dissolve the filler and return your lips to their natural state.',
+            },
+            {
+                q: 'How long does lip filler last?',
+                a: 'Typically 6–12 months. Your metabolism, lifestyle, and the amount placed all affect how quickly it breaks down. Vigorous exercise, heat, and sun exposure can speed this up. Your two-week review is a great time to ask about timelines specific to you.',
+            },
+            {
+                q: 'Can I come in the day before an event?',
+                a: 'We\'d recommend at least 10–14 days before an event. Initial swelling settles in 24–48 hours, but filler can look its absolute best at around 2 weeks when it\'s fully integrated. Plan ahead where you can.',
             },
         ],
     },
@@ -64,52 +78,68 @@ Whether you're looking for subtle hydration and definition, or more noticeable v
         slug: 'anti-wrinkle',
         name: 'Anti-Wrinkle Injections',
         shortName: 'Anti-Wrinkle',
-        tagline: 'Relaxed. Refreshed. Unmistakably you.',
+        tagline: 'Look rested. Not frozen.',
         description:
-            'Precisely dosed muscle relaxant injections that smooth expression lines and prevent new ones forming — without the frozen look.',
-        longDescription: `Anti-wrinkle injections (using prescription-only botulinum toxin type A) remain one of the most effective, most studied, and most requested treatments in aesthetic medicine. When administered correctly, the results are subtly transformative: you look rested, refreshed, and like a younger version of yourself — not like you've had anything done.
+            'Prescription anti-wrinkle injections that smooth forehead lines, frown lines, and crow\'s feet — so you look refreshed, not "done". Conservative dosing, two-week review included.',
+        longDescription: `You know what you don't want. You don't want to look like you can't move your face. You don't want that blank, surprised expression. You've seen it on people and it's exactly why you've been hesitant.
 
-The difference is in the dosing and placement. Over-treating leads to the frozen, surprised look that gives this treatment a bad reputation. Elena's approach is to treat conservatively, assess at two weeks, and top up if needed. This means first-time patients often start with a lighter dose that can be adjusted — rather than over-treating and waiting months for movement to return.
+Here's the truth: the "frozen" look is a dosing problem. It happens when too many units are injected into the wrong areas. It doesn't have to be that way.
 
-Treatments target the three classic expressive areas: forehead lines, glabellar lines (the '11s' between your brows), and crow's feet. We also offer brow lift, bunny lines, lip flip, and gummy smile correction.`,
+Elena's approach is deliberately conservative. She doses lighter to begin with, assesses you at two weeks when the full effect has settled, and only tops up if you both agree it needs it. That way, movement and expression are preserved — the lines just soften.
+
+Anti-wrinkle injections work on the three most common areas: forehead lines, the "11s" between your brows, and crow's feet at the corners of your eyes. We also offer brow lift, lip flip, bunny lines, and gummy smile correction.
+
+No downtime. Most people go straight back to work. Results start showing in 3–5 days, and are fully visible by 10–14 days — which is exactly when your complimentary review is booked.`,
         image:
             'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800',
         price: 'From £190',
         duration: '30–45 min',
         downtime: 'None',
         highlights: [
-            'Prescription-only product, administered by qualified prescriber',
-            'Conservative dosing methodology — avoid frozen results',
+            'Prescription-only product — only a qualified prescriber can do this legally',
+            'Conservative dosing — you won\'t look frozen',
             'Complimentary two-week review and top-up included',
-            'No downtime — return to normal activities same day',
-            'Results visible within 3–10 days, lasting 3–4 months',
+            'No downtime — back to work the same day',
+            'Results visible in 3–10 days, lasting 3–4 months',
         ],
         process: [
             {
                 title: 'Consultation',
-                desc: 'Elena assesses your facial movement, discusses your concerns, and explains realistic outcomes for your specific anatomy.',
+                desc: 'Elena assesses how your muscles move, where your lines form, and what results are realistic for your anatomy. She\'ll explain what she\'s doing and why — no jargon, just honesty.',
             },
             {
                 title: 'Treatment',
-                desc: 'Using an ultra-fine needle, precise units of botulinum toxin are injected into targeted muscles. Most patients describe a light pinching sensation.',
+                desc: 'Ultra-fine needle, a few quick injections, done in under 20 minutes. Most people compare it to a light pinch. You can drive home and go back to your normal day straight after.',
             },
             {
                 title: 'Two-week review',
-                desc: 'Included complimentary. We assess the result at the point of full effect and administer any top-up needed at no extra charge.',
+                desc: 'Included at no extra cost. By two weeks, the product has fully settled. You\'ll come back so Elena can assess the result and add any top-up needed. First-timers especially benefit from this — it takes the pressure off getting it perfect first time.',
             },
         ],
         faqs: [
             {
                 q: 'Will I look frozen or expressionless?',
-                a: 'Not with our approach. We dose conservatively, assess at two weeks, and top up if needed. Movement and expression are preserved — we simply soften the lines.',
+                a: 'Not with our approach. The frozen look comes from over-treatment. Elena doses conservatively, reviews you at two weeks, and tops up only if both of you agree it\'s needed. Expression and movement are preserved — the lines just soften.',
+            },
+            {
+                q: 'How is this different from a Botox clinic or a cheap salon?',
+                a: 'Botulinum toxin is a prescription-only medication in the UK. That means legally, only a qualified prescriber (doctor, dentist, nurse prescriber, or pharmacist prescriber) can carry out this treatment. Elena is an Independent Nurse Prescriber with a Level 7 postgraduate qualification in aesthetics. She has full medical training and emergency protocols in place. Cheap clinics often cut these corners — it\'s not worth the risk.',
             },
             {
                 q: 'Does it hurt?',
-                a: 'The injections are administered with an ultra-fine needle and take seconds per area. Most patients rate the discomfort as 2–3 out of 10. No numbing cream is usually required.',
+                a: 'It\'s a quick, light sting — most people rate it 2–3/10. The injections themselves take seconds per area. No numbing needed.',
             },
             {
                 q: 'When will I see results?',
-                a: 'The effects begin to appear within 3–5 days and are fully visible at 10–14 days. This is exactly when your complimentary review is scheduled.',
+                a: 'Effects start to show within 3–5 days and are fully visible at 10–14 days. Your complimentary review is booked for exactly this point.',
+            },
+            {
+                q: 'Can I go back to work after?',
+                a: 'Yes — there\'s no downtime. A few tiny injection points fade within hours. You can go straight back to work, but avoid intense exercise, lying flat, or rubbing the area for the rest of the day.',
+            },
+            {
+                q: 'I\'m worried about looking different at work. Will anyone notice?',
+                a: 'That\'s the point — they shouldn\'t. Done well, anti-wrinkle treatment makes you look refreshed and well-rested, not noticeably "changed". Colleagues might say you look well, or ask if you\'ve been on holiday. That\'s the goal.',
             },
         ],
     },
@@ -117,52 +147,60 @@ Treatments target the three classic expressive areas: forehead lines, glabellar 
         slug: 'skin-boosters',
         name: 'Skin Boosters',
         shortName: 'Skin Boosters',
-        tagline: 'Deep hydration. Bio-remodelling. A glow that lasts months.',
+        tagline: 'Your skin, but properly hydrated. From the inside.',
         description:
-            'Injectable hyaluronic acid-based treatments that work below the surface to improve skin quality, elasticity, and radiance from within.',
-        longDescription: `Skin boosters are a category of injectable treatment that differ fundamentally from dermal fillers. Rather than adding volume, they work by delivering highly concentrated hyaluronic acid (HA) into the dermis, where it behaves as a biological scaffold — attracting moisture, stimulating collagen production, and improving overall skin architecture.
+            'Injectable skin hydration that improves texture, elasticity, and glow from within. Not a filler — a skin health treatment. Profhilo is the UK\'s top-selling injectable for a reason.',
+        longDescription: `If you've ever noticed that your makeup doesn't sit right, your skin looks dull even when you're not tired, or that your skin just doesn't look as good as it used to — skin boosters might be exactly what you need.
 
-The result isn't a structural change; it's a quality change. Patients frequently describe their skin as looking 'lit from within', firmer to the touch, and noticeably smoother in texture. Makeup sits better. Skin feels plumper and more resilient.
+Profhilo is not a dermal filler. It doesn't add volume or change your structure. Instead, it delivers a high concentration of hyaluronic acid deep into the skin, where it acts as a biological scaffold — attracting moisture, stimulating your own collagen and elastin, and improving how your skin looks and feels from within.
 
-At Lumière, we offer Profhilo — the gold standard bio-remodelling treatment and the UK's bestselling injectable treatment. Profhilo is injected at five specific anatomical points on each cheek (called the BAP technique), making treatment fast, comfortable, and remarkably effective. A recommended course of two sessions, four weeks apart, delivers optimal results lasting up to six months.`,
+The results are skin that looks "lit from within". Smoother texture. Makeup that sits better. Skin that feels more resilient and plumper.
+
+Treatment is fast — 10 injection points across each cheek using the BAP (Bio-Aesthetic Points) technique, taking around 20 minutes. A course of two sessions four weeks apart gives the best results, then a single maintenance session every six months keeps things looking good.
+
+This is the treatment for anyone who wants better skin quality without wanting to "look different."`,
         image:
             'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800',
         price: 'From £300',
         duration: '30 min',
         downtime: 'Minimal (24 hrs)',
         highlights: [
-            'Profhilo — the UK\'s leading bio-remodelling treatment',
-            'BAP technique: fast, precise, minimal discomfort',
-            'Improves skin quality, not structure — the "skin health" treatment',
+            'Profhilo — the UK\'s bestselling injectable skin treatment',
+            'Improves skin quality, not structure — more glow, not more volume',
+            'Fast treatment: 10 points, 20 minutes',
             'Course of two recommended (4 weeks apart)',
             'Results last up to 6 months',
         ],
         process: [
             {
                 title: 'Consultation',
-                desc: 'We assess your skin condition, discuss realistic expectations, and confirm suitability. Skin boosters are suitable for most adults — they\'re about skin health, not correction.',
+                desc: 'We assess your skin condition, talk through what you\'ve noticed and what you want to improve. Skin boosters suit almost everyone — this is a skin health treatment, not a correction.',
             },
             {
-                title: 'Treatment',
-                desc: 'Using the BAP (Bio-Aesthetic Points) technique, Profhilo is injected at ten precise points across your face. The procedure takes around 20 minutes.',
+                title: 'Session one',
+                desc: 'Using the BAP technique, Profhilo is injected at 10 precise points across your face. 20 minutes. Mild swelling at injection sites resolves within 24 hours.',
             },
             {
-                title: 'Session 2',
-                desc: 'Four weeks after your first session, a second treatment reinforces the results and triggers further collagen and elastin stimulation.',
+                title: 'Session two (4 weeks later)',
+                desc: 'The second session reinforces results and triggers further collagen stimulation. This is when you\'ll really start to notice the difference in skin quality and glow.',
             },
             {
                 title: 'Maintenance',
-                desc: 'A single maintenance session every 6 months keeps results consistent. Many patients notice a visible cumulative improvement over time.',
+                desc: 'A single session every 6 months keeps results consistent. Many patients notice cumulative improvement over time — skin that looks better at 12 months than it did at 3.',
             },
         ],
         faqs: [
             {
-                q: 'Am I a good candidate for Profhilo?',
-                a: 'Almost anyone concerned with skin quality rather than volume is a good candidate. Particularly popular with patients in their 30s–50s who want to improve skin texture, hydration, and early signs of laxity.',
+                q: 'What\'s the difference between skin boosters and filler?',
+                a: 'Filler adds volume and changes structure. Skin boosters (like Profhilo) don\'t add volume — they hydrate from within and stimulate your own collagen. You won\'t look "different" — you\'ll just look like a healthier, more glowing version of yourself.',
             },
             {
-                q: 'Is there any downtime?',
-                a: 'Some mild swelling and small bumps at injection sites, resolving within 24 hours. Most patients return to work the same day. Avoid saunas, intense exercise, and alcohol for 24 hours.',
+                q: 'Will I look noticeably swollen after?',
+                a: 'You may have 10 small bumps at the injection sites which typically resolve within 24 hours. Most people come in on a Friday and look completely normal by the weekend. Avoid saunas, heavy exercise, and alcohol for 24 hours after.',
+            },
+            {
+                q: 'When will I see a difference?',
+                a: 'Skin feels more hydrated quite quickly — within a week or two. But the real improvement in skin quality, texture, and glow develops over 4–6 weeks as collagen stimulation kicks in. Your skin at 8 weeks will look noticably better than at 2 weeks.',
             },
             {
                 q: 'How many sessions do I need?',
@@ -174,168 +212,221 @@ At Lumière, we offer Profhilo — the gold standard bio-remodelling treatment a
         slug: 'tear-trough',
         name: 'Tear Trough Fillers',
         shortName: 'Tear Trough',
-        tagline: 'Brighten tired eyes. Restore lost volume.',
-        description: 'Advanced under-eye filler to reduce the appearance of dark circles, hollows, and bags.',
-        longDescription: `The delicate under-eye area is often the first to show signs of ageing, stress, and fatigue. Tear trough filler is a highly advanced, specialist treatment designed to restore lost volume in this area, effectively reducing the appearance of dark circles and hollows.\n\nAt Lumière, we use Teoxane Redensity II, specifically formulated and FDA-approved for the under-eye area. Using a micro-cannula technique, the product is placed deeply to provide structural support, lifting the tissue and reflecting light to brighten the eyes.\n\nThis is a complex area requiring expert anatomical knowledge. Elena performs a thorough assessment to ensure suitability, as not all dark circles are caused by volume loss.`,
+        tagline: 'Stop looking tired when you\'re not.',
+        description: 'Under-eye filler to reduce hollowing, dark shadows, and that permanent "tired" look — using specialist product and cannula technique for maximum safety.',
+        longDescription: `"I just look tired." That's what we hear most often from people who come in asking about this treatment.
+
+The under-eye area is one of the first places to show signs of stress, poor sleep, and ageing. As volume is lost, the skin can hollow slightly, which casts a shadow — creating the appearance of deep dark circles that no amount of concealer can fully fix.
+
+Tear trough filler is an advanced, specialist treatment that restores that lost volume, lifts the skin, and reflects light better — making the eyes look brighter and better rested.
+
+We use Teoxane Redensity II, a product specifically formulated for the delicate under-eye area. Instead of a needle, Elena uses a micro-cannula — which means less bruising, less risk, and a more precise, even result.
+
+This is a complex area that requires a practitioner with genuine anatomical knowledge. Elena performs a thorough assessment first to confirm suitability — not all under-eye shadows are caused by volume loss, and treating the wrong cause won't get the result you want.`,
         image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800&sat=-100',
         price: 'From £350',
         duration: '45 min',
         downtime: 'Up to 3 days',
-        category: 'Lip',
         highlights: [
-            'Premium Teoxane Redensity II filler',
-            'Cannula technique for maximum safety',
-            'Reduces hollows and shadowing',
-            'Instantly brighter, rested appearance',
+            'Specialist Teoxane Redensity II filler (designed for under-eye)',
+            'Cannula technique — less bruising, safer than needle',
+            'Addresses hollowing and shadowing that concealer can\'t fix',
+            'Thorough pre-assessment to confirm suitability',
+            'Results last 12–18 months in most patients',
         ],
         process: [
-            { title: 'Assessment', desc: 'Detailed evaluation of your under-eye area to confirm suitability.' },
-            { title: 'Treatment', desc: 'Using a blunt micro-cannula, filler is placed deeply across the tear trough ligament.' },
-            { title: 'Review', desc: 'A 3-week review to assess settling and top-up if necessary.' }
+            { title: 'Assessment', desc: 'A detailed evaluation of your under-eye area to understand the cause of your dark circles. Not all under-eye concerns are caused by volume loss — we\'ll confirm the right approach for you before treatment.' },
+            { title: 'Treatment', desc: 'Using a blunt micro-cannula for safety, Teoxane Redensity II is carefully placed across the tear trough. The result is immediate lightening of the shadows and a more lifted, rested appearance.' },
+            { title: 'Review', desc: 'A 3-week review appointment to assess how the product has settled and whether any minor top-up is needed.' }
         ],
         faqs: [
-            { q: 'Will it bruise?', a: 'Because we use a cannula rather than a needle, the risk of bruising is significantly reduced, though mild swelling is normal for a few days.' },
-            { q: 'How long does it last?', a: 'Tear trough filler typically lasts longer than other areas, often 12-18 months, as there is little movement in this area.' }
+            { q: 'Will it bruise?', a: 'Because we use a blunt micro-cannula rather than a needle, the risk of bruising is significantly lower than with other techniques. Some mild swelling for a few days is normal. We\'d suggest planning this away from any major events — a long weekend is ideal.' },
+            { q: 'I\'ve heard this area is risky — should I be worried?', a: 'The tear trough is a more complex area to treat, which is exactly why you shouldn\'t go to just anyone. Elena is trained in advanced techniques and vascular safety, and uses a cannula specifically to reduce risk. The assessment process is thorough — if you\'re not a suitable candidate, we\'ll tell you.' },
+            { q: 'How long does it last?', a: 'Tear trough filler typically lasts 12–18 months — longer than most areas because there\'s very little movement in this area.' }
         ]
     },
     {
         slug: 'rhinoplasty',
         name: 'Non-Surgical Rhinoplasty',
         shortName: 'Liquid Nose Job',
-        tagline: 'Straighten and refine without surgery.',
-        description: 'Strategic placement of dense dermal filler to camouflage dorsal humps, lift the tip, and correct asymmetry.',
-        longDescription: `Non-surgical rhinoplasty is a transformative procedure that alters the shape of the nose using dermal fillers, without the risks, cost, or downtime of surgery.\n\nBy strategically placing small volumes of dense, structural hyaluronic acid filler, we can camouflage a dorsal hump (making the nose appear straighter), lift a drooping tip, and correct mild asymmetries. Paradoxically, by adding product, the nose often appears smaller because it is more harmoniously proportioned with the rest of the face.\n\nSafety is our paramount concern. This is a high-risk anatomical area, and Elena's advanced training ensures the procedure is performed with the utmost precision and care, prioritising vascular safety above all.`,
+        tagline: 'Change how your nose looks. No surgery. No recovery.',
+        description: 'Dermal filler placed strategically to camouflage bumps, lift the tip, and create better balance — without going under the knife. Immediate results, no general anaesthetic.',
+        longDescription: `Surgery feels like a big step. Recovery time, general anaesthetic, the cost, the permanence of it. Non-surgical rhinoplasty offers a way to significantly change how your nose looks without any of that.
+
+By placing small amounts of dense dermal filler in precise locations, Elena can camouflage a dorsal bump to make the nose appear straighter, lift a drooping tip, and correct mild asymmetries. Counterintuitively — even though we're adding product — noses often look smaller after treatment because the proportions become more harmonious.
+
+Results are immediate. Recovery is minimal. And while the result isn't permanent in the way surgery is, most patients find they can maintain results with periodic top-ups.
+
+Safety is the absolute priority in this area. The nose has a complex blood supply — which is why this treatment must only be performed by an experienced practitioner with advanced training in vascular anatomy. Elena holds advanced complications management training and follows strict safety protocols for every treatment.`,
         image: 'https://images.unsplash.com/photo-1505322747495-6afdd3b70760?auto=format&fit=crop&q=80&w=800&sat=-100',
         price: 'From £395',
         duration: '45 min',
         downtime: 'Minimal (24 hrs)',
-        category: 'Lip',
         highlights: [
-            'Immediate transformative results',
-            'No general anaesthetic or surgery required',
-            'Camouflage humps and lift the tip',
-            'Advanced vascular safety protocols'
+            'Immediate results — visible straight after treatment',
+            'No general anaesthetic, no surgery, no recovery week',
+            'Camouflage bumps, lift the tip, improve symmetry',
+            'Advanced vascular safety protocols in place',
+            'Lasts 12–18 months with top-up to maintain'
         ],
         process: [
-            { title: 'Consultation', desc: 'Detailed assessment of nasal anatomy and aesthetic goals.' },
-            { title: 'Treatment', desc: 'Tiny boluses of dense filler are placed strategically along the bridge and tip.' },
-            { title: 'Review', desc: 'A strict 2-week review to ensure optimal integration and safety.' }
+            { title: 'Consultation', desc: 'Elena assesses your nasal anatomy from multiple angles to understand what\'s bothering you and what filler can realistically achieve. Important: she\'ll be honest if surgery is likely to give a better outcome for your specific concern.' },
+            { title: 'Treatment', desc: 'Tiny, precise amounts of dense structural filler are placed at specific points along the bridge and tip using a fine needle. The procedure takes around 20 minutes.' },
+            { title: 'Review', desc: 'A strict two-week review to assess how the filler has integrated and confirm your safety and satisfaction.' }
         ],
         faqs: [
-            { q: 'Is it painful?', a: 'The nose can be sensitive, but we use numbing cream and fillers containing lidocaine. Most find it entirely tolerable.' },
-            { q: 'Can it make my nose smaller?', a: 'While we are physically adding volume, straightening the bridge often creates an optical illusion that the nose is smaller and more refined.' }
+            { q: 'Can filler make my nose look smaller?', a: 'It can appear smaller, yes. By straightening the bridge and improving proportions, the nose sits more harmoniously in your face — which has the visual effect of making it look less prominent, even though we\'re technically adding volume.' },
+            { q: 'Is it painful?', a: 'We use numbing cream beforehand. The nose can be more sensitive than other areas, but most clients find it completely tolerable — a 3–4/10 at most.' },
+            { q: 'Is it safe?', a: 'In the right hands, yes. The nose area requires advanced anatomical knowledge due to its blood supply. Elena is trained in advanced vascular safety and complications management. This is an area where experience really matters — please don\'t choose solely on price.' }
         ]
     },
     {
         slug: 'cheek-enhancement',
         name: 'Cheek Enhancement',
         shortName: 'Cheek Fillers',
-        tagline: 'Restore mid-face volume and contour.',
-        description: 'Structural dermal fillers to lift the mid-face, restore lost volume, and define the cheekbones.',
-        longDescription: `The cheeks are the scaffolding of the face. As we age, we lose bone density and the fat pads in our mid-face descend, leading to a flattening of the cheeks and the formation of nasolabial folds (smile lines) and jowls.\n\nCheek enhancement aims to combat this by placing structural, high-G-prime dermal fillers along the zygomatic arch (cheekbone) and within the anterior mid-face. This not only restores a youthful, apple-cheeked volume but also acts to lift the lower face, indirectly softening the lines around the mouth.\n\nWe focus on subtle, elegant restoration rather than over-inflation, ensuring your contours look naturally supported.`,
+        tagline: 'Restore the lift you had five years ago.',
+        description: 'Structural cheek filler to restore lost mid-face volume, lift the lower face, and bring back the contour you\'ve noticed disappearing — without looking overdone.',
+        longDescription: `Have you noticed your face looking flatter? Your cheekbones less defined? More lines appearing around your mouth and nose? That's not just your imagination — and it's not just ageing. It's volume loss.
+
+As we get older, we lose bone density and the fat pads in our cheeks begin to descend. The effect is a flattening of the mid-face, which makes smile lines deeper and the lower face heavier.
+
+Cheek enhancement restores that lost volume by placing structural dermal filler along and above the cheekbone. This doesn't just restore the cheeks — it also acts as a support for the entire lower face, which can indirectly soften the smile lines and early jowling around the mouth.
+
+Done well, cheek filler looks completely natural — like your face from five years ago. Done badly, it creates the puffy, overfilled look. The difference is in technique and product placement — deep, structural placement gives a natural lift; superficial placement gives puffiness.
+
+Elena's approach focuses on structural restoration, not volume inflation.`,
         image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800&sat=-100',
         price: 'From £350',
         duration: '45 min',
         downtime: 'Minimal (24-48 hrs)',
-        category: 'Lip',
         highlights: [
-            'Lifts and supports the entire mid-to-lower face',
-            'Restores youthful Ogee curve',
-            'Softens nasolabial folds indirectly',
-            'Bespoke contouring tailored to your bone structure'
+            'Restores mid-face volume lost through ageing',
+            'Lifts and supports the entire lower face',
+            'Softens smile lines indirectly — without filler in that area',
+            'Structural placement — natural lift, not puffiness',
+            'Bespoke to your bone structure and degree of volume loss'
         ],
         process: [
-            { title: 'Consultation', desc: 'Full facial assessment to understand how mid-face volume loss is affecting your overall profile.' },
-            { title: 'Treatment', desc: 'Strategic injections using a needle or cannula to build structure along the cheekbone.' },
-            { title: 'Review', desc: 'A 2-week follow-up to assess the lift and integration.' }
+            { title: 'Consultation', desc: 'A full facial assessment to understand how your mid-face has changed over time and what restoration would look natural for your anatomy.' },
+            { title: 'Treatment', desc: 'Structural filler is placed using a needle or cannula along and above the cheekbone. You may look slightly swollen for 24-48 hours — this resolves to reveal the final result.' },
+            { title: 'Review', desc: 'A two-week review to assess the lift, integration, and final appearance.' }
         ],
         faqs: [
-            { q: 'Will I look "puffy"?', a: 'No. We use structural fillers placed deeply on the bone to provide lift, not superficial soft fillers that cause puffiness.' },
-            { q: 'How many syringes will I need?', a: 'This varies entirely on the degree of volume loss. Typically, patients require 1-2ml for noticeable but natural restoration.' }
+            { q: 'Will I look puffy or overfilled?', a: 'Not with our approach. The filler is placed deeply on the bone — this provides natural structural lift. Superficial filler placed in the soft tissue of the cheek is what creates puffiness. We don\'t do that.' },
+            { q: 'How much filler will I need?', a: 'This varies entirely based on your degree of volume loss. Most patients need 1–2ml across both cheeks for a noticeable but natural result. Elena will discuss her recommendation during consultation.' },
+            { q: 'Will it make my face look too wide?', a: 'No — for female patients, filler is placed to restore the apex of the cheek and provide lift, not to widen the face laterally. The result should look like more definition and structure, not a broader face.' }
         ]
     },
     {
         slug: 'chin-profiling',
         name: 'Chin Profiling',
         shortName: 'Chin Fillers',
-        tagline: 'Balance your profile. Define your jawline.',
-        description: 'Precise filler placement to project a recessed chin, creating harmony with the nose and lips.',
-        longDescription: `The chin plays a critical role in facial harmony and attractiveness, yet it is often overlooked. A recessed or 'weak' chin can make the nose appear larger than it is, the lips protrude, and contribute to the appearance of a double chin.\n\nChin profiling uses dense dermal fillers to elongate the face, project the chin forward, and define the transition between the jawline and the neck. By bringing the chin into alignment with the 'Ricketts line' (the ideal line connecting the tip of the nose to the chin), we can dramatically improve your side profile.\n\nFor male patients, we can widen the chin to create a stronger, more masculine lower face. For female patients, we focus on a refined, V-shape taper.`,
+        tagline: 'Better side profile. Better facial balance.',
+        description: 'Filler placed precisely on the chin to bring your side profile into balance — making the nose appear smaller, the face more defined, and the jawline sharper.',
+        longDescription: `Your chin plays a bigger role in your face than most people realise. A recessed chin makes the nose appear larger. It makes the lips look like they protrude more. It can make the face look heavier from the side. And it can contribute to the appearance of a double chin.
+
+Chin profiling uses dense, structural dermal filler to project the chin forward, elongate the face, and create better harmony between your nose, lips, and jawline.
+
+The improvement in side profile is one of the most dramatic results in non-surgical aesthetics — often clients are amazed at how different photographs look after this treatment.
+
+For women, Elena creates a refined, elegant projection that creates a cleaner jawline without masculinising the face. For male clients, we can create a broader, stronger chin that suits a more defined lower face.
+
+No surgery. No recovery. The difference is immediate.`,
         image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800&sat=-100',
         price: 'From £300',
         duration: '45 min',
         downtime: 'Minimal (24-48 hrs)',
-        category: 'Lip',
         highlights: [
             'Dramatically improves side profile balance',
-            'Can make the nose appear smaller',
-            'Helps tighten the appearance of the submental (under chin) area',
-            'Tailored to male (square) or female (tapered) aesthetics'
+            'Makes the nose appear smaller without touching it',
+            'Reduces the appearance of a double chin',
+            'Tailored separately for female (refined) and male (strong) aesthetics',
+            'Often combined with jawline filler for full lower-face definition'
         ],
         process: [
-            { title: 'Profile Analysis', desc: 'We assess your facial proportions from multiple angles, particularly the side profile.' },
-            { title: 'Treatment', desc: 'Dense filler is placed deeply onto the chin bone to provide forward projection and length.' },
-            { title: 'Review', desc: 'A follow-up at 2 weeks to ensure perfect symmetry and integration.' }
+            { title: 'Profile analysis', desc: 'Elena assesses your facial proportions from multiple angles — especially side-on. She\'ll show you what she\'s aiming to achieve before any treatment.' },
+            { title: 'Treatment', desc: 'Dense filler placed directly on the chin bone for projection and shape. 20–30 minutes. Some mild bruising or swelling in this area is possible for a couple of days.' },
+            { title: 'Review', desc: 'Two-week review to confirm symmetry, projection, and your satisfaction.' }
         ],
         faqs: [
-            { q: 'Can this help with my double chin?', a: 'Yes. By projecting the chin forward, the skin beneath the chin is pulled tighter, which can significantly reduce the appearance of a double chin.' },
-            { q: 'Does it feel hard?', a: 'Because the filler is placed deeply on the bone, it integrates with your own tissue and feels like your natural chin.' }
+            { q: 'Can this help with my double chin?', a: 'Yes. By projecting the chin forward, the skin and tissue beneath the chin tightens, which visually reduces the appearance of a double chin — often dramatically.' },
+            { q: 'Will it feel hard or unnatural?', a: 'Because the filler is placed deeply on the bone itself, it integrates with your existing tissue and feels just like your natural chin within a few weeks.' },
+            { q: 'Can I combine this with jawline treatment?', a: 'Absolutely — it\'s one of the most common combinations. Chin projection and jaw definition work together to create a complete lower-face transformation. Elena will advise on what combination is right for your goals and anatomy.' }
         ]
     },
     {
         slug: 'jawline-sculpting',
         name: 'Jawline Sculpting',
         shortName: 'Jawline Fillers',
-        tagline: 'Sharp, elegant definition. Reduced jowls.',
-        description: 'Creating a crisp, defined separation between the face and neck using structural dermal fillers.',
-        longDescription: `A sharp, defined jawline is a universal sign of youth and vitality. Over time, gravity, bone resorption, and skin laxity cause the jawline to soften and jowls to form, blurring the separation between the face and neck.\n\nJawline sculpting involves systematically placing high-density filler along the mandibular angle and body. This process strengthens the corner of the jaw, straightens the jawline itself, and camouflages early jowling by filling the pre-jowl sulcus.\n\nThis treatment is highly bespoke. We can create a sharp, chiselled look for men, or a soft, elegant definition for women that lifts the lower face without adding unwanted bulk.`,
+        tagline: 'Definition. Less jowl. A sharper you.',
+        description: 'Structural dermal filler placed along the jawline to create definition, camouflage early jowling, and sharpen the face-to-neck transition.',
+        longDescription: `A defined jawline is one of the clearest visual signals of a youthful face. As we age — or simply as genetics play out — the jawline softens, jowls form, and the crisp separation between face and neck starts to blur.
+
+Jawline sculpting places high-density structural filler systematically along the jaw. This reinforces the corner of the jaw, straightens the jaw edge, and fills the slight hollow that forms just in front of the jowl — which has the effect of camouflaging early jowling without lifting or pulling the skin.
+
+The result: a sharper, more defined lower face. A cleaner separation between your face and your neck. Something that looks like improved bone structure — because in effect, that's what it is.
+
+For women, the focus is on elegance and definition — a clean jawline without adding masculine width. For men, we can create a broader, angular, more defined jaw and angle.
+
+This is one of our most requested treatments by clients in their 30s and 40s who want to address early jowling or loss of definition without surgery.`,
         image: 'https://images.unsplash.com/photo-1542385317-5674c0c1b017?auto=format&fit=crop&q=80&w=800&sat=-100',
         price: 'From £500',
         duration: '60 min',
         downtime: 'Mild swelling (2-3 days)',
-        category: 'Lip',
         highlights: [
-            'Creates a sharp facial frame and neck separation',
-            'Camouflages early signs of jowling',
-            'Strengthens the mandibular angle',
-            'Often combined with chin profiling for maximum impact'
+            'Creates a defined lower-face frame and neck separation',
+            'Camouflages early jowling without surgery',
+            'Bespoke for your anatomy — we don\'t masculinise female faces',
+            'Often combined with chin profiling',
+            'Volume required varies — Elena will advise based on your anatomy'
         ],
         process: [
-            { title: 'Consultation', desc: 'We evaluate jaw width, jowl severity, and neck laxity to determine the correct approach.' },
-            { title: 'Treatment', desc: 'Using a cannula for safety and comfort, thick structural filler is laid down along the jawbone.' },
-            { title: 'Review', desc: 'A thorough review at 2-3 weeks once any initial swelling has subsided.' }
+            { title: 'Consultation', desc: 'A detailed look at your jaw width, jowl severity, how much definition you have (or want), and whether combining with chin projection would give a better result.' },
+            { title: 'Treatment', desc: 'Using a cannula for safety and comfort, high-density filler is placed along the jawbone. Treatment takes around 45–60 minutes. Mild swelling for 2–3 days is common.' },
+            { title: 'Review', desc: 'Three-week review once any initial swelling has fully resolved — so we can assess the true result and make any adjustments.' }
         ],
         faqs: [
-            { q: 'Will it make my face look too wide?', a: 'If you are female, we use techniques that pull the tissue back and sharpen the angle without adding lateral width, avoiding a masculinising effect.' },
-            { q: 'How much filler is needed?', a: 'The jawline requires a significant amount of product to create a visible change. Most patients require anywhere from 2ml to 4ml across the jaw and chin.' }
+            { q: 'Will it make my face look wider?', a: 'For female patients, we work to sharpen and define the jaw rather than widen it. The goal is a cleaner, sharper separation between face and neck — not a broader face.' },
+            { q: 'How much filler does this take?', a: 'The jawline is a large area and requires a meaningful amount of product to create a visible improvement. Most patients need 2–4ml across the jaw and chin combined. Elena will give you an honest recommendation during consultation.' },
+            { q: 'Can this fix my jowls properly?', a: 'It can significantly improve the appearance of early jowling. For more advanced jowling, a combination of treatments may be required — Elena will advise honestly about what\'s achievable non-surgically and when surgery might be a better option.' }
         ]
     },
     {
         slug: 'microneedling',
         name: 'Medical Microneedling',
         shortName: 'Microneedling',
-        tagline: 'Collagen induction therapy for flawless texture.',
-        description: 'Advanced skin needling to treat acne scarring, pigmentation, large pores, and fine lines.',
-        longDescription: `Medical microneedling (also known as collagen induction therapy) is a powerhouse treatment for overall skin rejuvenation. Using a medical-grade device (such as SkinPen), we create thousands of controlled micro-injuries in the dermis.\n\nThis process triggers the body's natural wound-healing cascade, stimulating the production of new collagen and elastin in a highly controlled manner. The result is a total restructuring of the skin's surface.\n\nIt is highly effective for reducing the appearance of acne scars, shrinking enlarged pores, smoothing fine lines, and breaking up stubborn hyperpigmentation. We finish the treatment with a cooling, hydrating hyaluronic acid mask to soothe the skin and accelerate healing.`,
+        tagline: 'Better skin texture. Fewer scars. More confidence.',
+        description: 'Medical-grade microneedling that stimulates your own collagen to improve acne scarring, enlarged pores, fine lines, and uneven texture — visible results over 4–6 weeks.',
+        longDescription: `If your skin concern is texture rather than volume — acne scarring, enlarged pores, rough or uneven skin, fine lines — microneedling is one of the most effective treatments available.
+
+Medical microneedling (or collagen induction therapy) uses a medical-grade device to create thousands of controlled micro-injuries in the skin. This sounds alarming — but the controlled trauma triggers your skin's own wound-healing process, producing new collagen and elastin in the treated area.
+
+The result over several weeks is a genuine restructuring of the skin surface. Acne scars flatten. Pores look smaller. Skin feels firmer and healthier. Fine lines soften.
+
+We use a medical-grade SkinPen device and finish every treatment with a cooling hyaluronic acid mask to soothe and hydrate the skin immediately after.
+
+This is not the same as a salon "micro-needling facial" — the depth, needle size, and technique matter enormously for both safety and results. Medical-grade treatment delivers results that spa treatments can't.`,
         image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800&sat=-100',
         price: 'From £180',
         duration: '45 min',
         downtime: 'Redness (24-48 hrs)',
-        category: 'Skin',
         highlights: [
-            'Gold standard for acne scarring and textural issues',
-            'Safe for all skin types and colours',
-            'Stimulates your own natural collagen production',
-            'Course of 3-6 recommended for severe scarring'
+            'Medical-grade SkinPen device — not a salon treatment',
+            'Effective for acne scarring, enlarged pores, fine lines, and texture',
+            'Safe for all skin types and tones',
+            'Stimulates your own collagen — no injectables needed',
+            'Course of 3–6 typically recommended for acne scarring'
         ],
         process: [
-            { title: 'Preparation', desc: 'The skin is thoroughly cleansed, and a topical numbing cream is applied for 20 minutes.' },
-            { title: 'Treatment', desc: 'The microneedling device is passed over the skin with a hyaluronic acid glide. You will feel a vibrating sensation.' },
-            { title: 'Aftercare', desc: 'A soothing mask is applied. Your skin will look and feel like it has a mild sunburn for 1-2 days.' }
+            { title: 'Preparation', desc: 'Skin is thoroughly cleansed and a topical numbing cream applied for 20 minutes. This makes the treatment comfortable throughout.' },
+            { title: 'Treatment', desc: 'The SkinPen device is passed over the skin with a hyaluronic acid glide. You\'ll feel a vibrating sensation. Treatment takes 30–40 minutes. Your skin will look pink/red immediately after — like a mild sunburn.' },
+            { title: 'Aftercare', desc: 'A soothing hyaluronic acid mask is applied immediately after. Redness typically resolves within 24–48 hours. No heavy makeup or active skincare for 24 hours. You\'ll receive a full aftercare guide to follow.' }
         ],
         faqs: [
-            { q: 'Does it bleed?', a: 'Pinpoint bleeding is a normal and necessary part of medical-depth microneedling. It stops immediately and is cleaned before you leave.' },
-            { q: 'When will I see results?', a: 'Your skin will look fresher after one week, but new collagen production takes 4-6 weeks, with results continuing to improve for months.' }
+            { q: 'Does it hurt?', a: 'With numbing cream, most clients describe it as a vibrating or warm scratching sensation — uncomfortable in places but not painful. We\'d say 3–4/10 on average.' },
+            { q: 'Will there be bleeding?', a: 'Pinpoint bleeding at medical depths is a normal part of the treatment — it\'s the controlled "injury" that triggers collagen production. It stops immediately and is cleaned before you leave. Your skin looks rough for 24–48 hours, then settles.' },
+            { q: 'How many sessions will I need?', a: 'For general skin texture and fine lines, 2–3 sessions spaced 4–6 weeks apart can make a significant difference. For deeper acne scarring, a course of 4–6 sessions may be needed. Elena will give you an honest assessment at consultation.' },
+            { q: 'When will I see results?', a: 'Skin often looks fresher after a week. But new collagen takes 4–6 weeks to form, so the real results develop over months. Sessions build on each other — your skin at session 3 will look noticeably better than after session 1.' }
         ]
     }
 ]

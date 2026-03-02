@@ -37,8 +37,8 @@ export default function TreatmentsPage() {
     return (
         <>
             <SEOHead
-                title="Our Treatments — Luxury Medical Aesthetics"
-                description="Explore our range of medically-led aesthetic treatments: lip fillers, anti-wrinkle injections, and Profhilo skin boosters. All delivered by qualified nurse prescriber Elena Davies."
+                title="Aesthetic Treatments Manchester | Lip Filler, Anti-Wrinkle, Skin Boosters"
+                description="Natural-looking lip fillers, anti-wrinkle injections, Profhilo, tear trough, and more — by qualified nurse prescriber Elena Davies. Free consultations. Manchester city centre."
                 canonical="/treatments"
             />
 
@@ -70,11 +70,11 @@ export default function TreatmentsPage() {
                             Our Services
                         </span>
                         <h1 style={{ color: '#ffffff', marginBottom: '1.25rem' }}>
-                            Advanced Aesthetic{' '}
-                            <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Procedures</em>
+                            All our{' '}
+                            <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>treatments</em>
                         </h1>
                         <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '520px', margin: '0 auto', fontSize: '1.0625rem' }}>
-                            Every treatment begins with a complimentary consultation. We take the time to understand your goals and create a bespoke plan — tailored entirely to you.
+                            Every treatment includes a free consultation first. Elena will tell you honestly what will and won't work for you — then leave the decision entirely with you.
                         </p>
                     </FadeIn>
                 </div>
@@ -278,9 +278,9 @@ export default function TreatmentsPage() {
             <section style={{ backgroundColor: 'var(--color-ivory)', padding: '5rem 0', textAlign: 'center' }}>
                 <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
                     <FadeIn>
-                        <h3 style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>Can't decide which treatment is right?</h3>
+                        <h3 style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>Not sure where to start?</h3>
                         <p style={{ marginBottom: '2rem' }}>
-                            Book a complimentary consultation and Elena will help you create a personalised treatment plan based on your unique goals.
+                            That's exactly what the consultation is for. Come in, tell Elena what's been bothering you, and she'll give you an honest opinion on what will actually make a difference — no obligation, no upselling.
                         </p>
                         <Link to="/booking" className="btn btn-primary" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}>
                             Book Free Consultation

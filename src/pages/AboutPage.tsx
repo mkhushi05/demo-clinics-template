@@ -8,8 +8,8 @@ export default function AboutPage() {
     return (
         <>
             <SEOHead
-                title="About Us — Elena Davies | Lumière Aesthetics"
-                description="Meet Elena Davies, founder of Lumière Aesthetics Clinic in Manchester. Learn about our medically-led approach, qualifications, and commitment to natural results."
+                title="About Lumière — Elena Davies, Nurse Prescriber | Manchester Aesthetic Clinic"
+                description="Lumière is a medically-led aesthetic clinic in Manchester run by Elena Davies, an NHS-trained Independent Nurse Prescriber. Natural results, no upselling, free consultations."
                 canonical="/about"
             />
 
@@ -82,18 +82,13 @@ export default function AboutPage() {
                             }}
                         >
                             <p>
-                                Founded by Independent Nurse Prescriber Elena Davies, Lumière is a leading
-                                aesthetic clinic based in Manchester, specialising in expert injectable
-                                treatments, advanced facial rejuvenation, and personalised skin solutions.
+                                Lumière is a small, medically-led aesthetic clinic in Manchester, founded and run by Elena Davies — an NHS-trained nurse and independent prescriber with 8+ years of clinical experience.
                             </p>
                             <p>
-                                Our mission is simple: to help every client feel confident through
-                                safe, natural-looking results that enhance rather than transform.
+                                We're not a chain. We're not a beauty salon that also does injectables. Every treatment is carried out by Elena personally, following a free consultation where she's honest with you about what's possible and what isn't.
                             </p>
                             <p>
-                                At Lumière, excellence, safety, and precision are at the heart of everything
-                                we do. We believe in absolute honesty, continual education, and providing a
-                                sanctuary where medical precision meets artistic vision.
+                                If you've been putting off getting something done because you're not sure who to trust — or you've had a bad experience somewhere else — that's exactly who we're here for.
                             </p>
                         </div>
                     </FadeIn>
@@ -149,10 +144,10 @@ export default function AboutPage() {
 
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
                                     <p>
-                                        I founded Lumière with a singular vision: to raise the standard of care in the aesthetics industry and provide a safe space where patients achieve beautiful, undetectable results.
+                                        I started Lumière because I kept seeing what happened when aesthetics was done by people without the right training. Patients were walking around looking overdone, unsatisfied, and in some cases, having to deal with complications that shouldn't have happened.
                                     </p>
                                     <p>
-                                        With over 8 years of clinical experience across the NHS and private aesthetic sector, my approach is anchored in medical safety, detailed anatomical knowledge, and an artistic eye for facial proportions.
+                                        My background is in the NHS. I've cared for patients in high-acuity environments. I know what medical safety actually looks like — and I bring that same rigour to aesthetics.
                                     </p>
                                     <p
                                         style={{
@@ -163,7 +158,7 @@ export default function AboutPage() {
                                             color: 'var(--color-stone)',
                                         }}
                                     >
-                                        "My goal is never to change how you look, but to restore confidence and help you feel like the absolute best version of yourself."
+                                        "The goal is never to change how you look. It's to help you look like yourself — just the version of you that feels a bit more like you."
                                     </p>
                                 </div>
 
@@ -244,8 +239,8 @@ export default function AboutPage() {
                                 What Drives Us
                             </span>
                             <h2 style={{ color: '#ffffff', maxWidth: '600px', margin: '0 auto' }}>
-                                An unwavering commitment to{' '}
-                                <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>excellence</em>
+                                Why our clients come back — and{' '}
+                                <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>send their friends</em>
                             </h2>
                         </div>
                     </FadeIn>
@@ -257,18 +252,18 @@ export default function AboutPage() {
                         {[
                             {
                                 num: '01',
-                                title: 'Medical Integrity',
-                                desc: "We promise absolute honesty. If a treatment isn't right for you, or won't yield the results you want safely, we won't perform it. Your health comes first, always.",
+                                title: 'Honesty over sales',
+                                desc: "If a treatment isn't right for you, Elena will tell you. If what you're asking for won't give you a natural result on your face, she won't do it. We'd rather you leave without treatment than leave with something that doesn't look right.",
                             },
                             {
                                 num: '02',
-                                title: 'Subtle, Natural Results',
-                                desc: "We reject the over-filled look. Our technique is defined by precise micro-adjustments that harmonise your natural features — never transform them.",
+                                title: 'Natural results only',
+                                desc: "Everyone who comes here has the same underlying goal: to look like themselves, just better. We don't do overdone. We don't do trends. We do precise, subtle enhancement that nobody can quite put their finger on.",
                             },
                             {
                                 num: '03',
-                                title: 'Continual Education',
-                                desc: "Aesthetics is constantly evolving. We commit to ongoing training and attend global masterclasses to bring the safest, most advanced techniques to Manchester.",
+                                title: 'Medical-grade safety',
+                                desc: "Aesthetics is a medical procedure. We follow clinical safety standards, hold emergency medications on site, train in complications management, and never cut corners. What you get here is the real thing — not a cheaper version of it.",
                             },
                         ].map(({ num, title, desc }, idx) => (
                             <FadeIn key={num} delay={idx * 180}>
@@ -317,12 +312,12 @@ export default function AboutPage() {
                 <div className="container" style={{ maxWidth: '640px', margin: '0 auto' }}>
                     <FadeIn>
                         <div style={{ width: '48px', height: '1.5px', background: 'linear-gradient(to right, transparent, var(--color-gold), transparent)', margin: '0 auto 2rem' }} />
-                        <h2 style={{ marginBottom: '1rem' }}>Ready to begin your journey?</h2>
+                        <h2 style={{ marginBottom: '1rem' }}>Have a question before you book?</h2>
                         <p style={{ marginBottom: '2.5rem' }}>
-                            Book a complimentary consultation and let's talk about how we can help you look and feel your very best.
+                            The consultation is free and genuinely no-obligation. Come in, ask everything you've been wondering, and decide from there. Or message us on WhatsApp first if that's easier.
                         </p>
                         <Link to="/booking" className="btn btn-primary" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}>
-                            Book Your Consultation <ArrowRight size={14} />
+                            Book Free Consultation <ArrowRight size={14} />
                         </Link>
                     </FadeIn>
                 </div>

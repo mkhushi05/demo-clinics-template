@@ -11,8 +11,8 @@ export default function HomePage() {
     return (
         <>
             <SEOHead
-                title="Luxury Medical Aesthetics Manchester"
-                description="Manchester's premier medically-led aesthetics clinic. Natural lip fillers, anti-wrinkle injections, and skin boosters by qualified nurse prescriber Elena Davies."
+                title="Natural Lip Fillers & Anti-Wrinkle Injections Manchester | Lumière"
+                description="Natural-looking aesthetic treatments in Manchester. Lip fillers, anti-wrinkle injections, and skin boosters by qualified nurse prescriber Elena Davies. No frozen looks. No upselling. From £190."
                 canonical="/"
             />
 
@@ -80,7 +80,7 @@ export default function HomePage() {
                         >
                             <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--color-gold-light)' }} />
                             <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'var(--color-gold-light)' }}>
-                                Manchester's Premier Aesthetics Clinic
+                                Medically-Led Aesthetics · Manchester
                             </span>
                         </div>
 
@@ -94,8 +94,8 @@ export default function HomePage() {
                                 lineHeight: 1.06,
                             }}
                         >
-                            Enhancing Natural Beauty with Medical{' '}
-                            <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Precision</em>
+                            Look like yourself.{' '}
+                            <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Just better.</em>
                         </h1>
 
                         <p
@@ -109,7 +109,7 @@ export default function HomePage() {
                                 opacity: 0,
                             }}
                         >
-                            Subtle, confidence-boosting results in a safe, medically-led environment. Led by Independent Nurse Prescriber Elena Davies.
+                            Natural lip fillers, anti-wrinkle injections, and skin treatments in Manchester — by a qualified nurse prescriber. No frozen looks, no upselling, no pressure.
                         </p>
 
                         <div
@@ -122,10 +122,10 @@ export default function HomePage() {
                             }}
                         >
                             <Link to="/booking" className="btn btn-gold" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}>
-                                Book Consultation
+                                Book Free Consultation
                             </Link>
                             <Link to="/treatments" className="btn btn-secondary" style={{ borderColor: 'rgba(255,255,255,0.4)', color: '#ffffff' }}>
-                                Our Treatments <ArrowRight size={14} />
+                                See Treatments <ArrowRight size={14} />
                             </Link>
                         </div>
 
@@ -148,7 +148,7 @@ export default function HomePage() {
                                 ))}
                             </div>
                             <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.8125rem', letterSpacing: '0.04em' }}>
-                                Rated 5.0 · 100+ verified reviews
+                                5.0 stars · 100+ verified reviews
                             </span>
                         </div>
                     </div>
@@ -259,10 +259,13 @@ export default function HomePage() {
 
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
                                     <p>
-                                        Aesthetics is more than a treatment — it is an experience built on trust, clinical rigour, and a precise artistic touch.
+                                        Elena is an NHS-trained nurse and qualified independent prescriber — which means she can legally prescribe and administer botulinum toxin (something many clinics can't say).
                                     </p>
                                     <p>
-                                        With over a decade of medical experience and a Level 7 postgraduate qualification in medical aesthetics, Elena combines clinical safety with the sensitivity required to achieve completely natural results.
+                                        Her Level 7 postgraduate qualification in medical aesthetics, combined with 8+ years of clinical experience, means she brings both the medical knowledge and the artistic eye to get genuinely natural results.
+                                    </p>
+                                    <p>
+                                        At Lumière, every treatment is carried out by Elena personally. You won't be passed to a trainee.
                                     </p>
                                 </div>
 
@@ -276,12 +279,12 @@ export default function HomePage() {
                                     lineHeight: 1.5,
                                     color: 'var(--color-charcoal)',
                                 }}>
-                                    "My goal is for every client to leave feeling confident, refreshed, and entirely themselves."
+                                    "My goal is simple: for you to leave looking like yourself — just better. Not done. Not different. Better."
                                 </blockquote>
 
                                 {/* Credential chips */}
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem', marginBottom: '2.5rem' }}>
-                                    {['NMC Registered', 'Level 7 PGDip', 'Complications Trained', 'Anatomy Expert', '10+ Years Clinical'].map(chip => (
+                                    {['NMC Registered Prescriber', 'Level 7 PGDip Aesthetics', 'Complications Management Trained', 'Advanced Anatomy Training', '8+ Years Clinical Experience'].map(chip => (
                                         <span
                                             key={chip}
                                             style={{
@@ -302,7 +305,7 @@ export default function HomePage() {
                                 </div>
 
                                 <Link to="/booking" className="btn btn-primary">
-                                    Schedule Private Consultation
+                                    Book a Free Consultation
                                 </Link>
                             </FadeIn>
                         </div>
@@ -325,10 +328,10 @@ export default function HomePage() {
                         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
                             <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>Real Results</span>
                             <h2 style={{ color: '#ffffff', marginBottom: '1rem' }}>
-                                The Art of <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Subtlety</em>
+                                Nobody can tell —{' '}<em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>but everyone notices.</em>
                             </h2>
                             <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '520px', margin: '0 auto' }}>
-                                Natural transformations that celebrate your unique beauty. Drag the slider to compare before &amp; after.
+                                Real clients. Natural results. The kind of change that makes people ask if you've changed your skincare — not your face. Drag the slider to compare.
                             </p>
                         </div>
                     </FadeIn>
@@ -492,7 +495,7 @@ export default function HomePage() {
                         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                             <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>How It Works</span>
                             <h2 style={{ color: '#ffffff' }}>
-                                Your <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Journey</em> With Us
+                                Simple. Honest.{' '}<em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>No surprises.</em>
                             </h2>
                         </div>
                     </FadeIn>
@@ -502,9 +505,9 @@ export default function HomePage() {
                         className="journey-grid"
                     >
                         {[
-                            { step: '01', title: 'Free Consultation', desc: 'An in-depth assessment of your anatomy, goals, and medical history. We take time to understand you — no rush, no pressure.' },
-                            { step: '02', title: 'Bespoke Treatment', desc: 'Your tailored procedure is performed in our serene clinical environment using only premium, CE-marked products.' },
-                            { step: '03', title: 'Aftercare & Follow-up', desc: 'Comprehensive post-treatment guidance and a complimentary review appointment to ensure optimal, long-lasting results.' },
+                            { step: '01', title: 'Free Consultation', desc: 'A proper conversation — not a sales pitch. Elena listens to your goals, looks at your anatomy, and tells you honestly what will and won\'t work. No obligation to book.' },
+                            { step: '02', title: 'Your Treatment', desc: 'Everything is explained before we begin. Premium products, precise technique, and a pace that feels comfortable — never rushed.' },
+                            { step: '03', title: 'Two-Week Review', desc: 'Included with every injectable treatment. We check your result when it\'s fully settled, answer any questions, and top up if needed — at no extra charge.' },
                         ].map((item, idx) => (
                             <FadeIn key={item.step} delay={idx * 180}>
                                 <div
@@ -559,10 +562,10 @@ export default function HomePage() {
                             <FadeIn direction="left">
                                 <span className="eyebrow">Find Us</span>
                                 <h2 style={{ marginBottom: '1rem' }}>
-                                    A Sanctuary of <em style={{ fontStyle: 'italic', color: 'var(--color-gold-dark)' }}>Refinement</em>
+                                    Based in the heart of{' '}<em style={{ fontStyle: 'italic', color: 'var(--color-gold-dark)' }}>Manchester</em>
                                 </h2>
                                 <p style={{ marginBottom: '2.5rem', maxWidth: '420px' }}>
-                                    Discreetly nestled in the heart of Manchester, our private clinic offers a serene retreat from the everyday.
+                                    A private, discreet clinic in the centre of Manchester. Calm, unhurried, and comfortable — nothing clinical or intimidating about it.
                                 </p>
 
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.5rem' }}>
@@ -633,16 +636,16 @@ export default function HomePage() {
 
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <FadeIn>
-                        <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>Begin Your Journey</span>
+                        <span className="eyebrow" style={{ color: 'var(--color-gold)' }}>Ready When You Are</span>
                         <h2 style={{ color: '#ffffff', marginBottom: '1.25rem', maxWidth: '700px', margin: '0 auto 1.25rem' }}>
-                            Ready to Feel <em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>Confident Again?</em>
+                            Still not sure?{' '}<em style={{ fontStyle: 'italic', color: 'var(--color-gold-light)' }}>That's what the consultation is for.</em>
                         </h2>
-                        <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '480px', margin: '0 auto 2.5rem', fontSize: '1.0625rem' }}>
-                            Book your complimentary consultation with Elena today. No pressure — just an honest conversation about your goals.
+                        <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '500px', margin: '0 auto 2.5rem', fontSize: '1.0625rem' }}>
+                            The free consultation is genuinely no-obligation. You can ask every question you've been sitting on, hear what Elena thinks, and decide from there. No pressure, ever.
                         </p>
                         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                             <Link to="/booking" className="btn btn-gold" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem', boxShadow: '0 0 40px rgba(184,147,90,0.35)' }}>
-                                Book Consultation
+                                Book Free Consultation
                             </Link>
                             <a
                                 href="https://wa.me/440000000000"

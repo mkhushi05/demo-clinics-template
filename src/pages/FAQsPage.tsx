@@ -10,15 +10,15 @@ export default function FAQsPage() {
     return (
         <>
             <SEOHead
-                title="Frequently Asked Questions"
-                description="Answers to common questions about aesthetic treatments at Lumière Aesthetics Clinic Manchester. Consultations, safety, qualifications, and booking policies."
+                title="Aesthetic Treatment FAQs Manchester | Lumière Clinic"
+                description="Honest answers about lip fillers, anti-wrinkle injections, safety, qualifications, and booking at Lumière in Manchester. Is it safe? Does it hurt? Will I look natural?"
                 canonical="/faqs"
             />
 
             <PageHeader
-                eyebrow="Your Questions Answered"
-                title="Frequently Asked Questions"
-                subtitle="Everything you need to know about our clinic, treatments, and policies."
+                eyebrow="Questions? Good."
+                title="Everything you want to know"
+                subtitle="The honest answers to the questions you're actually Googling."
             />
 
             <section className="section" style={{ backgroundColor: 'var(--color-cream)' }}>
@@ -45,10 +45,10 @@ export default function FAQsPage() {
                     ))}
 
                     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                        <p style={{ marginBottom: '1.25rem', color: 'var(--color-stone-light)' }}>Still have questions?</p>
+                        <p style={{ marginBottom: '1.25rem', color: 'var(--color-stone-light)' }}>Still not sure? Message or book — no commitment needed.</p>
                         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <Link to="/contact" className="btn btn-secondary">Contact Us</Link>
-                            <Link to="/booking" className="btn btn-primary">Book Consultation</Link>
+                            <a href="https://wa.me/440000000000" className="btn btn-secondary">WhatsApp Us</a>
+                            <Link to="/booking" className="btn btn-primary">Book Free Consultation</Link>
                         </div>
                     </div>
                 </div>
