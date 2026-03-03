@@ -150,7 +150,7 @@ export default function TreatmentCategories() {
                         return (
                             <FadeIn key={cat.id} delay={idx * 100}>
                                 <Link
-                                    to={`/ treatments ? category = ${cat.filterParam} `}
+                                    to={`/treatments?category=${cat.filterParam}`}
                                     aria-label={`Explore ${cat.label} treatments`}
                                     style={{
                                         display: 'block',
