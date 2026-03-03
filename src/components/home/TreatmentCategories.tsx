@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import FadeIn from '@/components/animations/FadeIn'
 
@@ -19,7 +19,7 @@ const categories = [
         image:
             'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=900',
         treatments: ['Lip Fillers', 'Anti-Wrinkle Injections', 'Cheek Contouring', 'Jawline Definition'],
-        slug: 'lip-fillers',
+        slug: 'injectables',
         filterParam: 'injectables',
     },
     {
@@ -31,7 +31,7 @@ const categories = [
         image:
             'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=900',
         treatments: ['Profhilo', 'Skin Boosters', 'PRP Therapy', 'Polynucleotides'],
-        slug: 'skin-boosters',
+        slug: 'skin',
         filterParam: 'skin',
     },
     {
@@ -43,13 +43,68 @@ const categories = [
         image:
             'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=900',
         treatments: ['Brow Lift', 'Gummy Smile', 'Nefertiti Lift', 'Tear Trough'],
-        slug: 'anti-wrinkle',
+        slug: 'aesthetics',
         filterParam: 'aesthetics',
     },
 ]
 
 export default function TreatmentCategories() {
     const [hovered, setHovered] = useState<string | null>(null)
+    const [searchParams] = useSearchParams()
+
+    // Manage dynamic widths for precise bracket text-wrapping
+    const textRefs = useRef<Record<string, HTMLDivElement | null>>({})
+    const [textBounds, setTextBounds] = useState<Record<string, { width: number, height: number }>>({})
+
+    useEffect(() => {
+        const updateBounds = () => {
+            const newBounds: Record<string, { width: number, height: number }> = {}
+            Object.keys(textRefs.current).forEach(slug => {
+                const el = textRefs.current[slug]
+                if (el) {
+                    newBounds[slug] = {
+                        width: el.offsetWidth,
+                        height: el.offsetHeight
+                    }
+                }
+            })
+            setTextBounds(newBounds)
+        }
+
+        updateBounds()
+
+        // Add a ResizeObserver for true responsive text-tracking
+        const observer = new ResizeObserver(() => {
+            updateBounds();
+        });
+
+        Object.values(textRefs.current).forEach(el => {
+            if (el) observer.observe(el);
+        });
+
+        window.addEventListener('resize', updateBounds)
+        return () => {
+            window.removeEventListener('resize', updateBounds)
+            observer.disconnect();
+        }
+    }, [])
+
+    // Map URL param to category 
+    const initialCat = () => {
+        const categoryParam = searchParams.get('category')
+        if (categoryParam) {
+            const foundCategory = categories.find(cat => cat.filterParam === categoryParam)
+            return foundCategory ? foundCategory.id : null
+        }
+        return null
+    }
+
+    useEffect(() => {
+        const catId = initialCat()
+        if (catId) {
+            setHovered(catId)
+        }
+    }, [searchParams])
 
     return (
         <section
@@ -95,7 +150,7 @@ export default function TreatmentCategories() {
                         return (
                             <FadeIn key={cat.id} delay={idx * 100}>
                                 <Link
-                                    to={`/treatments?category=${cat.filterParam}`}
+                                    to={`/ treatments ? category = ${cat.filterParam} `}
                                     aria-label={`Explore ${cat.label} treatments`}
                                     style={{
                                         display: 'block',
@@ -233,54 +288,77 @@ export default function TreatmentCategories() {
                                             transition: 'opacity 0.3s ease, transform 0.3s ease',
                                         }}
                                     >
-                                        {/* Corner bracket accent */}
                                         <div
-                                            style={{
-                                                position: 'absolute',
-                                                top: '-2.5rem',
-                                                left: '2rem',
-                                                width: '22px',
-                                                height: '22px',
-                                                borderTop: '1.5px solid var(--color-blush)',
-                                                borderLeft: '1.5px solid var(--color-blush)',
-                                            }}
-                                        />
-                                        <div
-                                            style={{
-                                                position: 'absolute',
-                                                bottom: '0.75rem',
-                                                right: '1.75rem',
-                                                width: '22px',
-                                                height: '22px',
-                                                borderBottom: '1.5px solid var(--color-blush)',
-                                                borderRight: '1.5px solid var(--color-blush)',
-                                            }}
-                                        />
+                                            ref={el => { textRefs.current[cat.slug] = el }}
+                                            style={{ display: 'inline-block' }}
+                                        >
+                                            <span
+                                                style={{
+                                                    display: 'block',
+                                                    fontFamily: 'var(--font-body)',
+                                                    fontSize: '0.625rem',
+                                                    fontWeight: 600,
+                                                    letterSpacing: '0.2em',
+                                                    textTransform: 'uppercase',
+                                                    color: 'var(--color-gold)',
+                                                    marginBottom: '0.5rem',
+                                                }}
+                                            >
+                                                {cat.label}
+                                            </span>
+                                            <h3
+                                                style={{
+                                                    color: '#ffffff',
+                                                    fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                                                    lineHeight: 1.15,
+                                                    marginBottom: 0,
+                                                    marginTop: 0,
+                                                }}
+                                            >
+                                                {cat.headline}
+                                            </h3>
+                                        </div>
+                                    </div>
 
-                                        <span
+                                    {/* Global Animating Corner brackets spanning the whole card text bounds */}
+                                    <div
+                                        style={{
+                                            position: 'absolute',
+                                            zIndex: 10,
+                                            bottom: isHovered ? '12%' : 'calc(2rem - 14px)',
+                                            left: isHovered ? '10%' : 'calc(2rem - 14px)',
+                                            width: isHovered ? '80%' : (textBounds[cat.slug] ? `${textBounds[cat.slug].width + 28}px` : '15rem'),
+                                            height: isHovered ? '76%' : (textBounds[cat.slug] ? `${textBounds[cat.slug].height + 28}px` : '4.5rem'),
+                                            transition: 'width 0.65s cubic-bezier(0.25,0.46,0.45,0.94), height 0.65s cubic-bezier(0.25,0.46,0.45,0.94), left 0.65s cubic-bezier(0.25,0.46,0.45,0.94), bottom 0.65s cubic-bezier(0.25,0.46,0.45,0.94)',
+                                            pointerEvents: 'none',
+                                        }}
+                                    >
+                                        <div
                                             style={{
-                                                display: 'block',
-                                                fontFamily: 'var(--font-body)',
-                                                fontSize: '0.625rem',
-                                                fontWeight: 600,
-                                                letterSpacing: '0.2em',
-                                                textTransform: 'uppercase',
-                                                color: 'var(--color-blush)',
-                                                marginBottom: '0.5rem',
+                                                position: 'absolute',
+                                                top: 0,
+                                                left: 0,
+                                                width: isHovered ? '1.5rem' : '28px',
+                                                height: isHovered ? '1.5rem' : '28px',
+                                                borderTop: '1px solid var(--color-gold)',
+                                                borderLeft: '1px solid var(--color-gold)',
+                                                transition: 'all 0.65s cubic-bezier(0.25,0.46,0.45,0.94)',
+                                                opacity: 0.9,
                                             }}
-                                        >
-                                            {cat.label}
-                                        </span>
-                                        <h3
+                                        />
+                                        <div
                                             style={{
-                                                color: '#ffffff',
-                                                fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
-                                                lineHeight: 1.15,
-                                                marginBottom: 0,
+                                                position: 'absolute',
+                                                bottom: 0,
+                                                right: 0,
+                                                width: isHovered ? '1.5rem' : '28px',
+                                                height: isHovered ? '1.5rem' : '28px',
+                                                borderBottom: '1px solid var(--color-gold)',
+                                                borderRight: '1px solid var(--color-gold)',
+                                                transition: 'all 0.65s cubic-bezier(0.25,0.46,0.45,0.94)',
+                                                opacity: 0.9,
                                             }}
-                                        >
-                                            {cat.headline}
-                                        </h3>
+                                        />
                                     </div>
                                 </Link>
                             </FadeIn>
@@ -299,22 +377,22 @@ export default function TreatmentCategories() {
             </div>
 
             <style>{`
-                @media (max-width: 767px) {
-                    .tc-grid {
-                        grid-template-columns: 1fr !important;
-                        min-height: unset !important;
-                    }
-                }
-                @media (min-width: 768px) and (max-width: 1023px) {
-                    .tc-grid {
-                        grid-template-columns: 1fr 1fr !important;
-                        gap: 1.25rem !important;
-                    }
+@media(max - width: 767px) {
+                    .tc - grid {
+        grid - template - columns: 1fr!important;
+        min - height: unset!important;
+    }
+}
+@media(min - width: 768px) and(max - width: 1023px) {
+                    .tc - grid {
+        grid - template - columns: 1fr 1fr!important;
+        gap: 1.25rem!important;
+    }
                     .tc-grid > *:last-child {
                         grid-column: 1 / -1;
-                    }
-                }
-            `}</style>
+    }
+}
+`}</style>
         </section>
     )
 }
