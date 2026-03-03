@@ -58,7 +58,7 @@ export default function BookingPage() {
                 canonical="/booking"
             />
 
-            <section style={{ paddingTop: '6rem', paddingBottom: '4rem', backgroundColor: 'var(--color-cream)', minHeight: '100vh' }}>
+            <section style={{ paddingTop: '9rem', paddingBottom: '4rem', backgroundColor: 'var(--color-cream)', minHeight: '100vh' }}>
                 <div className="container" style={{ maxWidth: '700px' }}>
 
                     {/* Progress */}

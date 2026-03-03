@@ -56,8 +56,14 @@ export default function HomeTrustBar() {
             <style>{`
                 @media (max-width: 900px) {
                     .trust-strip-flex {
-                        gap: 1.25rem !important;
-                        justify-content: flex-start !important;
+                        display: grid !important;
+                        grid-template-columns: 1fr 1fr !important;
+                        gap: 1.25rem 0.5rem !important;
+                    }
+                }
+                @media (max-width: 480px) {
+                    .trust-strip-flex span {
+                        font-size: 0.75rem !important;
                     }
                 }
             `}</style>
