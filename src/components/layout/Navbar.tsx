@@ -20,9 +20,11 @@ export default function Navbar() {
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 40)
         window.addEventListener('scroll', onScroll, { passive: true })
+        // Re-read immediately — needed because window.scrollTo() in ScrollToTop
+        // does NOT fire a scroll event, so scrolled state can get stuck.
         onScroll()
         return () => window.removeEventListener('scroll', onScroll)
-    }, [])
+    }, [location.pathname])
 
     // Close mobile menu on route change
     useEffect(() => setMenuOpen(false), [location.pathname])
@@ -43,7 +45,10 @@ export default function Navbar() {
                     left: 0,
                     right: 0,
                     zIndex: 100,
-                    transition: 'background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    height: scrolled ? '76px' : '110px',
+                    transition: 'background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease, height 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                     backgroundColor: isTransparent ? 'transparent' : 'rgba(250, 248, 245, 0.96)',
                     backdropFilter: isTransparent ? 'none' : 'blur(12px)',
                     boxShadow: !scrolled ? 'none' : '0 1px 0 rgba(26, 22, 20, 0.08)',
@@ -55,21 +60,23 @@ export default function Navbar() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        height: scrolled ? '76px' : '110px',
-                        transition: 'height 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                         maxWidth: '1920px'
                     }}
                 >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(2rem, 5vw, 4rem)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', alignSelf: 'center', gap: 'clamp(2rem, 5vw, 4rem)' }}>
                         {/* Logo */}
                         <Link
                             to="/"
                             style={{
+                                display: 'flex',
+                                alignItems: 'center',
                                 color: isTransparent ? '#ffffff' : 'var(--color-espresso)',
-                                transition: 'color 0.35s ease, font-size 0.4s ease',
+                                transition: 'color 0.35s ease, font-size 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                                 fontSize: scrolled ? '1.75rem' : '2.25rem',
                                 fontWeight: 600,
                                 letterSpacing: '-0.02em',
+                                lineHeight: '1',
+                                textDecoration: 'none',
                             }}
                         >
                             lumière
@@ -159,8 +166,10 @@ export default function Navbar() {
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
+                                justifyContent: 'center',
                                 gap: '0.75rem',
                                 marginLeft: '0.5rem',
+                                lineHeight: '1',
                             }}
                             className="hamburger-btn"
                         >
@@ -323,6 +332,7 @@ export default function Navbar() {
         .right-icons-container {
             display: flex;
             align-items: center;
+            align-self: center;
             gap: 2.25rem;
         }
 

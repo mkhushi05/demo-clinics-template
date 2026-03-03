@@ -1,20 +1,29 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { CalendarDays } from 'lucide-react'
 
 export default function FloatingBookButton() {
     const [scrolled, setScrolled] = useState(false)
+    const location = useLocation()
 
     useEffect(() => {
         const onScroll = () => {
-            // Show button after scrolling past most of the hero section
-            const threshold = window.innerHeight ? window.innerHeight * 0.8 : 400;
-            setScrolled(window.scrollY > threshold);
+            const scrollY = window.scrollY
+            const viewportH = window.innerHeight
+            const pageH = document.documentElement.scrollHeight
+
+            // Show after scrolling past 80% of the viewport height
+            const topThreshold = viewportH * 0.8
+            // Hide when within 120px of the page bottom (footer zone)
+            const nearBottom = scrollY + viewportH >= pageH - 120
+
+            setScrolled(scrollY > topThreshold && !nearBottom)
         }
         window.addEventListener('scroll', onScroll, { passive: true })
+        // Re-read immediately on route change — window.scrollTo() does NOT fire scroll event
         onScroll()
         return () => window.removeEventListener('scroll', onScroll)
-    }, [])
+    }, [location.pathname])
     return (
         <>
             <div
