@@ -11,7 +11,6 @@ const TreatmentsPage = lazy(() => import('@/pages/TreatmentsPage'))
 const TreatmentDetailPage = lazy(() => import('@/pages/TreatmentDetailPage'))
 const GalleryPage = lazy(() => import('@/pages/GalleryPage'))
 const PricingPage = lazy(() => import('@/pages/PricingPage'))
-const FAQsPage = lazy(() => import('@/pages/FAQsPage'))
 const BookingPage = lazy(() => import('@/pages/BookingPage'))
 const ContactPage = lazy(() => import('@/pages/ContactPage'))
 const PrivacyPage = lazy(() => import('@/pages/legal/PrivacyPage'))
@@ -41,7 +40,7 @@ export default function App() {
             <Route path="/treatments/:slug" element={<TreatmentDetailPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/faqs" element={<FAQsPage />} />
+
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/legal/privacy" element={<PrivacyPage />} />

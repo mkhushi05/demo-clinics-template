@@ -156,8 +156,7 @@ export default function Footer() {
                             {[
                                 { to: '/about', label: 'About Us' },
                                 { to: '/gallery', label: 'Before & After' },
-                                { to: '/faqs', label: 'FAQs' },
-                                { to: '/contact', label: 'Contact' },
+                                { to: '/contact', label: 'Contact Us' },
                             ].map(({ to, label }) => (
                                 <Link
                                     key={to}

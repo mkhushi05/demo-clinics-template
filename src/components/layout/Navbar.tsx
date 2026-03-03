@@ -8,7 +8,7 @@ const navLinks = [
     { to: '/treatments', label: 'Treatments' },
     { to: '/gallery', label: 'Gallery' },
     { to: '/pricing', label: 'Pricing' },
-    { to: '/faqs', label: 'FAQs' },
+    { to: '/contact', label: 'Contact Us' },
 ]
 
 export default function Navbar() {
@@ -108,7 +108,7 @@ export default function Navbar() {
                             <Phone size={24} strokeWidth={1.5} />
                         </a>
 
-                        <a href="https://wa.me/441610000000" target="_blank" rel="noreferrer" className="nav-icon-link" aria-label="WhatsApp us">
+                        <a href="https://wa.me/441610000000" target="_blank" rel="noreferrer" className="nav-icon-link whatsapp-link" aria-label="WhatsApp us">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="lucide">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
@@ -339,6 +339,9 @@ export default function Navbar() {
         .nav-icon-link:hover {
             color: var(--color-gold-dark);
             transform: scale(1.05);
+        }
+        .whatsapp-link:hover {
+            color: #25D366 !important;
         }
 
         .hamburger-icon-wrapper {

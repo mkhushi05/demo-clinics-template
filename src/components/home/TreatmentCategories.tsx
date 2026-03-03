@@ -142,7 +142,7 @@ export default function TreatmentCategories() {
                                         style={{
                                             position: 'absolute',
                                             inset: 0,
-                                            background: 'rgba(217, 140, 140, 0.88)', /* Blush Overlay */
+                                            background: 'rgba(35, 30, 28, 0.94)', /* Dark Espresso Overlay */
                                             opacity: isHovered ? 1 : 0,
                                             transition: 'opacity 0.45s cubic-bezier(0.25,0.46,0.45,0.94)',
                                             display: 'flex',

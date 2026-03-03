@@ -72,7 +72,7 @@ function StatItem({ number, label, delay, hasStar }: { number: string; label: st
     )
 }
 
-export default function StatsBar({ dark = false }: { dark?: boolean }) {
+export default function StatsBar() {
     return (
         <>
             <div style={{
