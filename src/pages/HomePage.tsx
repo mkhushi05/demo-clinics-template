@@ -350,63 +350,106 @@ export default function HomePage() {
                         </div>
                     </FadeIn>
 
-                    {/* Secondary mini-grid */}
-                    <FadeIn delay={350}>
-                        <div
-                            style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', maxWidth: '900px', margin: '0 auto 3rem' }}
-                            className="gallery-mini-grid"
-                        >
-                            {[
-                                { src: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6ece?q=80&w=800&fit=crop', label: 'Lip Enhancement' },
-                                { src: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&fit=crop', label: 'Skin Booster' },
-                                { src: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&fit=crop', label: 'Profhilo' },
-                                { src: 'https://images.unsplash.com/photo-1614859324967-bdf31ae1874b?q=80&w=800&fit=crop', label: 'Anti-Wrinkle' },
-                            ].map((item, i) => (
-                                <div
-                                    key={i}
-                                    className="gallery-item"
-                                    style={{
-                                        aspectRatio: '1/1',
-                                        borderRadius: '1.25rem',
-                                        overflow: 'hidden',
-                                        border: '1px solid rgba(255,255,255,0.07)',
-                                    }}
-                                >
-                                    <img
-                                        src={item.src}
-                                        alt={item.label}
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.75 }}
-                                    />
-                                    <div className="gallery-item-overlay">
-                                        <span style={{ color: '#fff', fontFamily: 'var(--font-body)', fontSize: '0.8125rem', fontWeight: 500, letterSpacing: '0.06em' }}>
-                                            {item.label}
-                                        </span>
+                    {/* Secondary real-results sets (Image 1 replica) */}
+                    <div style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '5rem', paddingTop: '2.5rem' }}>
+
+                        {/* Pair 1: Lip Enhancement */}
+                        <FadeIn delay={350}>
+                            <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
+                                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', color: '#fff', marginBottom: '0.4rem', fontWeight: 400 }}>Lip Enhancement</h3>
+                                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.02em', margin: 0, fontWeight: 300 }}>
+                                    Russian lip technique · Natural fullness · 1 session
+                                </p>
+                            </div>
+
+                            <div style={{ position: 'relative', width: '100%', padding: '0 10px' }}>
+                                {/* Offset Decorative Brackets */}
+                                <div style={{ position: 'absolute', top: 30, bottom: -15, left: -5, width: '40px', borderLeft: '1px solid rgba(255,255,255,0.15)', borderBottom: '1px solid rgba(255,255,255,0.15)', pointerEvents: 'none' }} />
+                                <div style={{ position: 'absolute', top: -15, bottom: 30, right: -5, width: '40px', borderRight: '1px solid rgba(255,255,255,0.15)', borderTop: '1px solid rgba(255,255,255,0.15)', pointerEvents: 'none' }} />
+
+                                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: '10px', position: 'relative', zIndex: 1 }}>
+                                    {/* Before */}
+                                    <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
+                                        <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6ece?q=80&w=800&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Before Lip Enhancement" />
+                                        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '20%' }}>
+                                            <div style={{ backgroundColor: 'rgba(60,50,45,0.6)', backdropFilter: 'blur(8px)', padding: '0.5rem 1.25rem', color: '#fff', fontSize: '0.7rem', letterSpacing: '0.12em', fontWeight: 500 }}>
+                                                BEFORE
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* After */}
+                                    <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
+                                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="After Lip Enhancement" />
+                                        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '20%' }}>
+                                            <div style={{ backgroundColor: 'rgba(60,50,45,0.6)', backdropFilter: 'blur(8px)', padding: '0.5rem 1.25rem', color: '#fff', fontSize: '0.7rem', letterSpacing: '0.12em', fontWeight: 500 }}>
+                                                AFTER
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
-                    </FadeIn>
+                            </div>
+                        </FadeIn>
 
-                    <FadeIn delay={500}>
-                        <div style={{ textAlign: 'center' }}>
-                            <Link
-                                to="/gallery"
-                                className="btn btn-secondary"
-                                style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#ffffff' }}
-                                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#ffffff'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-charcoal)'; }}
-                                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff'; }}
-                            >
-                                View Full Gallery <ArrowRight size={14} />
-                            </Link>
-                        </div>
-                    </FadeIn>
+                        {/* Pair 2: Non-Surgical Rhinoplasty */}
+                        <FadeIn delay={450}>
+                            <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
+                                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.65rem', color: '#fff', margin: 0, fontWeight: 400 }}>Non-Surgical Rhinoplasty</h3>
+                            </div>
+
+                            <div style={{ position: 'relative', width: '100%', padding: '0 10px' }}>
+                                {/* Offset Decorative Brackets */}
+                                <div style={{ position: 'absolute', top: 30, bottom: -15, left: -5, width: '40px', borderLeft: '1px solid rgba(255,255,255,0.15)', borderBottom: '1px solid rgba(255,255,255,0.15)', pointerEvents: 'none' }} />
+                                <div style={{ position: 'absolute', top: -15, bottom: 30, right: -5, width: '40px', borderRight: '1px solid rgba(255,255,255,0.15)', borderTop: '1px solid rgba(255,255,255,0.15)', pointerEvents: 'none' }} />
+
+                                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1fr)', gap: '10px', position: 'relative', zIndex: 1 }}>
+                                    {/* Before */}
+                                    <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
+                                        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Before Rhinoplasty" />
+                                        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '20%' }}>
+                                            <div style={{ backgroundColor: 'rgba(60,50,45,0.6)', backdropFilter: 'blur(8px)', padding: '0.5rem 1.25rem', color: '#fff', fontSize: '0.7rem', letterSpacing: '0.12em', fontWeight: 500 }}>
+                                                BEFORE
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* After */}
+                                    <div style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
+                                        <img src="https://images.unsplash.com/photo-1614859324967-bdf31ae1874b?q=80&w=800&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="After Rhinoplasty" />
+                                        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '20%' }}>
+                                            <div style={{ backgroundColor: 'rgba(60,50,45,0.6)', backdropFilter: 'blur(8px)', padding: '0.5rem 1.25rem', color: '#fff', fontSize: '0.7rem', letterSpacing: '0.12em', fontWeight: 500 }}>
+                                                AFTER
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </FadeIn>
+
+                        {/* CTA */}
+                        <FadeIn delay={550}>
+                            <div style={{ paddingTop: '1rem', paddingBottom: '1rem', width: '100%' }}>
+                                <Link
+                                    to="/booking"
+                                    className="btn btn-secondary"
+                                    style={{
+                                        width: '100%',
+                                        borderColor: 'rgba(255,255,255,0.15)',
+                                        color: '#ffffff',
+                                        justifyContent: 'center',
+                                        letterSpacing: '0.12em',
+                                        fontWeight: 500,
+                                        fontSize: '0.8125rem',
+                                        padding: '1.25rem 2rem',
+                                        backgroundColor: '#1E1E1E' // Match Dark background of button in reference
+                                    }}
+                                    onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#ffffff'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-charcoal)'; }}
+                                    onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#1E1E1E'; (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff'; }}
+                                >
+                                    BOOK CONSULTATION
+                                </Link>
+                            </div>
+                        </FadeIn>
+                    </div>
                 </div>
-
-                <style>{`
-                    @media (min-width: 640px) {
-                        .gallery-mini-grid { grid-template-columns: repeat(4, 1fr) !important; }
-                    }
-                `}</style>
             </section>
 
             {/* ── Client Testimonials ── */}
