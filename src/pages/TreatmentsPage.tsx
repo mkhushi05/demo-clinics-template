@@ -419,9 +419,9 @@ export default function TreatmentsPage() {
                             <a
                                 href="https://wa.me/440000000000"
                                 className="btn btn-secondary"
-                                style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#ffffff' }}
-                                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#ffffff'; (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-charcoal)'; }}
-                                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff'; }}
+                                style={{ borderColor: 'rgba(255,255,255,0.25)', color: '#ffffff', transition: 'all 0.3s ease' }}
+                                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#25D366'; (e.currentTarget as HTMLAnchorElement).style.borderColor = '#25D366'; (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff'; }}
+                                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'transparent'; (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.25)'; (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff'; }}
                             >
                                 WhatsApp Us
                             </a>

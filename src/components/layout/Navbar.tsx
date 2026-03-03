@@ -34,7 +34,8 @@ export default function Navbar() {
         document.body.style.overflow = menuOpen ? 'hidden' : ''
     }, [menuOpen])
 
-    const isTransparent = isHome && !scrolled
+    const isAbout = location.pathname === '/about'
+    const isTransparent = (isHome || isAbout) && !scrolled
 
     return (
         <>

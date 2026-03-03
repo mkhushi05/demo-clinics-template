@@ -352,7 +352,7 @@ export default function BookingPage() {
                         <div style={{ textAlign: 'center', marginTop: '2rem', fontSize: '0.875rem', color: 'var(--color-stone-muted)' }}>
                             <p>Need help booking?</p>
                             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '0.5rem' }}>
-                                <a href="https://wa.me/441610000000" style={{ color: '#25D366', fontWeight: 600 }}>WhatsApp Us</a>
+                                <a href="https://wa.me/441610000000" style={{ color: 'var(--color-charcoal)', fontWeight: 600, transition: 'color 0.2s ease' }} onMouseEnter={e => e.currentTarget.style.color = '#25D366'} onMouseLeave={e => e.currentTarget.style.color = 'var(--color-charcoal)'}>WhatsApp Us</a>
                                 <span>or</span>
                                 <a href="tel:01610000000" style={{ fontWeight: 600 }}>Call 0161 000 0000</a>
                             </div>

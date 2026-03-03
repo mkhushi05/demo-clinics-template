@@ -89,10 +89,14 @@ export default function Footer() {
                             onMouseEnter={e => {
                                 e.currentTarget.style.transform = 'translateY(-2px)';
                                 e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.3)';
+                                e.currentTarget.style.backgroundColor = '#25D366';
+                                e.currentTarget.style.color = '#ffffff';
                             }}
                             onMouseLeave={e => {
                                 e.currentTarget.style.transform = 'translateY(0)';
                                 e.currentTarget.style.boxShadow = '0 4px 15px rgba(37, 211, 102, 0.2)';
+                                e.currentTarget.style.backgroundColor = 'rgba(37, 211, 102, 0.1)';
+                                e.currentTarget.style.color = '#25D366';
                             }}
                         >
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

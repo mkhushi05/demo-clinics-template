@@ -79,7 +79,6 @@ export default function StatsBar() {
                 maxWidth: '960px',
                 margin: '0 auto',
                 position: 'relative',
-                transform: 'translateY(-5rem)',
                 zIndex: 10,
                 padding: '0 1rem',
             }}>
