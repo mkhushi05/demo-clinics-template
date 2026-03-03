@@ -1,7 +1,10 @@
 import { useRef, useState, useCallback } from 'react'
 
-const BEFORE = 'https://images.unsplash.com/photo-1512496015851-a1c84cb18128?auto=format&fit=crop&q=80&w=800'
-const AFTER = 'https://images.unsplash.com/photo-1505027492977-1037f14c46fa?auto=format&fit=crop&q=80&w=800'
+import BeforeImg from '@/assets/images/home_before.png'
+import AfterImg from '@/assets/images/home_after.png'
+
+const BEFORE = AfterImg
+const AFTER = BeforeImg
 
 export default function BeforeAfterSlider() {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -30,14 +33,13 @@ export default function BeforeAfterSlider() {
             ref={containerRef}
             style={{
                 position: 'relative',
-                maxWidth: '700px',
+                width: '100%',
                 margin: '0 auto',
-                borderRadius: 'var(--radius-lg)',
+                borderRadius: '1rem',
                 overflow: 'hidden',
                 cursor: 'ew-resize',
                 userSelect: 'none',
-                boxShadow: 'var(--shadow-lg)',
-                aspectRatio: '4/3',
+                aspectRatio: '3/2',
             }}
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}

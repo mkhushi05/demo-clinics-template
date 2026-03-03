@@ -364,10 +364,12 @@ export default function HomePage() {
 
                     <FadeIn delay={200}>
                         <div style={{
-                            borderRadius: '2rem',
-                            overflow: 'hidden',
+                            padding: '1.25rem',
+                            borderRadius: '1.5rem',
+                            border: '1px solid rgba(184,147,90,0.25)',
+                            backgroundColor: 'rgba(255,255,255,0.03)',
+                            backdropFilter: 'blur(10px)',
                             boxShadow: '0 24px 80px rgba(0,0,0,0.4)',
-                            border: '1px solid rgba(212,170,114,0.15)',
                             marginBottom: '2.5rem',
                             maxWidth: '900px',
                             margin: '0 auto 2.5rem',
